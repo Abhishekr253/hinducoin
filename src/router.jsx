@@ -8,7 +8,6 @@ import FestivalsCalendar from "./components/sanatan/FestivalsCalendar";
 import DeitiesSymbols from "./components/sanatan/DeitiesSymbols";
 import DharmaverseHub from "./Pages/DharmaverseHub";
 import DharmaverseOverview from "./components/dharmaverse/Overview";
-import DharmaverseDevelopment from "./components/dharmaverse/DharmaverseDevelopment.JSX";
 import FestivalsLivingWorld from "./components/dharmaverse/FestivalsLivingWorld";
 import TempleComplex from "./components/dharmaverse/TempleComplex";
 import FacilitiesZones from "./components/dharmaverse/FacilitiesZones";
@@ -16,6 +15,7 @@ import RitualsPrayers from "./components/dharmaverse/RitualsPrayers";
 import WorldMap from "./components/dharmaverse/WorldMap";
 import Codex from "./components/dharmaverse/Codex";
 import Citizenship from "./Pages/Citizenship";
+import DharmaverseDevelopment from "./components/dharmaverse/Development";
 
 
 // future pages
