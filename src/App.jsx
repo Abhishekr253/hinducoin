@@ -8,20 +8,20 @@ import Loader from "./components/common/Loader";
 import { useLocation } from "react-router-dom";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
+    // Show loader immediately on route change
     setLoading(true);
 
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 800); // you can adjust duration
+    // Hide loader after next tick (when route component is rendered)
+    const timeout = setTimeout(() => setLoading(false), 50);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timeout);
   }, [location.pathname]);
 
-  const isSuccessPage = location.pathname === "/success";
+  const isSuccessPage = location.pathname.startsWith("/success");
 
   return (
     <>
