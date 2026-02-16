@@ -45,7 +45,7 @@ export default function DharmaverseTiers() {
   const handleCheckout = async () => {
     setLoading(true);
 
-    const res = await fetch("http://localhost:5000/create-checkout-session", {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
