@@ -28,23 +28,22 @@ const fadeUp = {
 export default function FacilitiesZones() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
-      <div className="relative py-36 md:py-44 text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_50%_-10%,rgba(212,175,55,0.2),transparent_70%)]" />
+      <div className="relative py-16 md:py-44 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
 
         <motion.div
-          className="relative z-10 max-w-5xl mx-auto px-6"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+          <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 font-['Cormorant_Garamond']">
             Facilities & Zones
           </p>
 
-          <h1 className="text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond']">
+          <h1 className="text-2xl md:text-5xl font-light tracking-[0.18em] md:tracking-[0.25em] uppercase font-['Cormorant_Garamond'] leading-tight">
             Spaces of Experience
             <br />
             <span className="text-[#D4AF37]">Within the Dharmaverse</span>
@@ -53,23 +52,23 @@ export default function FacilitiesZones() {
       </div>
 
       {/* ================= FACILITY CARDS ================= */}
-      <div className="max-w-7xl mx-auto px-6 pb-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-32">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.3 }}
         >
           {facilities.map((facility) => (
             <motion.div key={facility} variants={fadeUp}>
-              <LuxuryCard className="h-full text-center">
-                <div className="mx-auto mb-6 h-1 w-10 rounded-full bg-[#D4AF37]/80" />
+              <LuxuryCard className="h-full text-center p-6 md:p-8">
+                <div className="mx-auto mb-4 h-1 w-8 md:w-10 rounded-full bg-[#D4AF37]/80" />
 
-                <h3 className="mb-3 text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
+                <h3 className="mb-2 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
                   {facility}
                 </h3>
 
-                <p className="text-sm text-white/65 font-['Cormorant_Garamond'] leading-relaxed">
+                <p className="text-xs md:text-sm text-white/65 font-['Cormorant_Garamond'] leading-relaxed">
                   Purpose-built spaces designed to support ritual, learning,
                   reflection, celebration, and community within the Dharmaverse.
                 </p>
@@ -81,19 +80,21 @@ export default function FacilitiesZones() {
 
       {/* ================= CTA ================= */}
       <motion.div
-        className="text-center pb-36"
+        className="text-center pb-16 md:pb-36 px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <NavLink to={"/dharmaverse/rituals"} >
-        <CTAButton variant="gold">
-          View Rituals & Prayers
-        </CTAButton>
+        <NavLink to={"/dharmaverse/rituals"} className="block max-w-xs mx-auto">
+          <CTAButton
+            variant="gold"
+            className="w-full text-sm md:text-base py-2 md:py-3"
+          >
+            View Rituals & Prayers
+          </CTAButton>
         </NavLink>
       </motion.div>
-
     </section>
   );
 }

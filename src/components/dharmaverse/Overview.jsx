@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
+import { Link } from "react-router-dom";
 
 /* ------------------ ANIMATION ------------------ */
 
@@ -47,7 +48,6 @@ export default function DharmaverseOverview() {
 
         {/* ================= SECTIONS ================= */}
         <div className="grid gap-24">
-
           {/* 1. WHAT IT IS */}
           <motion.section
             className="max-w-4xl mx-auto text-center"
@@ -151,7 +151,6 @@ export default function DharmaverseOverview() {
               rituals, and maintain system equilibrium across the Dharmaverse.
             </p>
           </motion.section>
-
         </div>
 
         {/* ================= CTA ================= */}
@@ -162,9 +161,9 @@ export default function DharmaverseOverview() {
           whileInView="show"
           viewport={{ amount: 0.3 }}
         >
-          <CTAButton variant="gold">
-            View Development Status
-          </CTAButton>
+          <Link to="/dharmaverse/development">
+            <CTAButton variant="gold">View Development Status</CTAButton>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -30,23 +30,22 @@ const fadeUp = {
 export default function TempleComplex() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
-      <div className="relative py-36 md:py-44 text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_50%_-10%,rgba(212,175,55,0.2),transparent_70%)]" />
+      <div className="relative py-16 md:py-44 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
 
         <motion.div
-          className="relative z-10 max-w-5xl mx-auto px-6"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+          <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 font-['Cormorant_Garamond']">
             Temple Complex
           </p>
 
-          <h1 className="text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond']">
+          <h1 className="text-2xl md:text-5xl font-light tracking-[0.18em] md:tracking-[0.25em] uppercase font-['Cormorant_Garamond'] leading-tight">
             Sacred Spaces of the
             <br />
             <span className="text-[#D4AF37]">Dharmaverse</span>
@@ -56,26 +55,25 @@ export default function TempleComplex() {
 
       {/* ================= INTERACTIVE MAP ================= */}
       <motion.div
-        className="max-w-6xl mx-auto px-6 mb-28"
+        className="max-w-5xl mx-auto px-4 sm:px-6 mb-12 md:mb-28"
         initial="hidden"
         whileInView="show"
         viewport={{ amount: 0.3 }}
         variants={fadeUp}
       >
-        <LuxuryCard className="text-center">
-          <h3 className="mb-4 text-xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
+        <LuxuryCard className="text-center p-6 md:p-10">
+          <h3 className="mb-3 text-base md:text-xl uppercase tracking-[0.18em] md:tracking-[0.25em] font-light font-['Cormorant_Garamond']">
             Interactive Temple Map
           </h3>
 
-          <div className="mt-6 h-64 md:h-80 rounded-xl border border-white/10 flex items-center justify-center text-white/50 font-['Cormorant_Garamond']">
+          <div className="mt-4 h-40 md:h-80 rounded-xl border border-white/10 flex items-center justify-center text-xs md:text-base text-white/50 font-['Cormorant_Garamond']">
             Interactive map coming online with clickable zones
           </div>
         </LuxuryCard>
       </motion.div>
 
       {/* ================= ZONES LIST ================= */}
-      <div className="max-w-7xl mx-auto px-6 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-12">
-
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
         {/* Phase 1 */}
         <motion.div
           initial="hidden"
@@ -83,16 +81,16 @@ export default function TempleComplex() {
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <LuxuryCard>
-            <h3 className="mb-6 text-lg uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond'] text-[#D4AF37]">
+          <LuxuryCard className="p-6 md:p-10">
+            <h3 className="mb-4 text-base md:text-lg uppercase tracking-[0.18em] md:tracking-[0.25em] font-light font-['Cormorant_Garamond'] text-[#D4AF37]">
               Coming in Phase 1
             </h3>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {zonesPhase1.map((zone) => (
                 <li
                   key={zone}
-                  className="text-sm text-white/80 font-['Cormorant_Garamond'] flex items-center gap-3"
+                  className="text-xs md:text-sm text-white/80 font-['Cormorant_Garamond'] flex items-center gap-2"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
                   {zone}
@@ -109,16 +107,16 @@ export default function TempleComplex() {
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <LuxuryCard>
-            <h3 className="mb-6 text-lg uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond'] text-white/60">
+          <LuxuryCard className="p-6 md:p-10">
+            <h3 className="mb-4 text-base md:text-lg uppercase tracking-[0.18em] md:tracking-[0.25em] font-light font-['Cormorant_Garamond'] text-white/60">
               Future Expansions
             </h3>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {zonesFuture.map((zone) => (
                 <li
                   key={zone}
-                  className="text-sm text-white/50 font-['Cormorant_Garamond'] flex items-center gap-3"
+                  className="text-xs md:text-sm text-white/50 font-['Cormorant_Garamond'] flex items-center gap-2"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
                   {zone}
@@ -127,24 +125,28 @@ export default function TempleComplex() {
             </ul>
           </LuxuryCard>
         </motion.div>
-
       </div>
 
       {/* ================= CTA ================= */}
       <motion.div
-        className="text-center pb-36"
+        className="text-center pb-16 md:pb-36 px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <NavLink to={"/dharmaverse/facilities"} >
-        <CTAButton variant="gold">
-          Explore Facilities
-        </CTAButton>
+        <NavLink
+          to={"/dharmaverse/facilities"}
+          className="block max-w-xs mx-auto"
+        >
+          <CTAButton
+            variant="gold"
+            className="w-full text-sm md:text-base py-2 md:py-3"
+          >
+            Explore Facilities
+          </CTAButton>
         </NavLink>
       </motion.div>
-
     </section>
   );
 }

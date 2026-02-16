@@ -38,23 +38,22 @@ const fadeUp = {
 export default function RitualsPrayers() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
-      <div className="relative py-36 md:py-44 text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(900px_500px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
+      <div className="relative py-16 md:py-44 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(700px_350px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
 
         <motion.div
-          className="relative z-10 max-w-5xl mx-auto px-6"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+          <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 font-['Cormorant_Garamond']">
             Rituals & Prayers
           </p>
 
-          <h1 className="text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond']">
+          <h1 className="text-2xl md:text-5xl font-light tracking-[0.18em] md:tracking-[0.25em] uppercase font-['Cormorant_Garamond'] leading-tight">
             Sacred Acts
             <br />
             <span className="text-[#D4AF37]">Of Intention & Devotion</span>
@@ -63,21 +62,21 @@ export default function RitualsPrayers() {
       </div>
 
       {/* ================= CONTENT SECTIONS ================= */}
-      <div className="max-w-6xl mx-auto px-6 pb-32">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 md:pb-32">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10"
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.3 }}
         >
           {sections.map((item) => (
             <motion.div key={item.title} variants={fadeUp}>
-              <LuxuryCard>
-                <h3 className="mb-4 text-xl uppercase tracking-wide font-['Cormorant_Garamond']">
+              <LuxuryCard className="p-6 md:p-8 text-center md:text-left">
+                <h3 className="mb-3 text-base md:text-xl uppercase tracking-wide font-['Cormorant_Garamond']">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-white/70 leading-relaxed font-['Cormorant_Garamond']">
+                <p className="text-xs md:text-sm text-white/70 leading-relaxed font-['Cormorant_Garamond']">
                   {item.description}
                 </p>
               </LuxuryCard>
@@ -88,17 +87,21 @@ export default function RitualsPrayers() {
 
       {/* ================= CTA ================= */}
       <motion.div
-        className="text-center pb-36"
+        className="text-center pb-16 md:pb-36 px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <CTAButton variant="gold">
-          See Offerings
-        </CTAButton>
+        <div className="max-w-xs mx-auto">
+          <CTAButton
+            variant="gold"
+            className="w-full text-sm md:text-base py-2 md:py-3"
+          >
+            See Offerings
+          </CTAButton>
+        </div>
       </motion.div>
-
     </section>
   );
 }

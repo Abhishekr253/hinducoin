@@ -4,7 +4,8 @@ import CTAButton from "../components/common/CTAButton";
 import video from "../assets/Herovideo.mp4";
 import LuxuryCard from "../components/common/LuxuryCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const headline = "The Hindu Coin";
 const luxuryEase = [0.22, 1, 0.36, 1];
@@ -60,137 +61,159 @@ const nftItems = [
 function Home() {
   const galleryRef = useRef(null);
 
+  useEffect(() => {
+    const el = galleryRef.current;
+    if (!el) return;
+
+    const onWheel = (e) => {
+      // Normal scroll → page scrolls
+      if (!e.shiftKey) return;
+
+      // Shift + scroll → horizontal gallery scroll
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+    };
+  }, []);
   return (
     <main className="w-full">
       {/* ================= HERO SECTION ================= */}
-      <section className="sticky top-0 h-screen w-full overflow-hidden text-white">
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
+      <section className="relative sticky top-0 h-screen w-full overflow-hidden text-white">
+        {/* 1️⃣ SKY GRADIENT (Base Layer) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050C22] via-[#0B1F4D] to-[#1E4FA3]" />
+
+        {/* Subtle cinematic vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.55)_100%)]" />
+
+        {/* 2️⃣ DIVINE LIGHT RAYS */}
+        <div className="absolute inset-0 flex justify-center pointer-events-none">
+          <div
+            className="w-[1100px] h-[650px] mt-10
+      bg-[radial-gradient(circle,rgba(212,175,55,0.20)_0%,rgba(212,175,55,0.08)_40%,transparent_75%)]
+      blur-3xl opacity-80"
+          />
+        </div>
+
+        {/* 3️⃣ TEMPLE (Sharp + Monumental) */}
+        {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1050px] max-w-[95%] z-10">
+    <img
+      src="/temple.png"   // Use clean high-res PNG
+      alt="White Marble Temple"
+      className="w-full object-contain
+      drop-shadow-[0_35px_100px_rgba(0,0,0,0.75)]"
+    />
+  </div> */}
+
+        {/* 4️⃣ COIN (Very Slow, Subtle Rotation) */}
+        <motion.div
+          className="absolute top-[14%] left-1/2 -translate-x-1/2 z-20"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 120, ease: "linear" }} // VERY slow
         >
-          <source src={video} type="video/mp4" />
-        </video>
+          <div className="relative">
+            {/* <img
+        src="/coin.png"  
+        alt="Hindu Coin"
+        className="w-44 md:w-64
+        drop-shadow-[0_0_40px_rgba(212,175,55,0.7)]"
+      /> */}
 
-        {/* Soft cinematic overlay (like reference image) */}
-        <div className="absolute inset-0 bg-black/35" />
-
-        {/* Content */}
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <div className="max-w-4xl px-6 text-center">
-            {/* Small editorial pre-heading */}
-            <motion.p
-              className="
-                mb-4
-                text-xs
-                uppercase
-                tracking-[0.35em]
-                text-white/80
-                font-['Cormorant_Garamond']
-              "
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              Powering the future of
-            </motion.p>
-
-            {/* Coin Logo */}
-            {/* <motion.img
-              src="https://cdn.pixabay.com/video/2024/02/14/200567-913040182_tiny.jpg"
-              alt="The Hindu Coin"
-              className="mx-auto mb-8 w-24 md:w-28 drop-shadow-[0_0_25px_rgba(212,175,55,0.45)]"
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            /> */}
-
-            {/* Headline — luxury letter animation */}
-            <h1
-              className="
-                mb-6
-                text-4xl md:text-6xl
-                uppercase
-                tracking-[0.25em]
-                font-light
-                font-['Cormorant_Garamond']
-              "
-            >
-              {headline.split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: i * 0.05,
-                    duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="inline-block"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </h1>
-
-            {/* Subheadline */}
-            <motion.p
-              className="
-                mx-auto mb-10 max-w-xl
-                text-sm md:text-base
-                leading-relaxed
-                text-white/85
-                font-['Cormorant_Garamond']
-              "
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-            >
-              Powering <span className="text-[#D4AF37]">Dharmaverse</span> — a
-              living spiritual metaverse inspired by Sanatan Dharma.
-            </motion.p>
-
-            {/* Trust Chips */}
-            <motion.div
-              className="mb-12 flex flex-wrap justify-center gap-3 text-xs tracking-wide"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.1 }}
-            >
-              {["Mint Closed", "Capped Supply", "Built on Solana"].map(
-                (chip) => (
-                  <span
-                    key={chip}
-                    className="
-                    rounded-full
-                    border border-white/15
-                    bg-white/5
-                    px-4 py-1
-                    backdrop-blur-md
-                    text-white/80
-                  "
-                  >
-                    {chip}
-                  </span>
-                ),
-              )}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.3 }}
-            >
-              <CTAButton variant="gold">Explore Dharmaverse</CTAButton>
-
-              <CTAButton variant="blueGlass">How to Buy</CTAButton>
-            </motion.div>
+            {/* Gold + Blue Halo Aura */}
+            <div
+              className="absolute inset-0 rounded-full
+        bg-[radial-gradient(circle,rgba(212,175,55,0.5)_0%,rgba(30,79,163,0.35)_50%,transparent_75%)]
+        blur-3xl -z-10 opacity-90"
+            />
           </div>
+        </motion.div>
+
+        {/* 5️⃣ SUBTLE GOLD SPARKLE DRIFT */}
+        <div className="absolute inset-0 pointer-events-none z-30">
+          <div className="absolute w-1 h-1 bg-[#D4AF37] rounded-full opacity-40 animate-pulse top-[25%] left-[30%]" />
+          <div className="absolute w-1 h-1 bg-white rounded-full opacity-30 animate-pulse top-[40%] left-[60%]" />
+          <div className="absolute w-1 h-1 bg-[#D4AF37] rounded-full opacity-30 animate-pulse top-[65%] left-[45%]" />
+        </div>
+
+        {/* 6️⃣ TEXT OVERLAY */}
+        <div className="relative z-40 flex h-full flex-col items-center justify-center text-center px-6">
+          {/* Sanskrit (Gold Authority) */}
+          <motion.p
+            className="text-[#D4AF37] text-lg md:text-xl tracking-[0.28em]
+      font-['Cormorant_Garamond'] mb-3"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            एकं सत् विप्रा बहुधा वदन्ति
+          </motion.p>
+
+          {/* Translation */}
+          <motion.p
+            className="text-white/70 text-sm md:text-base mb-10
+      font-['Cormorant_Garamond']"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            Truth is One. The wise describe it in many ways.
+          </motion.p>
+
+          {/* Main Title */}
+          <motion.h1
+            className="text-4xl md:text-7xl uppercase tracking-[0.3em]
+      font-light mb-6 font-['Cormorant_Garamond']
+      drop-shadow-[0_6px_25px_rgba(0,0,0,0.6)]"
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            The Hindu Coin
+          </motion.h1>
+
+          {/* Subline */}
+          <motion.p
+            className="max-w-2xl text-white/85 mb-14 text-sm md:text-lg leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
+          >
+            Powering <span className="text-[#D4AF37]">Dharmaverse</span> — A
+            Living Spiritual Civilization
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-6"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+          >
+            <Link to="/citizenship">
+              <button
+                className="px-8 py-3 rounded-full
+          bg-[#D4AF37] text-black font-medium tracking-wide
+          hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                Become a Citizen
+              </button>
+            </Link>
+
+            <Link to="/dharmaverse">
+              <button
+                className="px-8 py-3 rounded-full
+          border border-white/40 backdrop-blur-md
+          text-white hover:bg-white/10
+          transition-all duration-300"
+              >
+                Explore Dharmaverse
+              </button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -199,11 +222,11 @@ function Home() {
         className="
     relative z-10 w-full
     bg-[radial-gradient(1200px_600px_at_50%_-10%,#141B2D_0%,#070B12_55%,#05070C_100%)]
-    text-white py-20 md:py-28
+    text-white py-12 md:py-28
   "
       >
         <motion.div
-          className="max-w-7xl mx-auto px-6 will-change-transform"
+          className="max-w-7xl mx-auto px-4 sm:px-6 will-change-transform"
           variants={sectionContainer}
           initial="hidden"
           whileInView="show"
@@ -211,21 +234,21 @@ function Home() {
         >
           {/* Heading */}
           <motion.div
-            className="mb-16 text-center transform-gpu"
+            className="mb-10 md:mb-16 text-center transform-gpu"
             variants={fadeUp}
           >
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+            <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 font-['Cormorant_Garamond']">
               What is Hindu Coin?
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-light tracking-[0.2em] uppercase font-['Cormorant_Garamond']">
+            <h2 className="text-2xl md:text-4xl font-light tracking-[0.15em] md:tracking-[0.2em] uppercase font-['Cormorant_Garamond']">
               A Sacred Digital Foundation
             </h2>
           </motion.div>
 
           {/* Cards */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8"
             variants={sectionContainer}
           >
             {[
@@ -243,14 +266,14 @@ function Home() {
               },
             ].map((card, i) => (
               <motion.div key={i} variants={fadeUp} className="transform-gpu">
-                <LuxuryCard className="text-center h-full">
-                  <div className="mx-auto mb-6 h-1 w-12 rounded-full bg-[#D4AF37]/80" />
+                <LuxuryCard className="text-center h-full p-6 md:p-8">
+                  <div className="mx-auto mb-4 md:mb-6 h-1 w-10 md:w-12 rounded-full bg-[#D4AF37]/80" />
 
-                  <h3 className="mb-4 text-lg uppercase tracking-wide font-['Cormorant_Garamond'] text-white">
+                  <h3 className="mb-3 md:mb-4 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond'] text-white">
                     {card.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-white/70 font-['Cormorant_Garamond']">
+                  <p className="text-xs md:text-sm leading-relaxed text-white/70 font-['Cormorant_Garamond']">
                     {card.desc}
                   </p>
                 </LuxuryCard>
@@ -260,56 +283,48 @@ function Home() {
 
           {/* CTA */}
           <motion.div
-            className="mt-16 text-center transform-gpu"
+            className="mt-10 md:mt-16 text-center transform-gpu"
             variants={fadeUp}
           >
-            <CTAButton variant="gold">View Tokenomics</CTAButton>
+            <CTAButton
+              variant="gold"
+              className="text-sm md:text-base px-6 py-2 md:px-8 md:py-3"
+            >
+              View Tokenomics
+            </CTAButton>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ================= SECTION 3 — DHARMAVERSE STATUS ================= */}
-      <section
-        className="relative w-full bg-[#05070C]
- text-white py-24 md:py-32 overflow-hidden"
-      >
-        {/* Soft top divider */}
-        <div className="absolute top-0 left-0 w-full h-px  " />
+      <section className="relative w-full bg-[#05070C] text-white py-24 md:py-32 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px" />
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-          {/* LEFT — Cinematic Image (comes from LEFT) */}
-          <motion.div
-            className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden will-change-transform"
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ amount: 0.3 }}
-            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          >
+          {/* IMAGE */}
+          <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0"
               alt="Dharmaverse Temple"
+              decoding="async"
+              loading="eager"
               className="absolute inset-0 h-full w-full object-cover"
             />
 
-            {/* Cinematic overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-            {/* Latest Update Badge */}
             <div className="absolute top-5 left-5 rounded-full border border-white/20 bg-black/50 px-4 py-1 text-xs tracking-wide backdrop-blur-md">
               Latest Update
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT — Content (comes from RIGHT) */}
+          {/* CONTENT */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ amount: 0.3 }}
-            transition={{
-              delay: 0.15,
-              duration: 1.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ amount: 0.3, once: true }}
+            transition={{ delay: 0.15 }}
           >
             <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
               Dharmaverse
@@ -329,26 +344,25 @@ function Home() {
               rituals, seasons, and collective participation.
             </p>
 
-            {/* Progress Label */}
             <div className="mb-2 flex justify-between text-xs uppercase tracking-wide text-white/60">
               <span>Phase 1 Progress</span>
-              <span>~12 Months</span>
+              <span>Coming soon</span>
             </div>
 
-            {/* Progress Bar */}
             <div className="mb-10 h-2 w-full rounded-full bg-white/10 overflow-hidden">
               <motion.div
                 className="h-full rounded-full bg-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.35)]"
                 initial={{ width: 0 }}
                 whileInView={{ width: "35%" }}
-                viewport={{ amount: 0.3 }}
-                transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.6, ease: luxuryEase }}
               />
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <CTAButton variant="gold">Development Status</CTAButton>
+              <Link to="/dharmaverse/development">
+                <CTAButton variant="gold">Development Status</CTAButton>
+              </Link>
               <CTAButton variant="blueGlass">Roadmap</CTAButton>
             </div>
           </motion.div>
@@ -444,7 +458,9 @@ function Home() {
             viewport={{ amount: 0.3 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <CTAButton variant="gold">Enter Sanatan Dharma Hub</CTAButton>
+            <Link to="/sanatan-hub">
+              <CTAButton variant="gold">Enter Sanatan Dharma Hub</CTAButton>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -455,40 +471,40 @@ function Home() {
     relative w-full
     bg-[#05070C]
     text-white
-    py-24 md:py-32
+    py-14 md:py-32
     overflow-hidden
   "
       >
         {/* Subtle divider */}
         <div className="absolute top-0 left-0 w-full h-px" />
 
-        <div className="relative max-w-7xl mx-auto px-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <motion.div
-            className="mb-20 text-center"
+            className="mb-12 md:mb-20 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.3 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+            <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 font-['Cormorant_Garamond']">
               Citizenship
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-light uppercase tracking-[0.25em] font-['Cormorant_Garamond']">
+            <h2 className="text-2xl md:text-4xl font-light uppercase tracking-[0.18em] md:tracking-[0.25em] font-['Cormorant_Garamond']">
               Become a Citizen of Dharmaverse
             </h2>
 
-            <p className="mt-6 max-w-2xl mx-auto text-sm md:text-base leading-relaxed text-white/70 font-['Cormorant_Garamond']">
+            <p className="mt-4 md:mt-6 max-w-xl mx-auto text-xs md:text-base leading-relaxed text-white/70 font-['Cormorant_Garamond']">
               Citizenship grants participation, privileges, and long-term
               alignment with the evolution of the Dharmaverse.
             </p>
           </motion.div>
 
           {/* Tiers + Privileges */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-14 lg:items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-14 lg:items-center">
             {/* LEFT — Citizenship Tiers */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {[
                 { name: "Seeker", note: "Entry Citizenship" },
                 { name: "Sadhak", note: "Active Participant" },
@@ -500,33 +516,33 @@ function Home() {
                   viewport={{ amount: 0.3 }}
                   transition={{ delay: i * 0.12, duration: 0.9 }}
                 >
-                  <LuxuryCard className="text-center h-full">
-                    <div className="mb-6 mx-auto h-1 w-12 rounded-full bg-[#D4AF37]/80" />
-                    <h3 className="mb-2 text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
+                  <LuxuryCard className="text-center h-full p-6 md:p-8">
+                    <div className="mb-4 md:mb-6 mx-auto h-1 w-10 md:w-12 rounded-full bg-[#D4AF37]/80" />
+                    <h3 className="mb-1 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
                       {tier.name}
                     </h3>
-                    <p className="text-sm text-white/60 font-['Cormorant_Garamond']">
+                    <p className="text-xs md:text-sm text-white/60 font-['Cormorant_Garamond']">
                       {tier.note}
                     </p>
                   </LuxuryCard>
                 </motion.div>
               ))}
 
-              {/* ACHARYA — centered */}
+              {/* ACHARYA */}
               <motion.div
-                className="sm:col-span-2 sm:flex sm:justify-center"
+                className="sm:col-span-2 flex justify-center"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ amount: 0.3 }}
                 transition={{ delay: 0.3, duration: 0.9 }}
               >
                 <div className="w-full sm:max-w-[260px]">
-                  <LuxuryCard className="text-center h-full">
-                    <div className="mb-6 mx-auto h-1 w-12 rounded-full bg-[#D4AF37]/80" />
-                    <h3 className="mb-2 text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
+                  <LuxuryCard className="text-center h-full p-6 md:p-8">
+                    <div className="mb-4 md:mb-6 mx-auto h-1 w-10 md:w-12 rounded-full bg-[#D4AF37]/80" />
+                    <h3 className="mb-1 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
                       Acharya
                     </h3>
-                    <p className="text-sm text-white/60 font-['Cormorant_Garamond']">
+                    <p className="text-xs md:text-sm text-white/60 font-['Cormorant_Garamond']">
                       Elder Tier
                     </p>
                   </LuxuryCard>
@@ -542,12 +558,12 @@ function Home() {
               viewport={{ amount: 0.3 }}
               transition={{ duration: 1 }}
             >
-              <LuxuryCard className="h-full">
-                <h3 className="mb-6 text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
+              <LuxuryCard className="h-full p-6 md:p-8">
+                <h3 className="mb-4 md:mb-6 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
                   Citizen Privileges
                 </h3>
 
-                <ul className="space-y-4 text-sm text-white/70 font-['Cormorant_Garamond']">
+                <ul className="space-y-3 md:space-y-4 text-xs md:text-sm text-white/70 font-['Cormorant_Garamond']">
                   {[
                     "Access to Dharmaverse worlds and events",
                     "Participation in rituals, offerings, and festivals",
@@ -555,8 +571,8 @@ function Home() {
                     "Priority access to new experiences and releases",
                     "Recognition within the Dharmaverse ecosystem",
                   ].map((item, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
+                    <li key={i} className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -567,14 +583,27 @@ function Home() {
 
           {/* CTA */}
           <motion.div
-            className="mt-20 flex flex-col sm:flex-row justify-center gap-4"
+            className="mt-12 md:mt-20 flex flex-col sm:flex-row justify-center gap-3 md:gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.3 }}
             transition={{ duration: 0.9 }}
           >
-            <CTAButton variant="gold">Become a Citizen</CTAButton>
-            <CTAButton variant="blueGlass">View Citizenship Benefits</CTAButton>
+            <Link to="/citizenship" className="w-full sm:w-auto">
+              <CTAButton
+                variant="gold"
+                className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3"
+              >
+                Become a Citizen
+              </CTAButton>
+            </Link>
+
+            <CTAButton
+              variant="blueGlass"
+              className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3"
+            >
+              View Citizenship Benefits
+            </CTAButton>
           </motion.div>
         </div>
       </section>
@@ -718,7 +747,9 @@ function Home() {
 
           {/* CTA */}
           <motion.div className="mt-20 text-center" variants={fadeUp}>
-            <CTAButton variant="gold">View NFT Gallery</CTAButton>
+            <Link to="/nfts">
+              <CTAButton variant="gold">View NFT Gallery</CTAButton>
+            </Link>
           </motion.div>
         </motion.div>
       </section>

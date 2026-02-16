@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Copy, Menu, X } from "lucide-react";
+import { Copy, Menu, X, ChevronDown } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { label, path } from "framer-motion/client";
 
 /* ------------------ NAV DATA ------------------ */
 
 const navItems = [
-  { label: "Citizenship", path: "/citizenship"},
+  { label: "Citizenship", path: "/citizenship" },
   { label: "Explore", path: "/explore" },
+  { label: "NFTs & Offerings", path: "/nfts" },
+  { label: "Games & Downloads ", path: "/downloads" },
   { label: "Products", path: "/products" },
   { label: "About", path: "/about" },
   { label: "Legal", path: "/legal" },
@@ -54,9 +57,10 @@ function Header() {
             <div className="relative group">
               <NavLink
                 to="/sanatan-hub"
-                className="text-white cursor-pointer hover:underline underline-offset-8"
+                className="flex items-center gap-1 text-white hover:underline underline-offset-8"
               >
                 Sanatan Dharma Hub
+                <ChevronDown size={16} className="mt-[2px]" />
               </NavLink>
 
               {/* Hover bridge container */}
@@ -103,9 +107,10 @@ function Header() {
             <div className="relative group">
               <NavLink
                 to="/dharmaverse"
-                className="text-white cursor-pointer hover:underline underline-offset-8"
+                className="flex items-center gap-1 text-white hover:underline underline-offset-8"
               >
                 Dharmaverse Hub
+                <ChevronDown size={16} className="mt-[2px]" />
               </NavLink>
 
               {/* Hover bridge container */}
@@ -171,12 +176,12 @@ function Header() {
               <Copy size={16} />
             </button>
 
-            <NavLink
+            {/* <NavLink
               to="/buy"
               className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#F6E27A] to-[#D4AF37] text-[#1A1A1A] font-semibold shadow"
             >
               Buy Hindu Coin
-            </NavLink>
+            </NavLink> */}
 
             <NavLink
               to="/citizenship"
@@ -187,7 +192,10 @@ function Header() {
           </div>
 
           {/* MOBILE TOGGLE */}
-          <button className="lg:hidden p-2" onClick={() => setOpen(true)}>
+          <button
+            className="lg:hidden p-2 text-white"
+            onClick={() => setOpen(true)}
+          >
             <Menu size={26} />
           </button>
         </div>
@@ -209,8 +217,8 @@ function Header() {
         ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-between items-center p-5 border-b border-[#D4AF37]/20">
-          <span className="text-white font-semibold">Menu</span>
-          <button onClick={() => setOpen(false)}>
+          <span className="text-white font-semibold">The Hindu Coin</span>
+          <button onClick={() => setOpen(false)} className="text-white">
             <X size={24} />
           </button>
         </div>
@@ -218,12 +226,29 @@ function Header() {
         <nav className="flex flex-col gap-6 p-6 text-sm">
           {/* SANATAN MOBILE */}
           <div>
-            <button
-              onClick={() => setOpenSanatan(!openSanatan)}
-              className="text-white/80"
-            >
-              Sanatan Dharma Hub
-            </button>
+            <div className="flex items-center justify-between">
+              {/* TEXT = Navigate */}
+              <NavLink
+                to="/sanatan-hub"
+                onClick={() => setOpen(false)}
+                className="text-white/80"
+              >
+                Sanatan Dharma Hub
+              </NavLink>
+
+              {/* ICON = Toggle */}
+              <button
+                onClick={() => setOpenSanatan(!openSanatan)}
+                className="text-white/60"
+              >
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-300 ${
+                    openSanatan ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
 
             {openSanatan && (
               <div className="mt-3 ml-4 flex flex-col gap-3">
@@ -243,12 +268,29 @@ function Header() {
 
           {/* DHARMAVERSE MOBILE */}
           <div>
-            <button
-              onClick={() => setOpenDharmaverse(!openDharmaverse)}
-              className="text-white/80"
-            >
-              Dharmaverse Hub
-            </button>
+            <div className="flex items-center justify-between">
+              {/* TEXT = Navigate */}
+              <NavLink
+                to="/dharmaverse"
+                onClick={() => setOpen(false)}
+                className="text-white/80"
+              >
+                Dharmaverse Hub
+              </NavLink>
+
+              {/* ICON = Toggle */}
+              <button
+                onClick={() => setOpenDharmaverse(!openDharmaverse)}
+                className="text-white/60"
+              >
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-300 ${
+                    openDharmaverse ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
 
             {openDharmaverse && (
               <div className="mt-3 ml-4 flex flex-col gap-3">

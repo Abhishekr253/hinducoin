@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import festival from "../../assets/festival.png";
+import { Link } from "react-router-dom";
 
 /* ------------------ DATA ------------------ */
 
@@ -35,8 +36,7 @@ const festivals = [
     month: "March",
     meaning: "Celebration of renewal, joy, and the burning of ego.",
     symbolism: "Colors, fire, collective joy.",
-    impact:
-      "Community-wide harmony boosts, emotion-based visual effects.",
+    impact: "Community-wide harmony boosts, emotion-based visual effects.",
   },
   {
     name: "Janmashtami",
@@ -51,8 +51,7 @@ const festivals = [
     month: "January",
     meaning: "Transition of cosmic energies toward growth and clarity.",
     symbolism: "Sun, harvest, flight.",
-    impact:
-      "Seasonal reset mechanics, solar-aligned progression bonuses.",
+    impact: "Seasonal reset mechanics, solar-aligned progression bonuses.",
   },
 ];
 
@@ -85,7 +84,6 @@ const fadeUp = {
 export default function FestivalsCalendar() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
       <motion.div
         className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
@@ -135,7 +133,6 @@ export default function FestivalsCalendar() {
 
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-
         {/* FESTIVAL GRID */}
         <section className="py-32">
           <motion.h2
@@ -200,11 +197,10 @@ export default function FestivalsCalendar() {
           whileInView="show"
           viewport={{ amount: 0.3 }}
         >
-          <CTAButton variant="gold">
-            See Dharmaverse Festival System
-          </CTAButton>
+          <Link to="/sanatan/deities">
+            <CTAButton variant="gold">Explore Deities & Symbols</CTAButton>
+          </Link>
         </motion.div>
-
       </div>
     </section>
   );

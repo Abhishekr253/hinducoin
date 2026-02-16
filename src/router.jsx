@@ -16,7 +16,11 @@ import WorldMap from "./components/dharmaverse/WorldMap";
 import Codex from "./components/dharmaverse/Codex";
 import Citizenship from "./Pages/Citizenship";
 import DharmaverseDevelopment from "./components/dharmaverse/Development";
-
+import DharmaverseTiers from "./components/DharmaverseTiers";
+import SuccessPage from "./Pages/SuccessPage";
+import AboutHinduCoin from "./Pages/AboutHinduCoin";
+import NFTsPage from "./Pages/NFTsPage";
+import DownloadsPage from "./Pages/DownloadsPage";
 
 // future pages
 // import Tokenomics from "./Pages/Tokenomics";
@@ -28,6 +32,9 @@ export default function AppRouter() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/explore" element={<Explore />} />
+      <Route path="/about" element={<AboutHinduCoin />} />
+
+      {/* sanatan hub */}
       <Route path="/sanatan-hub" element={<SanatanHero />} />
       <Route path="/sanatan/foundations" element={<SanatanFoundations />} />
       <Route path="/sanatan/history" element={<HistoryHeritage />} />
@@ -35,7 +42,10 @@ export default function AppRouter() {
       <Route path="/sanatan/deities" element={<DeitiesSymbols />} />
       <Route path="/dharmaverse" element={<DharmaverseHub />} />
       <Route path="/dharmaverse/overview" element={<DharmaverseOverview />} />
-      <Route path="/dharmaverse/development" element={<DharmaverseDevelopment />} />
+      <Route
+        path="/dharmaverse/development"
+        element={<DharmaverseDevelopment />}
+      />
       <Route path="/dharmaverse/festivals" element={<FestivalsLivingWorld />} />
       <Route path="/dharmaverse/temple" element={<TempleComplex />} />
       <Route path="/dharmaverse/facilities" element={<FacilitiesZones />} />
@@ -44,7 +54,15 @@ export default function AppRouter() {
       <Route path="/dharmaverse/codex" element={<Codex />} />
       <Route path="/citizenship" element={<Citizenship />} />
 
+      {/* tier route */}
+      <Route path="/citizenship/buy" element={<DharmaverseTiers />} />
+      <Route path="/success" element={<SuccessPage />} />
 
+      {/* nft and offerings */}
+      <Route path="/nfts" element={<NFTsPage />} />
+
+      {/* games and download */}
+      <Route path="/downloads" element={<DownloadsPage />} />
 
       {/* Future routes */}
       {/* <Route path="/tokenomics" element={<Tokenomics />} /> */}
