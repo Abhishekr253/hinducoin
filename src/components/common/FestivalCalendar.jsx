@@ -53,7 +53,7 @@ const months = Object.keys(festivalData);
 
 export default function FestivalCalendar({ isOpen, onClose }) {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(
-    new Date().getMonth()
+    new Date().getMonth(),
   );
 
   const currentMonth = months[currentMonthIndex];
@@ -83,11 +83,11 @@ export default function FestivalCalendar({ isOpen, onClose }) {
       />
 
       {/* Modal */}
-   <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.4 }}
-  className="
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="
     relative
     w-[92%] sm:w-[95%] md:w-[850px]
     max-h-[85vh]
@@ -97,70 +97,67 @@ export default function FestivalCalendar({ isOpen, onClose }) {
     rounded-xl sm:rounded-2xl
     shadow-[0_0_40px_rgba(212,175,55,0.12)]
   "
->
-
-
+      >
         {/* Header */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 border-b border-[#D4AF37]/20">
-  <div className="flex items-center gap-3 sm:gap-4">
-    <button
-      onClick={prevMonth}
-      className="text-[#D4AF37] hover:scale-110 transition"
-    >
-      <ChevronLeft size={20} />
-    </button>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              onClick={prevMonth}
+              className="text-[#D4AF37] hover:scale-110 transition"
+            >
+              <ChevronLeft size={20} />
+            </button>
 
-    <h2 className="text-sm sm:text-lg md:text-2xl tracking-[0.12em] sm:tracking-[0.18em] uppercase font-light text-white text-center">
-      {currentMonth} {year}
-    </h2>
+            <h2 className="text-sm sm:text-lg md:text-2xl tracking-[0.12em] sm:tracking-[0.18em] uppercase font-light text-white text-center">
+              {currentMonth} {year}
+            </h2>
 
-    <button
-      onClick={nextMonth}
-      className="text-[#D4AF37] hover:scale-110 transition"
-    >
-      <ChevronRight size={20} />
-    </button>
-  </div>
+            <button
+              onClick={nextMonth}
+              className="text-[#D4AF37] hover:scale-110 transition"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
 
-  <button
-    onClick={onClose}
-    className="text-white/60 hover:text-[#D4AF37] transition"
-  >
-    <X size={20} />
-  </button>
-</div>
-
+          <button
+            onClick={onClose}
+            className="text-white/60 hover:text-[#D4AF37] transition"
+          >
+            <X size={20} />
+          </button>
+        </div>
 
         {/* Calendar Grid */}
         <div className="p-3 sm:p-6 overflow-y-auto max-h-[calc(100vh-120px)] sm:max-h-none">
-  {/* Week Days */}
-  <div className="grid grid-cols-7 text-center text-[10px] sm:text-xs md:text-sm text-white/60 mb-3 sm:mb-4">
-    {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-      <div key={d}>{d}</div>
-    ))}
-  </div>
+          {/* Week Days */}
+          <div className="grid grid-cols-7 text-center text-[10px] sm:text-xs md:text-sm text-white/60 mb-3 sm:mb-4">
+            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
+              <div key={d}>{d}</div>
+            ))}
+          </div>
 
-  <AnimatePresence mode="wait">
-    <motion.div
-      key={currentMonth}
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -30 }}
-      transition={{ duration: 0.3 }}
-      className="grid grid-cols-7 gap-1 sm:gap-2 md:gap-3"
-    >
-      {Array.from({ length: firstDay }).map((_, i) => (
-        <div key={`empty-${i}`} />
-      ))}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentMonth}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-7 gap-1 sm:gap-2 md:gap-3"
+            >
+              {Array.from({ length: firstDay }).map((_, i) => (
+                <div key={`empty-${i}`} />
+              ))}
 
-      {Array.from({ length: daysInMonth }).map((_, day) => {
-        const date = day + 1;
-        const festival = festivalData[currentMonth]?.[date];
+              {Array.from({ length: daysInMonth }).map((_, day) => {
+                const date = day + 1;
+                const festival = festivalData[currentMonth]?.[date];
 
-        return (
-          <div
-            key={date}
-            className="
+                return (
+                  <div
+                    key={date}
+                    className="
               min-h-[60px] sm:min-h-[75px] md:min-h-[90px]
               p-1.5 sm:p-2
               rounded-lg
@@ -169,29 +166,30 @@ export default function FestivalCalendar({ isOpen, onClose }) {
               transition
               flex flex-col
             "
-          >
-            <div className="text-[10px] sm:text-xs md:text-sm text-white/70">
-              {date}
-            </div>
+                  >
+                    <div className="text-[10px] sm:text-xs md:text-sm text-white/70">
+                      {date}
+                    </div>
 
-            {festival && (
-              <div className="
+                    {festival && (
+                      <div
+                        className="
                 mt-1
                 text-[9px] sm:text-[10px] md:text-xs
                 text-[#D4AF37]
                 leading-snug
                 break-words
-              ">
-                {festival}
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </motion.div>
-  </AnimatePresence>
-</div>
-
+              "
+                      >
+                        {festival}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </motion.div>
     </div>
   );

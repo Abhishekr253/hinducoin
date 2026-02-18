@@ -104,7 +104,12 @@ export default function AboutHinduCoin() {
             </p>
 
             <p>
-              Phase 1 is currently under development and is expected to take
+             Phase <span
+              className="inline-block font-medium tracking-normal normal-case font-sans"
+              style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
+            >
+              1
+            </span>{" "} is currently under development and is expected to take
               approximately 12 months to complete.
             </p>
           </div>
@@ -112,7 +117,12 @@ export default function AboutHinduCoin() {
           {/* Phase Box */}
           <div className="mt-8 bg-[#0f1b2e]/70 backdrop-blur-sm p-5 sm:p-6 rounded-xl border border-[#D4AF37]/30">
             <p className="font-semibold text-[#D4AF37] mb-4 tracking-wide">
-              Phase 1 Includes
+              Phase <span
+              className="inline-block font-medium tracking-normal normal-case font-sans"
+              style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
+            >
+              1
+            </span>{" "} Includes
             </p>
 
             <ul className="space-y-2 text-gray-300 text-sm sm:text-base">

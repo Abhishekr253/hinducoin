@@ -140,9 +140,25 @@ export default function DharmaverseOverview() {
             whileInView="show"
             viewport={{ amount: 0.3 }}
           >
-            <h2 className="mb-6 text-xl md:text-2xl uppercase tracking-[0.25em] font-light font-cormorant">
-              Powered by <span className="text-[#D4AF37]">Hindu Coin</span>
-            </h2>
+            <div className="mb-6 text-center">
+              {/* Big Token Symbol */}
+              <div
+                className="text-4xl sm:text-5xl md:text-6xl 
+                  font-semibold tracking-[0.35em] 
+                  text-[#D4AF37]"
+              >
+                $HINDU
+              </div>
+
+              {/* Powered By Text */}
+              <h2
+                className="mt-4 text-sm sm:text-base md:text-xl 
+                 uppercase tracking-[0.25em] 
+                 font-light font-cormorant text-white"
+              >
+                Powered by <span className="text-[#D4AF37]">Hindu Coin</span>
+              </h2>
+            </div>
 
             <p className="text-sm md:text-base text-white/75 leading-relaxed font-cormorant">
               Hindu Coin is not purely a speculative currency.
