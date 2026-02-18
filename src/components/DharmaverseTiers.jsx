@@ -20,16 +20,20 @@ export default function DharmaverseTiers() {
   });
 
   const tiers = [
-    { id: "CITIZEN", name: "🔱 CITIZEN", color: "text-[#D4AF37]" },
-    { id: "DEVOTEE", name: "🪔 DEVOTEE", color: "text-gray-300" },
-    { id: "GUARDIAN", name: "🛡 GUARDIAN", color: "text-gray-300" },
-    { id: "PATRON", name: "👑 PATRON", color: "text-gray-300" },
+    { id: "CITIZEN", name: "🔱 CITIZEN", active: true },
+    { id: "DEVOTEE", name: "🪔 DEVOTEE", active: false },
+    { id: "GUARDIAN", name: "🛡 GUARDIAN", active: false },
+    { id: "PATRON", name: "👑 PATRON", active: false },
   ];
 
   const handleTierClick = (tierId) => {
+    const selectedTier = tiers.find((t) => t.id === tierId);
+
+    if (!selectedTier?.active) return; // 🚫 Prevent click if inactive
+
     setFormData({ ...formData, tier: tierId });
     setShowForm(true);
-    // Scroll to form after a tiny delay to ensure form is rendered
+
     setTimeout(() => {
       formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 100);
@@ -45,13 +49,16 @@ export default function DharmaverseTiers() {
   const handleCheckout = async () => {
     setLoading(true);
 
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-checkout-session`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/create-checkout-session`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       },
-      body: JSON.stringify(formData),
-    });
+    );
 
     const data = await res.json();
 
@@ -78,55 +85,66 @@ export default function DharmaverseTiers() {
             viewport={{ once: true }}
           >
             <LuxuryCard className="border-[#D4AF37]/50 shadow-[0_0_40px_rgba(212,175,55,0.25)]">
-              <h3 className="text-2xl font-semibold text-[#D4AF37] mb-2">
-                🔱 CITIZEN
+              <h3 className="text-2xl font-semibold text-[#D4AF37] mb-1">
+                🔱 CITIZEN (Nāgarika)
               </h3>
 
-              <p className="text-gray-300 mb-6 italic">
-                “Your identity in the sacred civilization.”
+              <p className="text-gray-300 mb-2 italic">
+                “Your identity within the sacred civilization.”
               </p>
 
-              <ul className="space-y-3 text-gray-200 mb-6">
-                <li>• Citizen Badge / Identity NFT</li>
-                <li>• Entry access to core Dharmaverse zones</li>
-                <li>• Access to festival public ceremonies</li>
-                <li>• Citizen news + updates feed</li>
-                <li>• Ability to purchase selected offerings/NFTs</li>
+              <p className="text-xs text-gray-400 mb-6">
+                Sanskrit: Nāgarika (नागरिक) — one who belongs to a civilization.
+              </p>
+
+              <ul className="space-y-3 text-gray-200 mb-8 text-sm">
+                <li>• Official Citizen Badge / Identity NFT</li>
+                <li>• Serialized Citizen Identification</li>
+                <li>• Entry into the Dharmaverse Citizen Registry</li>
+                <li>• Access to core Dharmaverse zones</li>
+                <li>• Access to public festival ceremonies</li>
+                <li>• Citizen news & updates feed</li>
+                <li>• Ability to purchase selected offerings and NFTs</li>
+                <li>• Night access privileges (permitted zones)</li>
+                <li>• Five complimentary Khatola rides (up to 3 guests)</li>
               </ul>
 
-              <div className="bg-[#0f1b2e] p-4 rounded-xl border border-[#D4AF37]/30 mb-6">
-                <p className="text-sm font-semibold text-[#D4AF37] mb-3">
-                  Phase 1 Unlocks
+              <div className="bg-[#0f1b2e] p-4 rounded-xl border border-[#D4AF37]/30 mb-6 text-sm text-gray-300">
+                <p className="text-[#D4AF37] font-semibold mb-2">Enrollment</p>
+                <p>$5.99</p>
+                <p className="mt-2">
+                  Structured Release Allocation: 2,000,000 Citizens
                 </p>
-
-                <div className="space-y-2 text-sm text-gray-300">
-                  <p className="flex items-center gap-2">
-                    <Check size={16} className="text-[#D4AF37]" />
-                    Temple entry access (core areas)
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Check size={16} className="text-[#D4AF37]" />
-                    Phase 1 citizen hall access
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Check size={16} className="text-[#D4AF37]" />
-                    Festival participation (public)
-                  </p>
-                </div>
+                <p className="mt-2 text-xs text-gray-400">
+                  Approximately 0.20% of global Hindu population (1B reference).
+                </p>
               </div>
+
+              <p className="text-xs text-gray-400 mb-6 leading-relaxed">
+                Dharmaverse Citizenship is an identity of belonging. It is not
+                an investment product and carries no financial guarantees.
+              </p>
 
               <CTAButton
                 variant="gold"
                 className="w-full"
                 onClick={() => handleTierClick("CITIZEN")}
               >
-                Become a Citizen
+                APPLY NOW
               </CTAButton>
             </LuxuryCard>
           </motion.div>
 
           {/* ================= TIER 2 — DEVOTEE ================= */}
-          <LuxuryCard className="opacity-60">
+          <LuxuryCard className="opacity-40 pointer-events-none relative flex flex-col h-full">
+            <span
+              className="absolute top-4 right-2 text-xs px-3 py-1 rounded-full 
+                 bg-[#D4AF37]/10 border border-[#D4AF37]/30 
+                 text-[#D4AF37] tracking-wider"
+            >
+              Coming Soon
+            </span>
+
             <h3 className="text-2xl font-semibold mb-2">🪔 DEVOTEE</h3>
 
             <p className="text-gray-400 mb-6 italic">
@@ -153,15 +171,24 @@ export default function DharmaverseTiers() {
 
             <CTAButton
               variant="whiteGold"
-              className="w-full"
-              onClick={() => handleTierClick("DEVOTEE")}
+              className="w-full opacity-50 cursor-not-allowed"
+              disabled
             >
-              Become a Devotee
+              Coming Soon
             </CTAButton>
           </LuxuryCard>
 
           {/* ================= TIER 3 — GUARDIAN ================= */}
-          <LuxuryCard className="opacity-60">
+
+          <LuxuryCard className="opacity-40 pointer-events-none relative flex flex-col h-full">
+            <span
+              className="absolute top-4 right-1 text-xs px-2 py-1 rounded-full 
+                 bg-[#D4AF37]/10 border border-[#D4AF37]/30 
+                 text-[#D4AF37] tracking-wider"
+            >
+              Coming Soon
+            </span>
+
             <h3 className="text-2xl font-semibold mb-2">🛡 GUARDIAN</h3>
 
             <p className="text-gray-400 mb-6 italic">
@@ -188,15 +215,23 @@ export default function DharmaverseTiers() {
 
             <CTAButton
               variant="whiteGold"
-              className="w-full"
-              onClick={() => handleTierClick("GUARDIAN")}
+              className="w-full opacity-50 cursor-not-allowed"
+              disabled
             >
-              Become a Guardian
+              Coming Soon
             </CTAButton>
           </LuxuryCard>
 
           {/* ================= TIER 4 — PATRON ================= */}
-          <LuxuryCard className="opacity-60">
+          <LuxuryCard className="opacity-40 pointer-events-none relative flex flex-col h-full">
+            <span
+              className="absolute top-4 right-4 text-xs px-3 py-1 rounded-full 
+                 bg-[#D4AF37]/10 border border-[#D4AF37]/30 
+                 text-[#D4AF37] tracking-wider"
+            >
+              Coming Soon
+            </span>
+
             <h3 className="text-2xl font-semibold mb-2">👑 PATRON</h3>
 
             <p className="text-gray-400 mb-6 italic">
@@ -224,10 +259,10 @@ export default function DharmaverseTiers() {
 
             <CTAButton
               variant="whiteGold"
-              className="w-full"
-              onClick={() => handleTierClick("PATRON")}
+              className="w-full opacity-50 cursor-not-allowed"
+              disabled
             >
-              Become a Patron
+              Coming Soon
             </CTAButton>
           </LuxuryCard>
         </div>
@@ -253,13 +288,20 @@ export default function DharmaverseTiers() {
               ))}
             </select>
 
-            <input
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              className="w-full px-4 py-3 rounded-lg bg-[#0f1b2e] border border-white/20 focus:border-[#D4AF37] focus:outline-none transition-colors"
-              onChange={handleChange}
-            />
+            <div>
+              <label className="block mb-2 text-sm text-white/70">
+                Full Name – <span className="text-[#D4AF37]">AVATAR</span>{" "}
+                (choose a name to display)
+              </label>
+
+              <input
+                name="name"
+                placeholder="Enter your full name / avatar name"
+                value={formData.name}
+                className="w-full px-4 py-3 rounded-lg bg-[#0f1b2e] border border-white/20 focus:border-[#D4AF37] focus:outline-none transition-colors"
+                onChange={handleChange}
+              />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input

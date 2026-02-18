@@ -8,20 +8,11 @@ import { Link } from "react-router-dom";
 
 const festivals = [
   {
-    name: "Diwali",
-    month: "October / November",
-    meaning: "Victory of light over darkness and wisdom over ignorance.",
-    symbolism: "Lamps, fire, prosperity rituals, inner illumination.",
-    impact:
-      "Realm illumination events, prosperity mechanics, limited offering drops.",
-  },
-  {
-    name: "Navratri",
-    month: "September / October",
-    meaning: "Nine nights of divine feminine power and transformation.",
-    symbolism: "Goddess forms, colors, rhythm, sacred dance.",
-    impact:
-      "Goddess realm visuals, energy amplification cycles, special devotion events.",
+    name: "Makar Sankranti",
+    month: "January",
+    meaning: "Transition of cosmic energies toward growth and clarity.",
+    symbolism: "Sun, harvest, flight.",
+    impact: "Seasonal reset mechanics, solar-aligned progression bonuses.",
   },
   {
     name: "Maha Shivratri",
@@ -47,11 +38,20 @@ const festivals = [
       "Krishna realm narratives, leela-based challenges, devotion quests.",
   },
   {
-    name: "Makar Sankranti",
-    month: "January",
-    meaning: "Transition of cosmic energies toward growth and clarity.",
-    symbolism: "Sun, harvest, flight.",
-    impact: "Seasonal reset mechanics, solar-aligned progression bonuses.",
+    name: "Navratri",
+    month: "September / October",
+    meaning: "Nine nights of divine feminine power and transformation.",
+    symbolism: "Goddess forms, colors, rhythm, sacred dance.",
+    impact:
+      "Goddess realm visuals, energy amplification cycles, special devotion events.",
+  },
+  {
+    name: "Diwali",
+    month: "October / November",
+    meaning: "Victory of light over darkness and wisdom over ignorance.",
+    symbolism: "Lamps, fire, prosperity rituals, inner illumination.",
+    impact:
+      "Realm illumination events, prosperity mechanics, limited offering drops.",
   },
 ];
 

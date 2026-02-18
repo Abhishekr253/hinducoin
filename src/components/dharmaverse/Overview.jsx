@@ -145,7 +145,7 @@ export default function DharmaverseOverview() {
             </h2>
 
             <p className="text-sm md:text-base text-white/75 leading-relaxed font-cormorant">
-              Hindu Coin is not speculative currency.
+              Hindu Coin is not purely a speculative currency.
               <br />
               It is a dharmic energy unit used to activate temples, sustain
               rituals, and maintain system equilibrium across the Dharmaverse.

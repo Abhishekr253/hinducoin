@@ -4,18 +4,18 @@ import CTAButton from "../common/CTAButton";
 import LuxuryCard from "../common/LuxuryCard";
 
 const progressItems = [
-  { label: "Environment Building", value: 45 },
-  { label: "Temple Architecture", value: 35 },
-  { label: "Ritual Systems", value: 25 },
-  { label: "Citizenship Access", value: 40 },
-  { label: "NFT Integration", value: 20 },
-  { label: "Game / Experience Downloads", value: 15 },
+  { label: "Environment Building", value: 0 },
+  { label: "Temple Architecture", value: 0 },
+  { label: "Ritual Systems", value: 0 },
+  { label: "Citizenship Access", value: 0 },
+  { label: "NFT Integration", value: 0 },
+  { label: "Game / Experience Downloads", value: 0 },
 ];
 
 const updates = [
-  "Initial world terrain and lighting pass completed",
+  "Under active planning.",
   "Temple design language finalized",
-  "Ritual interaction system in prototyping phase",
+  "In discussion stage.",
   "Citizenship access rules under review",
 ];
 
@@ -31,11 +31,10 @@ const fadeUp = {
 export default function DharmaverseDevelopment() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
       <div className="relative py-32 md:py-40 text-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(900px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
-        
+
         <motion.div
           className="relative z-10 max-w-4xl mx-auto px-6"
           initial="hidden"
@@ -48,7 +47,14 @@ export default function DharmaverseDevelopment() {
           </p>
 
           <h1 className="text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond']">
-            Phase 1 is <span className="text-[#D4AF37]">Under Construction</span>
+            Phase{" "}
+            <span
+              className="inline-block font-medium tracking-normal normal-case font-sans"
+              style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
+            >
+              1
+            </span>{" "}
+            is <span className="text-[#D4AF37]">Under Construction</span>
           </h1>
         </motion.div>
       </div>
@@ -62,12 +68,19 @@ export default function DharmaverseDevelopment() {
         variants={fadeUp}
       >
         <h2 className="mb-4 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
-          Phase 1 Estimate
+          Phase <span
+              className="inline-block font-medium tracking-normal normal-case font-sans"
+              style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
+            >
+              1
+            </span>{" "} Estimate
         </h2>
 
         <p className="text-sm md:text-base text-white/75 font-['Cormorant_Garamond']">
-          Approximately <span className="text-[#D4AF37]">12 months</span> to build
-          and stabilize Phase 1 of the Dharmaverse experience.
+          Approximately <span className="text-[#D4AF37]">12 months</span> to
+          build and stabilize Phase{" "}
+          <span className="font-medium tabular-nums">1</span> of the Dharmaverse
+          experience. All stages currently reflect 0% completion.
         </p>
       </motion.div>
 
@@ -134,11 +147,8 @@ export default function DharmaverseDevelopment() {
         viewport={{ amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <CTAButton variant="gold">
-          Open Announcements
-        </CTAButton>
+        <CTAButton variant="gold">Open Announcements</CTAButton>
       </motion.div>
-
     </section>
   );
 }

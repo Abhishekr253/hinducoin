@@ -1,5 +1,6 @@
 import { Copy, Twitter, Github, Globe } from "lucide-react";
 import { useState } from "react";
+import solana from "../../assets/solana.png";
 
 const CONTRACT_ADDRESS = "Coming Soon";
 
@@ -20,7 +21,6 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Top Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          
           {/* Contract */}
           <div>
             <p className="mb-2 text-xs uppercase tracking-[0.3em] text-white/50 font-['Cormorant_Garamond']">
@@ -40,21 +40,26 @@ export default function Footer() {
                 <Copy className="w-4 h-4" />
               </button>
 
-              {copied && (
-                <span className="text-xs text-[#D4AF37]">Copied</span>
-              )}
+              {copied && <span className="text-xs text-[#D4AF37]">Copied</span>}
             </div>
           </div>
 
           {/* Center Links */}
           <div className="flex flex-col items-center gap-4">
             {/* Solana Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium
-              bg-gradient-to-r from-[#9945FF]/20 via-[#14F195]/20 to-[#00FFA3]/20
-              border border-white/10 text-white"
+            <div
+              className="inline-flex items-center gap-3 rounded-full px-4 py-2 text-xs font-medium
+  bg-gradient-to-r from-[#9945FF]/20 via-[#14F195]/20 to-[#00FFA3]/20
+  border border-white/10 text-white"
             >
-              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#9945FF] to-[#14F195]" />
-              Built on Solana
+              <img
+                src={solana}
+                alt="Solana Logo"
+                className="w-5 h-7 object-contain"
+              />
+              <span className="uppercase tracking-[0.2em]">
+                Built on Solana
+              </span>
             </div>
 
             <nav className="flex gap-6 text-sm">
@@ -88,9 +93,9 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-14 pt-6 border-t border-white/10 text-center text-xs text-white/50 leading-relaxed">
           <p>
-            Hindu Coin is a digital cultural utility token. It does not represent
-            financial advice, securities, or investment guarantees. Participate
-            responsibly.
+            Hindu Coin is a digital cultural utility token. It does not
+            represent financial advice, securities, or investment guarantees.
+            Participate responsibly.
           </p>
 
           <p className="mt-2">

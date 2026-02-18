@@ -24,7 +24,7 @@ const nftData = [
     category: "bricks",
     story:
       "A sacred digital brick representing foundational support for Dharmaverse’s central temple complex.",
-    scarcity: "Limited to 1,008 pieces",
+    scarcity: "SCARCE",
     utility:
       "Grants early access to temple zones and special festival ceremonies.",
   },
@@ -34,7 +34,7 @@ const nftData = [
     category: "glass-panels",
     story:
       "A luminous panel symbolizing divine light within the temple structure.",
-    scarcity: "Limited to 500 pieces",
+    scarcity: "RARE",
     utility: "Unlocks visual enhancements during festival cycles.",
   },
   {
@@ -57,10 +57,10 @@ const nftData = [
   },
   {
     id: 5,
-    name: "Citizen Badge – Phase 1",
+    name: "Citizen Badge",
     category: "citizenship-badges",
     story: "Identity badge for early citizens of Dharmaverse.",
-    scarcity: "Based on tier",
+    scarcity: "Less than 1% of worldwide Hindu population",
     utility: "Determines access privileges and participation rights.",
   },
 ];
