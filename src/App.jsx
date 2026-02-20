@@ -16,7 +16,7 @@ function App() {
     setLoading(true);
 
     // Hide loader after next tick (when route component is rendered)
-    const timeout = setTimeout(() => setLoading(false), 100);
+    const timeout = setTimeout(() => setLoading(false), 350);
 
     return () => clearTimeout(timeout);
   }, [location.pathname]);
@@ -25,12 +25,11 @@ function App() {
 
   return (
     <>
-    <ScrollToTop />
+      <ScrollToTop />
       {loading && <Loader />}
 
       {!loading && (
         <>
-          
           {!isSuccessPage && <Header />}
           <AppRouter />
           {!isSuccessPage && <Footer />}

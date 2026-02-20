@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../components/common/CTAButton";
 import LuxuryCard from "../components/common/LuxuryCard";
-import sanatan from "../assets/sanatan.jpg";
+import sanatan from "../assets/sanatan.jpeg";
 import { Link } from "react-router-dom";
 
 const tiles = [
@@ -56,7 +56,7 @@ export default function SanatanHero() {
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-[#05070C]" />
 
         {/* Golden glow */}
         <div className="absolute inset-0 bg-[radial-gradient(900px_450px_at_50%_-10%,rgba(212,175,55,0.25),transparent_70%)]" />

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
-import history from "../../assets/history.jpg";
+import history from "../../assets/history.jpeg";
 import { NavLink } from "react-router-dom";
 
 /* ------------------ DATA ------------------ */

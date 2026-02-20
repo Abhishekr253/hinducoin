@@ -21,6 +21,7 @@ import SuccessPage from "./Pages/SuccessPage";
 import AboutHinduCoin from "./Pages/AboutHinduCoin";
 import NFTsPage from "./Pages/NFTsPage";
 import DownloadsPage from "./Pages/DownloadsPage";
+import OfferingsPavilion from "./Pages/product/OfferingsPavilion";
 
 // future pages
 // import Tokenomics from "./Pages/Tokenomics";
@@ -63,6 +64,9 @@ export default function AppRouter() {
 
       {/* games and download */}
       <Route path="/downloads" element={<DownloadsPage />} />
+
+      {/* product */}
+      <Route path="/products" element={<OfferingsPavilion />} />
 
       {/* Future routes */}
       {/* <Route path="/tokenomics" element={<Tokenomics />} /> */}

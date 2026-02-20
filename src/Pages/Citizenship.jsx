@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "../assets/citizenship.jpg";
+import hero from "../assets/citizen.jpeg";
 import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import { motion } from "framer-motion";
@@ -814,6 +814,28 @@ export default function Citizenship() {
             <CTAButton variant="blueGlass">View FAQs</CTAButton>
           </div>
         </div>
+      </motion.div>
+
+      {/* ================= FOOTNOTE ================= */}
+      <motion.div
+        className="relative py-12 md:py-16 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {/* Subtle Divider */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
+
+        <p className="max-w-4xl mx-auto px-6 text-sm sm:text-base md:text-lg font-medium text-gray-300 leading-relaxed">
+          Dharmaverse Citizenship progresses through{" "}
+          <span className="text-yellow-400">service</span>,{" "}
+          <span className="text-yellow-400">practice</span>,{" "}
+          <span className="text-yellow-400">discipline</span>, and{" "}
+          <span className="text-yellow-400">realization</span> — reflecting the
+          timeless journey of <span className="italic">Sanātana Dharma</span>{" "}
+          within a modern sacred digital civilization.
+        </p>
       </motion.div>
     </section>
   );

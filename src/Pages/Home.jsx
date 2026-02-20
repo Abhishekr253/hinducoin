@@ -6,6 +6,11 @@ import LuxuryCard from "../components/common/LuxuryCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import develop from "../assets/development.jpeg";
+import img1 from "../assets/dharmaverse1.jpeg";
+import img2 from "../assets/dharmaverse2.jpeg";
+import img3 from "../assets/dharmaverse3.jpeg";
+import img4 from "../assets/dharmaverse4.jpeg";
 
 const headline = "The Hindu Coin";
 const luxuryEase = [0.22, 1, 0.36, 1];
@@ -80,6 +85,8 @@ function Home() {
       el.removeEventListener("wheel", onWheel);
     };
   }, []);
+
+  const staticImages = [img1, img2, img3, img4];
   return (
     <main className="w-full">
       {/* ================= HERO SECTION ================= */}
@@ -304,7 +311,7 @@ function Home() {
           {/* IMAGE */}
           <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0"
+              src={develop}
               alt="Dharmaverse Temple"
               decoding="async"
               loading="eager"
@@ -763,7 +770,7 @@ function Home() {
         <div className="absolute inset-0 opacity-[0.035] " />
 
         <motion.div
-          className="relative max-w-7xl mx-auto px-6"
+          className="relative max-w-[1900px] mx-auto px-6"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
@@ -837,13 +844,13 @@ function Home() {
               </h3>
 
               <div className="grid grid-cols-2 gap-5">
-                {[1, 2, 3, 4].map((i) => (
+                {staticImages.map((image, i) => (
                   <div
                     key={i}
                     className="
                 group
                 relative
-                aspect-[3/4]
+                aspect-video
                 rounded-2xl
                 overflow-hidden
                 border border-white/10
@@ -853,8 +860,8 @@ function Home() {
               "
                   >
                     <img
-                      src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Jk2u2g4DQLr9GDcnhsSVbCv154zkKvNNzA&s`}
-                      alt="Poster"
+                      src={image}
+                      alt={`Dharmaverse Visual ${i + 1}`}
                       className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                     />
 

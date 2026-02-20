@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import LuxuryCard from "../common/LuxuryCard";
-import hero from "../../assets/Deities&Symbols.png";
+import symbol from "../../assets/symbols.jpeg"
 
 /* ------------------ DATA ------------------ */
 
@@ -69,7 +69,7 @@ export default function DeitiesSymbols() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center "
-          style={{ backgroundImage: `url("https://yt3.googleusercontent.com/4XeyEBoNHB4G-9K7_5W230OcU6ATpjk8NuTc2WL_EoA07QpH8pCs8lWmwnzMpJkrJHDz-SR2=s900-c-k-c0x00ffffff-no-rj")` }}
+          style={{ backgroundImage: `url(${symbol})` }}
         />
 
         {/* Overlay */}

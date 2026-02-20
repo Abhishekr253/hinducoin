@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import LuxuryCard from "../common/LuxuryCard";
+import develop from "../../assets/development.jpeg";
 
 const progressItems = [
   { label: "Environment Building", value: 0 },
@@ -32,9 +33,24 @@ export default function DharmaverseDevelopment() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
       {/* ================= HERO ================= */}
-      <div className="relative py-32 md:py-40 text-center overflow-hidden">
+      <section className="relative w-full h-[90vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={develop}
+          alt="Dharmaverse Development"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/65" />
+
+        {/* Sacred Gold Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(900px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
 
+        {/* Bottom Fade Into Page */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#05070C] via-[#05070C]/80 to-transparent" />
+
+        {/* Content */}
         <motion.div
           className="relative z-10 max-w-4xl mx-auto px-6"
           initial="hidden"
@@ -42,7 +58,7 @@ export default function DharmaverseDevelopment() {
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/70 font-['Cormorant_Garamond']">
             Dharmaverse Development
           </p>
 
@@ -57,7 +73,7 @@ export default function DharmaverseDevelopment() {
             is <span className="text-[#D4AF37]">Under Construction</span>
           </h1>
         </motion.div>
-      </div>
+      </section>
 
       {/* ================= PHASE ESTIMATE ================= */}
       <motion.div
@@ -68,12 +84,14 @@ export default function DharmaverseDevelopment() {
         variants={fadeUp}
       >
         <h2 className="mb-4 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
-          Phase <span
-              className="inline-block font-medium tracking-normal normal-case font-sans"
-              style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
-            >
-              1
-            </span>{" "} Estimate
+          Phase{" "}
+          <span
+            className="inline-block font-medium tracking-normal normal-case font-sans"
+            style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
+          >
+            1
+          </span>{" "}
+          Estimate
         </h2>
 
         <p className="text-sm md:text-base text-white/75 font-['Cormorant_Garamond']">

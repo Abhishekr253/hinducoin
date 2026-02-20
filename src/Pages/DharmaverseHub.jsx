@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../components/common/CTAButton";
-import dharmaverse from "../assets/dharmaverse.jpg";
+import dharmaverse from "../assets/dharmaverse_og.jpg.jpeg";
+import { Link } from "react-router-dom";
 
 /* ------------------ ANIMATION ------------------ */
 
@@ -82,9 +83,15 @@ export default function DharmaverseHub() {
             variants={textFade}
             className="mt-14 flex flex-col md:flex-row gap-6 justify-center"
           >
-            <CTAButton variant="gold">Temple Complex</CTAButton>
-            <CTAButton variant="outline">Citizenship</CTAButton>
-            <CTAButton variant="outline">Rituals</CTAButton>
+            <Link to="/dharmaverse/temple">
+              <CTAButton variant="gold">Temple Complex</CTAButton>
+            </Link>
+            <Link to="/citizenship">
+              <CTAButton variant="outline">Citizenship</CTAButton>
+            </Link>
+            <Link to="/dharmaverse/rituals">
+              <CTAButton variant="outline">Rituals</CTAButton>
+            </Link>
           </motion.div>
 
           {/* Footer Line */}

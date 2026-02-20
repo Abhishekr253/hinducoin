@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import { Link } from "react-router-dom";
+import overview from "../../assets/overview.jpeg";
 
 /* ------------------ ANIMATION ------------------ */
 
@@ -22,16 +23,33 @@ export default function DharmaverseOverview() {
       {/* Ambient Sacred Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-10%,#141B2D_0%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
-        {/* ================= HEADER ================= */}
+      {/* ================= HEADER ================= */}
+      <section className="relative w-full h-[95vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={overview}
+          alt="Dharmaverse Overview"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Sacred Gold Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_50%_-10%,rgba(212,175,55,0.15),transparent_70%)]" />
+
+        {/* Bottom Fade Into Page */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#05070C] via-[#05070C]/80 to-transparent" />
+
+        {/* Content */}
         <motion.div
-          className="max-w-3xl mx-auto text-center mb-32"
+          className="relative z-10 max-w-3xl px-6"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ amount: 0.3 }}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-cormorant">
+          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/70 font-cormorant">
             Dharmaverse Overview
           </p>
 
@@ -39,13 +57,14 @@ export default function DharmaverseOverview() {
             A Living <span className="text-[#D4AF37]">Civilization</span>
           </h1>
 
-          <p className="text-sm md:text-base text-white/75 leading-relaxed font-cormorant">
+          <p className="text-sm md:text-base text-white/80 leading-relaxed font-cormorant">
             Dharmaverse is not an experience you play.
             <br />
             It is a system you enter.
           </p>
         </motion.div>
-
+      </section>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
         {/* ================= SECTIONS ================= */}
         <div className="grid gap-24">
           {/* 1. WHAT IT IS */}

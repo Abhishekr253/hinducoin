@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import LuxuryCard from "../common/LuxuryCard";
 import CTAButton from "../common/CTAButton";
+import rituals from "../../assets/rituals.jpeg";
 
 const sections = [
   {
@@ -39,9 +40,24 @@ export default function RitualsPrayers() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
       {/* ================= HERO ================= */}
-      <div className="relative py-16 md:py-44 text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(700px_350px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
+      <section className="relative w-full h-[85vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={rituals}
+          alt="Rituals & Prayers"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        />
 
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/65" />
+
+        {/* Sacred Gold Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
+
+        {/* Bottom Fade Into Page */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#05070C] via-[#05070C]/80 to-transparent" />
+
+        {/* Content */}
         <motion.div
           className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
           initial="hidden"
@@ -49,7 +65,7 @@ export default function RitualsPrayers() {
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 font-['Cormorant_Garamond']">
+          <p className="mb-3 text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/70 font-['Cormorant_Garamond']">
             Rituals & Prayers
           </p>
 
@@ -59,7 +75,7 @@ export default function RitualsPrayers() {
             <span className="text-[#D4AF37]">Of Intention & Devotion</span>
           </h1>
         </motion.div>
-      </div>
+      </section>
 
       {/* ================= CONTENT SECTIONS ================= */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 md:pb-32">

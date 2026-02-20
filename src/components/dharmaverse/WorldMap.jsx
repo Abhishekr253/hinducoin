@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import LuxuryCard from "../common/LuxuryCard";
 import CTAButton from "../common/CTAButton";
+import map from "../../assets/map.jpeg";
 
 const realms = [
   { name: "Main Hub", status: "active" },
@@ -29,10 +30,22 @@ const statusStyles = {
 export default function WorldMap() {
   return (
     <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
-      <div className="relative py-36 md:py-44 text-center">
+      <div className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${map})` }}
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/65" />
+
+        {/* Gold Radial Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(900px_500px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
+
+        {/* Bottom Fade Blend */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#05070C]" />
 
         <motion.div
           className="relative z-10 max-w-5xl mx-auto px-6"
@@ -41,7 +54,7 @@ export default function WorldMap() {
           viewport={{ amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
+          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/70 font-['Cormorant_Garamond']">
             World Map
           </p>
 
@@ -111,11 +124,8 @@ export default function WorldMap() {
         viewport={{ amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <CTAButton variant="gold">
-          Begin Exploration
-        </CTAButton>
+        <CTAButton variant="gold">Begin Exploration</CTAButton>
       </motion.div>
-
     </section>
   );
 }
