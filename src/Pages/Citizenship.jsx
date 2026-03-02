@@ -409,119 +409,119 @@ export default function Citizenship() {
       </div>
 
       {/* ================= SECTION 3C — TIER COMPARISON ================= */}
-      <motion.div
-        className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-28"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-16 leading-tight">
-          Citizenship Tiers & Privileges
-        </h3>
+      {/* <motion.div
+          className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-28"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-16 leading-tight">
+            Citizenship Tiers & Privileges
+          </h3>
 
-        <div className="overflow-x-auto -mx-4 sm:mx-0">
-          <table className="min-w-[720px] w-full border-collapse text-xs sm:text-sm md:text-base">
-            <thead>
-              <tr className="bg-gradient-to-r from-yellow-500/10 to-transparent text-yellow-400">
-                <th className="p-3 md:p-4 text-left border-b border-yellow-500/20"></th>
-                <th className="p-3 md:p-4 border-b border-yellow-500/20">
-                  Citizen
-                </th>
-                <th className="p-3 md:p-4 border-b border-yellow-500/20">
-                  Devotee
-                </th>
-                <th className="p-3 md:p-4 border-b border-yellow-500/20">
-                  Guardian
-                </th>
-                <th className="p-3 md:p-4 border-b border-yellow-500/20">
-                  Patron
-                </th>
-              </tr>
-            </thead>
-
-            <tbody className="text-gray-300">
-              {[
-                [
-                  "Badge / Identity",
-                  "✓",
-                  "Enhanced Badge",
-                  "Elite Insignia",
-                  "Founders Crest",
-                ],
-                [
-                  "Temple Access Level",
-                  "Standard",
-                  "Priority Entry",
-                  "Inner Sanctum",
-                  "Private Access",
-                ],
-                [
-                  "Festival Access Level",
-                  "General",
-                  "Priority",
-                  "VIP",
-                  "Private Ceremonial",
-                ],
-                [
-                  "Ritual Privileges",
-                  "Participation",
-                  "Priority Slots",
-                  "Reserved Rituals",
-                  "Custom Ritual Access",
-                ],
-                [
-                  "Offering / Drops Privileges",
-                  "Public + Citizen Drops",
-                  "Early Access",
-                  "Exclusive Drops",
-                  "Private Allocations",
-                ],
-                [
-                  "Realm Early Access",
-                  "Phase Access",
-                  "Early Phase",
-                  "Pre-Launch Entry",
-                  "Founders Access",
-                ],
-                [
-                  "Private Zones",
-                  "—",
-                  "Limited",
-                  "Guardian Chambers",
-                  "Private Realms",
-                ],
-                [
-                  "Priority Allocations",
-                  "Standard",
-                  "Priority",
-                  "High Allocation",
-                  "Guaranteed Allocation",
-                ],
-              ].map((row, i) => (
-                <tr
-                  key={i}
-                  className="border-b border-white/5 hover:bg-blue-900/20 transition-all duration-300"
-                >
-                  <td className="p-3 md:p-4 font-medium text-white whitespace-nowrap">
-                    {row[0]}
-                  </td>
-                  <td className="p-3 md:p-4 text-center">{row[1]}</td>
-                  <td className="p-3 md:p-4 text-center">{row[2]}</td>
-                  <td className="p-3 md:p-4 text-center">{row[3]}</td>
-                  <td className="p-3 md:p-4 text-center text-yellow-400 font-medium">
-                    {row[4]}
-                  </td>
+          <div className="overflow-x-auto -mx-4 sm:mx-0">
+            <table className="min-w-[720px] w-full border-collapse text-xs sm:text-sm md:text-base">
+              <thead>
+                <tr className="bg-gradient-to-r from-yellow-500/10 to-transparent text-yellow-400">
+                  <th className="p-3 md:p-4 text-left border-b border-yellow-500/20"></th>
+                  <th className="p-3 md:p-4 border-b border-yellow-500/20">
+                    Citizen
+                  </th>
+                  <th className="p-3 md:p-4 border-b border-yellow-500/20">
+                    Devotee
+                  </th>
+                  <th className="p-3 md:p-4 border-b border-yellow-500/20">
+                    Guardian
+                  </th>
+                  <th className="p-3 md:p-4 border-b border-yellow-500/20">
+                    Patron
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
 
-        <p className="text-[10px] sm:text-xs text-gray-500 mt-4 md:mt-6 text-center">
-          Privilege levels may expand as Dharmaverse evolves across phases.
-        </p>
-      </motion.div>
+              <tbody className="text-gray-300">
+                {[
+                  [
+                    "Badge / Identity",
+                    "✓",
+                    "Enhanced Badge",
+                    "Elite Insignia",
+                    "Founders Crest",
+                  ],
+                  [
+                    "Temple Access Level",
+                    "Standard",
+                    "Priority Entry",
+                    "Inner Sanctum",
+                    "Private Access",
+                  ],
+                  [
+                    "Festival Access Level",
+                    "General",
+                    "Priority",
+                    "VIP",
+                    "Private Ceremonial",
+                  ],
+                  [
+                    "Ritual Privileges",
+                    "Participation",
+                    "Priority Slots",
+                    "Reserved Rituals",
+                    "Custom Ritual Access",
+                  ],
+                  [
+                    "Offering / Drops Privileges",
+                    "Public + Citizen Drops",
+                    "Early Access",
+                    "Exclusive Drops",
+                    "Private Allocations",
+                  ],
+                  [
+                    "Realm Early Access",
+                    "Phase Access",
+                    "Early Phase",
+                    "Pre-Launch Entry",
+                    "Founders Access",
+                  ],
+                  [
+                    "Private Zones",
+                    "—",
+                    "Limited",
+                    "Guardian Chambers",
+                    "Private Realms",
+                  ],
+                  [
+                    "Priority Allocations",
+                    "Standard",
+                    "Priority",
+                    "High Allocation",
+                    "Guaranteed Allocation",
+                  ],
+                ].map((row, i) => (
+                  <tr
+                    key={i}
+                    className="border-b border-white/5 hover:bg-blue-900/20 transition-all duration-300"
+                  >
+                    <td className="p-3 md:p-4 font-medium text-white whitespace-nowrap">
+                      {row[0]}
+                    </td>
+                    <td className="p-3 md:p-4 text-center">{row[1]}</td>
+                    <td className="p-3 md:p-4 text-center">{row[2]}</td>
+                    <td className="p-3 md:p-4 text-center">{row[3]}</td>
+                    <td className="p-3 md:p-4 text-center text-yellow-400 font-medium">
+                      {row[4]}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-[10px] sm:text-xs text-gray-500 mt-4 md:mt-6 text-center">
+            Privilege levels may expand as Dharmaverse evolves across phases.
+          </p>
+        </motion.div> */}
 
       {/* ================= SECTION 3D — PHASE EVOLUTION ================= */}
       <motion.div
@@ -576,7 +576,7 @@ export default function Citizenship() {
 
               <p className="mt-4 md:mt-8 text-xs sm:text-sm text-gray-400 leading-relaxed">
                 ✅ Tiers will gain new privileges as the world grows — without
-                needing to “reinvent” membership.
+                needing to “reinvent” citizenship.
               </p>
             </LuxuryCard>
           </motion.div>
@@ -632,14 +632,14 @@ export default function Citizenship() {
                   <div className="text-gray-400">Public</div>
                   <div>✅</div>
 
-                  <div className="text-yellow-400">Devotee</div>
-                  <div>✅</div>
+                  <div className="text-yellow-400 ">Devotee</div>
+                  <div className="text-yellow-400">—</div>
 
                   <div className="text-yellow-400">Guardian</div>
-                  <div>✅</div>
+                  <div className="text-yellow-400">—</div>
 
                   <div className="text-yellow-400 font-medium">Patron</div>
-                  <div>✅</div>
+                  <div className="text-yellow-400">—</div>
                 </div>
               </div>
             ))}
@@ -688,13 +688,13 @@ export default function Citizenship() {
                     ✅
                   </div>
                   <div className="p-4 text-center border-t border-white/10 text-yellow-400">
-                    ✅
+                    —
                   </div>
                   <div className="p-4 text-center border-t border-white/10 text-yellow-400">
-                    ✅
+                    —
                   </div>
                   <div className="p-4 text-center border-t border-white/10 text-yellow-400 font-semibold">
-                    ✅
+                    —
                   </div>
                 </React.Fragment>
               ))}
@@ -736,22 +736,22 @@ export default function Citizenship() {
               {
                 tier: "Phase 1 Citizens",
                 status: "Open / Limited",
-                width: "70%",
+                width: "0%",
               },
               {
                 tier: "Devotees",
                 status: "Limited Slots",
-                width: "45%",
+                width: "0%",
               },
               {
                 tier: "Guardian",
                 status: "Very Limited",
-                width: "25%",
+                width: "0%",
               },
               {
                 tier: "Patron",
                 status: "Ultra Limited",
-                width: "10%",
+                width: "0%",
               },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} className="space-y-2">

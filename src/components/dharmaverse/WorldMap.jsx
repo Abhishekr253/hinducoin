@@ -5,11 +5,11 @@ import CTAButton from "../common/CTAButton";
 import map from "../../assets/map.jpeg";
 
 const realms = [
-  { name: "Main Hub", status: "active" },
-  { name: "Floating Islands", status: "active" },
+  { name: "Main Hub", status: "locked" },
+  { name: "Floating Islands", status: "locked" },
   { name: "Sacred Realms", status: "locked" },
   { name: "Ancient Dimensions", status: "locked" },
-  { name: "Future Expansions", status: "future" },
+  { name: "Future Expansions", status: "locked" },
 ];
 
 const fadeUp = {
