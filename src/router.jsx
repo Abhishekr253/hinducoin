@@ -22,6 +22,7 @@ import AboutHinduCoin from "./Pages/AboutHinduCoin";
 import NFTsPage from "./Pages/NFTsPage";
 import DownloadsPage from "./Pages/DownloadsPage";
 import OfferingsPavilion from "./Pages/product/OfferingsPavilion";
+import Glossary from "./components/sanatan/Glossary";
 
 // future pages
 // import Tokenomics from "./Pages/Tokenomics";
@@ -41,6 +42,7 @@ export default function AppRouter() {
       <Route path="/sanatan/history" element={<HistoryHeritage />} />
       <Route path="/sanatan/festivals" element={<FestivalsCalendar />} />
       <Route path="/sanatan/deities" element={<DeitiesSymbols />} />
+      <Route path="/sanatan/glossary" element={<Glossary />} />
       <Route path="/dharmaverse" element={<DharmaverseHub />} />
       <Route path="/dharmaverse/overview" element={<DharmaverseOverview />} />
       <Route
