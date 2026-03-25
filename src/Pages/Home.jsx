@@ -287,19 +287,6 @@ function Home() {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            className="mt-10 md:mt-16 text-center transform-gpu"
-            variants={fadeUp}
-          >
-            <CTAButton
-              variant="gold"
-              className="text-sm md:text-base px-6 py-2 md:px-8 md:py-3"
-            >
-              View Tokenomics
-            </CTAButton>
-          </motion.div>
         </motion.div>
       </section>
 
