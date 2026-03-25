@@ -111,7 +111,7 @@ export default function Citizenship() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <h1 className="text-2xl sm:text-3xl md:text-6xl font-semibold tracking-wide md:tracking-wider text-white leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl font-light tracking-wide md:tracking-wider text-white leading-tight">
             Become a Citizen of Dharmaverse.
           </h1>
         </motion.div>
@@ -126,7 +126,7 @@ export default function Citizenship() {
         viewport={{ once: true }}
       >
         {/* Headline */}
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-wide mb-5 md:mb-8 leading-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-light tracking-wide mb-5 md:mb-8 leading-tight">
           Citizenship is your place in the Dharmaverse.
         </h2>
 
@@ -180,7 +180,7 @@ export default function Citizenship() {
         {pillars.map((card, i) => (
           <motion.div key={i} variants={fadeUp}>
             <LuxuryCard className="p-6 sm:p-7 md:p-8 text-center">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 md:mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-light mb-3 md:mb-4">
                 {card.title}
               </h3>
 
@@ -200,7 +200,7 @@ export default function Citizenship() {
 
       {/* ================= SECTION 2D — AUDIENCE ================= */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-24">
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-8 md:mb-14 leading-tight">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-light text-center mb-8 md:mb-14 leading-tight">
           Citizenship is designed for:
         </h3>
 
@@ -214,7 +214,7 @@ export default function Citizenship() {
           {audienceTiles.map((tile, i) => (
             <motion.div key={i} variants={fadeUp}>
               <LuxuryCard className="p-5 sm:p-6 text-center">
-                <h4 className="font-semibold mb-2 text-sm sm:text-base">
+                <h4 className="font-light mb-2 text-sm sm:text-base">
                   {tile.title}
                 </h4>
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
@@ -234,7 +234,7 @@ export default function Citizenship() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-6 md:mb-10 leading-tight">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-light text-center mb-6 md:mb-10 leading-tight">
           Why Citizenship Exists
         </h3>
 
@@ -265,7 +265,7 @@ export default function Citizenship() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 md:mb-10 text-center leading-tight">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-light mb-6 md:mb-10 text-center leading-tight">
           What to expect in Phase 1
         </h3>
 
@@ -300,7 +300,7 @@ export default function Citizenship() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6 leading-tight">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-light mb-4 md:mb-6 leading-tight">
           Citizenship comes with respect.
         </h3>
 
@@ -327,7 +327,7 @@ export default function Citizenship() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-5 md:mb-8 leading-tight">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-light mb-5 md:mb-8 leading-tight">
           Become a Citizen
         </h3>
 
@@ -337,7 +337,7 @@ export default function Citizenship() {
               variant="gold"
               className="w-full text-sm sm:text-base py-2 sm:py-3"
             >
-              Buy Citizenship
+              AQUIRE CITIZENSHIP
             </CTAButton>
           </Link>
         </div>
@@ -416,7 +416,7 @@ export default function Citizenship() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-16 leading-tight">
+          <h3 className="text-xl sm:text-2xl md:text-4xl font-light text-center mb-8 md:mb-16 leading-tight">
             Citizenship Tiers & Privileges
           </h3>
 
@@ -532,7 +532,7 @@ export default function Citizenship() {
         viewport={{ once: true }}
       >
         {/* Headline */}
-        <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-16 leading-tight">
+        <h3 className="text-xl sm:text-2xl md:text-4xl font-light text-center mb-8 md:mb-16 leading-tight">
           Benefits evolve as Dharmaverse expands
         </h3>
 
@@ -540,7 +540,7 @@ export default function Citizenship() {
           {/* Card 1 — Phase 1 */}
           <motion.div variants={fadeUp}>
             <LuxuryCard className="p-6 sm:p-8 md:p-10 h-full">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-yellow-400">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-light mb-4 md:mb-6 text-yellow-400">
                 Phase 1 Benefits
               </h4>
 
@@ -558,7 +558,7 @@ export default function Citizenship() {
           {/* Card 2 — Future Expansion */}
           <motion.div variants={fadeUp}>
             <LuxuryCard className="p-6 sm:p-8 md:p-10 h-full border border-yellow-500/20 bg-blue-900/10 backdrop-blur-md">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-yellow-400">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-light mb-4 md:mb-6 text-yellow-400">
                 Future Expansion Benefits
               </h4>
 
@@ -593,7 +593,7 @@ export default function Citizenship() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Headline */}
-          <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-center mb-12 md:mb-20 leading-tight">
+          <h3 className="text-xl sm:text-2xl md:text-4xl font-light text-center mb-12 md:mb-20 leading-tight">
             Festivals change the world — and change what Citizens unlock
           </h3>
 
@@ -621,7 +621,7 @@ export default function Citizenship() {
                 key={index}
                 className="p-6 rounded-2xl bg-white/5 border border-white/10"
               >
-                <div className="font-semibold text-white text-lg">
+                <div className="font-light text-white text-lg">
                   {festival.name}
                 </div>
                 <div className="text-sm text-gray-400 mb-4">
@@ -678,7 +678,7 @@ export default function Citizenship() {
               ].map((festival, index) => (
                 <React.Fragment key={index}>
                   <div className="p-4 border-t border-white/10">
-                    <div className="font-semibold text-white">
+                    <div className="font-light text-white">
                       {festival.name}
                     </div>
                     <div className="text-xs text-gray-400">{festival.desc}</div>
@@ -693,7 +693,7 @@ export default function Citizenship() {
                   <div className="p-4 text-center border-t border-white/10 text-yellow-400">
                     —
                   </div>
-                  <div className="p-4 text-center border-t border-white/10 text-yellow-400 font-semibold">
+                  <div className="p-4 text-center border-t border-white/10 text-yellow-400 font-light">
                     —
                   </div>
                 </React.Fragment>
@@ -719,7 +719,7 @@ export default function Citizenship() {
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           {/* Headline */}
-          <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold mb-6 md:mb-10 leading-tight">
+          <h3 className="text-xl sm:text-2xl md:text-4xl font-light mb-6 md:mb-10 leading-tight">
             Availability & Release Phases
           </h3>
 
@@ -795,7 +795,7 @@ export default function Citizenship() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {/* Headline */}
-          <h3 className="text-2xl sm:text-3xl md:text-5xl font-semibold mb-6 md:mb-8 leading-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-light mb-6 md:mb-8 leading-tight">
             Choose your tier. Enter Dharmaverse.
           </h3>
 

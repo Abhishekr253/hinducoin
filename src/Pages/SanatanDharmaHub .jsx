@@ -23,10 +23,6 @@ const tiles = [
     path: "/sanatan/deities",
   },
   {
-    title: "Epics & Sacred Stories",
-    path: "/sanatan/epics",
-  },
-  {
     title: "Glossary",
     path: "/sanatan/glossary",
   },

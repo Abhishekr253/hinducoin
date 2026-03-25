@@ -22,6 +22,8 @@ function App() {
   }, [location.pathname]);
 
   const isSuccessPage = location.pathname.startsWith("/success");
+  const isGatewayPage = location.pathname === "/";
+  const isHinduCoinPage = location.pathname.startsWith("/hindu-coin");
 
   return (
     <>
@@ -30,9 +32,10 @@ function App() {
 
       {!loading && (
         <>
-          {!isSuccessPage && <Header />}
+        
+          {!isSuccessPage && !isGatewayPage && !isHinduCoinPage && <Header />}
           <AppRouter />
-          {!isSuccessPage && <Footer />}
+          {!isSuccessPage && !isGatewayPage && !isHinduCoinPage && <Footer />}
         </>
       )}
     </>

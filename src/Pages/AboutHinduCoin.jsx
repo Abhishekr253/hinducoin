@@ -37,7 +37,7 @@ export default function AboutHinduCoin() {
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center px-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-[#D4AF37] mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-light text-[#D4AF37] mb-6">
             About The Hindu Coin
           </h1>
 
@@ -56,7 +56,7 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-12 md:mb-16 border-[#D4AF37]/40">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-5 md:mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-5 md:mb-6">
               Why The Hindu Coin Exists
             </h2>
 
@@ -91,13 +91,13 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-6">
               What Makes It Different
             </h2>
 
             <div className="space-y-6 md:space-y-8 text-sm sm:text-base text-gray-300 leading-relaxed">
               <div className="border-l border-[#D4AF37]/30 pl-4">
-                <h3 className="font-semibold text-white mb-2 tracking-wide">
+                <h3 className="font-light text-white mb-2 tracking-wide">
                   1. Purpose
                 </h3>
                 <p>
@@ -107,7 +107,7 @@ export default function AboutHinduCoin() {
               </div>
 
               <div className="border-l border-[#D4AF37]/30 pl-4">
-                <h3 className="font-semibold text-white mb-2 tracking-wide">
+                <h3 className="font-light text-white mb-2 tracking-wide">
                   2. Permanence
                 </h3>
                 <p>
@@ -117,7 +117,7 @@ export default function AboutHinduCoin() {
               </div>
 
               <div className="border-l border-[#D4AF37]/30 pl-4">
-                <h3 className="font-semibold text-white mb-2 tracking-wide">
+                <h3 className="font-light text-white mb-2 tracking-wide">
                   3. Expansion
                 </h3>
                 <p>
@@ -137,7 +137,7 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-12 md:mb-16 border-[#D4AF37]/30">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-5 md:mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-5 md:mb-6">
               About Dharmaverse
             </h2>
 
@@ -162,7 +162,7 @@ export default function AboutHinduCoin() {
 
             {/* Phase Box */}
             <div className="mt-8 bg-[#0f1b2e]/70 backdrop-blur-sm p-5 sm:p-6 rounded-xl border border-[#D4AF37]/30">
-              <p className="font-semibold text-[#D4AF37] mb-4 tracking-wide">
+              <p className="font-light text-[#D4AF37] mb-4 tracking-wide">
                 Phase{" "}
                 <span
                   className="inline-block font-medium tracking-normal normal-case font-sans"
@@ -197,7 +197,7 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-5 md:mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-5 md:mb-6">
               Sanatan Dharma Inspiration
             </h2>
 
@@ -243,7 +243,7 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-12 md:mb-16 border-[#D4AF37]/30">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-6">
               Citizenship Model
             </h2>
 
@@ -270,7 +270,7 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-6">
               Long-Term Vision
             </h2>
 
@@ -294,7 +294,7 @@ export default function AboutHinduCoin() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <LuxuryCard className="mb-16 md:mb-20 border border-red-500/20">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[#D4AF37] mb-6">
+            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-6">
               Transparency & Responsibility
             </h2>
 
@@ -329,7 +329,7 @@ export default function AboutHinduCoin() {
         >
           <LuxuryCard className="border-[#D4AF37]/40 mb-24">
             {/* Header */}
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#D4AF37] mb-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-light text-[#D4AF37] mb-10 text-center">
               Founder’s Message
             </h2>
 
@@ -360,7 +360,7 @@ export default function AboutHinduCoin() {
 
             {/* Signature */}
             <div className="mt-8 text-right">
-              <p className="text-[#D4AF37] font-semibold tracking-wide text-sm md:text-base">
+              <p className="text-[#D4AF37] font-light tracking-wide text-sm md:text-base">
                 — Founder
                 <br />
                 The Hindu Coin

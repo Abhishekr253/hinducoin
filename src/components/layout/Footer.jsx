@@ -58,7 +58,7 @@ export default function Footer() {
                 className="w-5 h-7 object-contain"
               />
               <span className="uppercase tracking-[0.2em]">
-                Built on Solana
+                POWERED BY THE HINDU COIN ON SOLANA
               </span>
             </div>
 

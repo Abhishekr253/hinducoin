@@ -63,7 +63,7 @@ export default function Codex() {
         {codexSections.map((section) => (
           <motion.div
             key={section.title}
-            className="max-w-6xl mx-auto px-4 sm:px-6"
+            className="max-w-7xl mx-auto px-4 sm:px-6"
             initial="hidden"
             whileInView="show"
             viewport={{ amount: 0.3 }}

@@ -23,6 +23,9 @@ import NFTsPage from "./Pages/NFTsPage";
 import DownloadsPage from "./Pages/DownloadsPage";
 import OfferingsPavilion from "./Pages/product/OfferingsPavilion";
 import Glossary from "./components/sanatan/Glossary";
+import Gateway from "./Pages/Gateway";
+import HinduCoinHero from "./Pages/HinduCoinHero";
+import MediaHub from "./Pages/MediaHub ";
 
 // future pages
 // import Tokenomics from "./Pages/Tokenomics";
@@ -32,7 +35,9 @@ import Glossary from "./components/sanatan/Glossary";
 export default function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Gateway />} />
+      <Route path = "/hindu-coin" element={<HinduCoinHero />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/explore" element={<Explore />} />
       <Route path="/about" element={<AboutHinduCoin />} />
 
@@ -69,6 +74,9 @@ export default function AppRouter() {
 
       {/* product */}
       <Route path="/products" element={<OfferingsPavilion />} />
+
+      {/* media hub */}
+      <Route path="/media-hub" element={<MediaHub />} />
 
       {/* Future routes */}
       {/* <Route path="/tokenomics" element={<Tokenomics />} /> */}

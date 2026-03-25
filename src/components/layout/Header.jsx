@@ -7,10 +7,11 @@ import { label, path } from "framer-motion/client";
 
 const navItems = [
   { label: "Citizenship", path: "/citizenship" },
-  { label: "Explore", path: "/explore" },
   { label: "NFTs & Offerings", path: "/nfts" },
-  { label: "Games & Downloads ", path: "/downloads" },
   { label: "Products", path: "/products" },
+  { label: "Games & Downloads ", path: "/downloads" },
+  { label: "Explore", path: "/explore" },
+  { label: "Media Hub", path: "/media-hub" },
   { label: "About", path: "/about" },
   { label: "Legal", path: "/legal" },
 ];
@@ -44,7 +45,7 @@ function Header() {
   return (
     <>
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-transparent">
+      <header className="fixed w-full z-50 bg-[#050B1A] teansparent backdrop-blur-sm border-b border-[#D4AF37]/20">
         <div className="mx-auto flex justify-between items-center px-6 py-4">
           {/* LOGO */}
           <NavLink to="/" className="text-white font-medium tracking-wide">
@@ -53,55 +54,6 @@ function Header() {
 
           {/* DESKTOP NAV */}
           <nav className="hidden lg:flex items-center gap-8 text-sm">
-            {/* SANATAN DROPDOWN */}
-            <div className="relative group">
-              <NavLink
-                to="/sanatan-hub"
-                className="flex items-center gap-1 text-white hover:underline underline-offset-8"
-              >
-                Sanatan Dharma Hub
-                <ChevronDown size={16} className="mt-[2px]" />
-              </NavLink>
-
-              {/* Hover bridge container */}
-              <div
-                className="
-      absolute left-0 top-full pt-3 w-64
-      opacity-0 invisible
-      translate-y-3 scale-95
-      group-hover:opacity-100
-      group-hover:visible
-      group-hover:translate-y-0
-      group-hover:scale-100
-      transition-all duration-300 ease-out
-    "
-              >
-                <div
-                  className="
-        bg-[#050B1A]/95 backdrop-blur-xl
-        border border-[#D4AF37]/20
-        rounded-xl shadow-xl
-        overflow-hidden
-      "
-                >
-                  {sanatanItems.map((item) => (
-                    <NavLink
-                      key={item.label}
-                      to={item.path}
-                      className="
-            block px-5 py-3
-            text-white/80
-            hover:text-white
-            hover:bg-white/5
-            transition
-          "
-                    >
-                      {item.label}
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             {/* DHARMAVERSE DROPDOWN */}
             <div className="relative group">
@@ -153,6 +105,56 @@ function Header() {
               </div>
             </div>
 
+             {/* SANATAN DROPDOWN */}
+            <div className="relative group">
+              <NavLink
+                to="/sanatan-hub"
+                className="flex items-center gap-1 text-white hover:underline underline-offset-8"
+              >
+                Sanatan Dharma Hub
+                <ChevronDown size={16} className="mt-[2px]" />
+              </NavLink>
+
+              {/* Hover bridge container */}
+              <div
+                className="
+      absolute left-0 top-full pt-3 w-64
+      opacity-0 invisible
+      translate-y-3 scale-95
+      group-hover:opacity-100
+      group-hover:visible
+      group-hover:translate-y-0
+      group-hover:scale-100
+      transition-all duration-300 ease-out
+    "
+              >
+                <div
+                  className="
+        bg-[#050B1A]/95 backdrop-blur-xl
+        border border-[#D4AF37]/20
+        rounded-xl shadow-xl
+        overflow-hidden
+      "
+                >
+                  {sanatanItems.map((item) => (
+                    <NavLink
+                      key={item.label}
+                      to={item.path}
+                      className="
+            block px-5 py-3
+            text-white/80
+            hover:text-white
+            hover:bg-white/5
+            transition
+          "
+                    >
+                      {item.label}
+                    </NavLink>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {/* STANDARD LINKS */}
             {navItems.map((item) => (
               <NavLink
@@ -167,14 +169,14 @@ function Header() {
 
           {/* DESKTOP ACTIONS */}
           <div className="hidden lg:flex items-center gap-4">
-            <button
+            {/* <button
               onClick={() =>
                 navigator.clipboard.writeText("0xYOUR_CONTRACT_ADDRESS")
               }
               className="p-2 rounded-full border border-[#D4AF37]/40 bg-white/5 hover:shadow-[0_0_18px_rgba(212,175,55,0.45)] transition"
             >
               <Copy size={16} />
-            </button>
+            </button> */}
 
             {/* <NavLink
               to="/buy"
@@ -185,7 +187,7 @@ function Header() {
 
             <NavLink
               to="/citizenship"
-              className="px-4 py-1.5 rounded-full bg-blue-800/30 border border-blue-400/30 text-white"
+              className="px-4 py-1.5 rounded-full bg-[#D4AF37] border border-blue-400/30"
             >
               Become a Citizen
             </NavLink>

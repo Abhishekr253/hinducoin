@@ -179,7 +179,7 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            The Hindu Coin
+            Dharmaverse
           </motion.h1>
 
           {/* Subline */}
@@ -304,11 +304,11 @@ function Home() {
       </section>
 
       {/* ================= SECTION 3 — DHARMAVERSE STATUS ================= */}
-      <section className="relative w-full bg-[#05070C] text-white py-24 md:py-32 overflow-hidden">
+      {/* <section className="relative w-full bg-[#05070C] text-white py-24 md:py-32 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px" />
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-          {/* IMAGE */}
+        
           <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden">
             <img
               src={develop}
@@ -325,7 +325,7 @@ function Home() {
             </div>
           </div>
 
-          {/* CONTENT */}
+        
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -360,7 +360,7 @@ function Home() {
               <motion.div
                 className="h-full rounded-full bg-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.35)]"
                 initial={{ width: 0 }}
-                whileInView={{ width: "35%" }}
+                whileInView={{ width: "2%" }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.6, ease: luxuryEase }}
               />
@@ -374,7 +374,7 @@ function Home() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= SECTION 4 — SANATAN DHARMA KNOWLEDGE HUB ================= */}
       <section
@@ -473,7 +473,7 @@ function Home() {
       </section>
 
       {/* ================= SECTION 5 — CITIZENSHIP ================= */}
-      <section
+      {/* <section
         className="
     relative w-full
     bg-[#05070C]
@@ -482,11 +482,11 @@ function Home() {
     overflow-hidden
   "
       >
-        {/* Subtle divider */}
+    
         <div className="absolute top-0 left-0 w-full h-px" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Section Header */}
+        
           <motion.div
             className="mb-12 md:mb-20 text-center"
             initial={{ opacity: 0, y: 30 }}
@@ -508,56 +508,9 @@ function Home() {
             </p>
           </motion.div>
 
-          {/* Tiers + Privileges */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-14 lg:items-center">
-            {/* LEFT — Citizenship Tiers */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {[
-                { name: "Seeker", note: "Entry Citizenship" },
-                { name: "Sadhak", note: "Active Participant" },
-              ].map((tier, i) => (
-                <motion.div
-                  key={tier.name}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ amount: 0.3 }}
-                  transition={{ delay: i * 0.12, duration: 0.9 }}
-                >
-                  <LuxuryCard className="text-center h-full p-6 md:p-8">
-                    <div className="mb-4 md:mb-6 mx-auto h-1 w-10 md:w-12 rounded-full bg-[#D4AF37]/80" />
-                    <h3 className="mb-1 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
-                      {tier.name}
-                    </h3>
-                    <p className="text-xs md:text-sm text-white/60 font-['Cormorant_Garamond']">
-                      {tier.note}
-                    </p>
-                  </LuxuryCard>
-                </motion.div>
-              ))}
-
-              {/* ACHARYA */}
-              <motion.div
-                className="sm:col-span-2 flex justify-center"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.3 }}
-                transition={{ delay: 0.3, duration: 0.9 }}
-              >
-                <div className="w-full sm:max-w-[260px]">
-                  <LuxuryCard className="text-center h-full p-6 md:p-8">
-                    <div className="mb-4 md:mb-6 mx-auto h-1 w-10 md:w-12 rounded-full bg-[#D4AF37]/80" />
-                    <h3 className="mb-1 text-base md:text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
-                      Acharya
-                    </h3>
-                    <p className="text-xs md:text-sm text-white/60 font-['Cormorant_Garamond']">
-                      Elder Tier
-                    </p>
-                  </LuxuryCard>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* RIGHT — Citizen Privileges */}
+          
+          <div className="max-w-xl mx-auto text-center">
+          
             <motion.div
               className="lg:col-span-1"
               initial={{ opacity: 0, x: 40 }}
@@ -588,7 +541,7 @@ function Home() {
             </motion.div>
           </div>
 
-          {/* CTA */}
+          
           <motion.div
             className="mt-12 md:mt-20 flex flex-col sm:flex-row justify-center gap-3 md:gap-4"
             initial={{ opacity: 0, y: 20 }}
@@ -613,14 +566,13 @@ function Home() {
             </CTAButton>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= SECTION 6 — NFTs & OFFERINGS ================= */}
-      <section
+      {/* <section
         className="relative w-full bg-[#05070C]
  text-white py-24 md:py-32 overflow-hidden"
       >
-        {/* Subtle sacred grid */}
         <div className="absolute inset-0 opacity-[0.035] bg-[radial-gradient(circle_at_1px_1px,#ffffff_1px,transparent_0)] bg-[length:36px_36px]" />
 
         <motion.div
@@ -630,7 +582,7 @@ function Home() {
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
         >
-          {/* Header */}
+          
           <motion.div className="mb-16 text-center" variants={fadeUp}>
             <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
               Sacred Assets
@@ -646,9 +598,9 @@ function Home() {
             </p>
           </motion.div>
 
-          {/* ===== GALLERY WITH CHEVRONS ===== */}
+          
           <div className="relative">
-            {/* LEFT CHEVRON */}
+           
             <button
               onClick={() =>
                 galleryRef.current?.scrollBy({ left: -360, behavior: "smooth" })
@@ -669,7 +621,7 @@ function Home() {
               <ChevronLeft size={22} />
             </button>
 
-            {/* RIGHT CHEVRON */}
+          
             <button
               onClick={() =>
                 galleryRef.current?.scrollBy({ left: 360, behavior: "smooth" })
@@ -690,7 +642,7 @@ function Home() {
               <ChevronRight size={22} />
             </button>
 
-            {/* SCROLL CONTAINER */}
+           
             <motion.div
               ref={galleryRef}
               className="
@@ -722,7 +674,7 @@ function Home() {
               hover:-translate-y-1
             "
                 >
-                  {/* Image */}
+                  
                   <div className="relative h-[360px] overflow-hidden">
                     <img
                       src={item.image}
@@ -737,7 +689,7 @@ function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                   </div>
 
-                  {/* Content */}
+                  
                   <div className="relative p-6">
                     <div className="mb-3 h-1 w-10 rounded-full bg-[#D4AF37]/70 group-hover:w-16 transition-all duration-700" />
                     <h3 className="text-lg uppercase tracking-wide font-['Cormorant_Garamond'] mb-1">
@@ -752,21 +704,21 @@ function Home() {
             </motion.div>
           </div>
 
-          {/* CTA */}
+        
           <motion.div className="mt-20 text-center" variants={fadeUp}>
             <Link to="/nfts">
               <CTAButton variant="gold">View NFT Gallery</CTAButton>
             </Link>
           </motion.div>
         </motion.div>
-      </section>
+      </section> */}
 
       {/* ================= SECTION 7 — MEDIA HUB ================= */}
-      <section
+      {/* <section
         className="relative w-full bg-[#05070C]
  text-white py-24 md:py-32 overflow-hidden"
       >
-        {/* Sacred texture */}
+       
         <div className="absolute inset-0 opacity-[0.035] " />
 
         <motion.div
@@ -776,7 +728,7 @@ function Home() {
           viewport={{ once: true, margin: "-120px" }}
           variants={sectionContainer}
         >
-          {/* Header */}
+          
           <motion.div className="mb-20 text-center" variants={fadeUp}>
             <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
               Media Hub
@@ -792,9 +744,9 @@ function Home() {
             </p>
           </motion.div>
 
-          {/* === MEDIA BLOCKS === */}
+         
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-            {/* ---------- CLIPS ---------- */}
+            
             <motion.div variants={fadeUp}>
               <h3 className="mb-6 text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
                 Clips
@@ -816,17 +768,17 @@ function Home() {
                 transition-all duration-700
               "
                   >
-                    {/* Thumbnail */}
+                   
                     <img
                       src={`https://img.freepik.com/premium-photo/lord-vishnu-preserver-universe-protector-dharma_1319351-32644.jpg`}
                       alt="Clip"
                       className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                     />
 
-                    {/* Overlay */}
+                   
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                    {/* Play Icon */}
+                    
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="h-14 w-14 rounded-full border border-white/30 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-all">
                         ▶
@@ -837,7 +789,7 @@ function Home() {
               </div>
             </motion.div>
 
-            {/* ---------- STATICS ---------- */}
+           
             <motion.div variants={fadeUp}>
               <h3 className="mb-6 text-lg uppercase tracking-wide font-['Cormorant_Garamond']">
                 Statics
@@ -872,12 +824,12 @@ function Home() {
             </motion.div>
           </div>
 
-          {/* CTA */}
+          
           <motion.div className="mt-20 text-center" variants={fadeUp}>
             <CTAButton variant="gold">Open Media Hub</CTAButton>
           </motion.div>
         </motion.div>
-      </section>
+      </section> */}
 
       {/* ================= SECTION 8 — BUY HINDU COIN ================= */}
       <section
