@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
 
             <nav className="flex gap-6 text-sm">
-              {["Tokenomics", "Buy", "Legal"].map((link) => (
+              {[ "FAQs", "LEGAL" ].map((link) => (
                 <a
                   key={link}
                   href="#"

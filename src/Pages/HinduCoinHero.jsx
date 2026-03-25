@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import CopyButton from "../components/CopyButton";
+import LuxuryCard from "../components/common/LuxuryCard";
+import CTAButton from "../components/common/CTAButton";
 
 const HinduCoinHero = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -533,6 +535,83 @@ const fadeUp = {
           </div>
         </div>
       </motion.section>
+
+{/* =================BUY HINDU COIN ================= */}
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={sectionContainer}
+  className="relative w-full bg-[#05070C] text-white py-20 md:py-24 overflow-hidden"
+>
+  <div className="relative max-w-7xl mx-auto px-6">
+    <LuxuryCard className="px-8 md:px-12 py-12 md:py-14">
+
+      {/* GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+
+        {/* WALLET */}
+        <motion.div variants={fadeUp} className="text-center">
+          <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
+            Supported Wallets
+          </p>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            {["Phantom", "Solflare", "Backpack"].map((wallet) => (
+              <div
+                key={wallet}
+                className="px-4 py-2 rounded-full border border-white/15 bg-white/5 text-xs backdrop-blur-md"
+              >
+                {wallet}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CONTRACT */}
+        <motion.div variants={fadeUp} className="text-center">
+          <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
+            Contract Address
+          </p>
+
+          <button
+            onClick={handleCopy}
+            className="inline-flex items-center justify-center rounded-full border border-[#D4AF37]/40 px-6 py-2 text-sm hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/70 transition-all"
+          >
+            {copied ? "Copied ✓" : "Copy Contract"}
+          </button>
+        </motion.div>
+
+        {/* WHERE TO BUY */}
+        <motion.div variants={fadeUp} className="text-center">
+          <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
+            How to Aquire
+          </p>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            {["DEX", "Aggregator", "Launchpad"].map((place) => (
+              <span
+                key={place}
+                className="px-4 py-1 rounded-full border border-white/15 text-xs"
+              >
+                {place}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+
+      {/* CTA */}
+      <motion.div
+        variants={fadeUp}
+        className="mt-14 flex flex-col sm:flex-row justify-center gap-4"
+      >
+      </motion.div>
+
+    </LuxuryCard>
+  </div>
+</motion.section>
 
       {/* LEGAL POSITIONING */}
       <motion.section

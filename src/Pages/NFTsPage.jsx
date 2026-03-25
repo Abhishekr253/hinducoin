@@ -78,10 +78,31 @@ export default function NFTsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const filteredNFTs =
-    activeFilter === "all"
-      ? nftData
-      : nftData.filter((item) => item.category === activeFilter);
+  const groupedNFTs = categories
+    .filter((c) => c.value !== "all")
+    .map((cat) => ({
+      ...cat,
+      items: nftData.filter((item) => item.category === cat.value),
+    }));
+
+  const scrollToCategory = (value) => {
+    if (value === "all") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const el = document.getElementById(value);
+    if (!el) return;
+
+    const offset = 120;
+
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <main className="w-full text-white bg-[#05070C]">
@@ -124,7 +145,7 @@ export default function NFTsPage() {
             <motion.button
               key={cat.value}
               variants={fadeUp}
-              onClick={() => setActiveFilter(cat.value)}
+              onClick={() => scrollToCategory(cat.value)}
               className={`px-5 py-2 text-[11px] tracking-[0.25em] uppercase border rounded-full transition-all duration-300
 ${
   activeFilter === cat.value
@@ -140,31 +161,35 @@ ${
 
       {/* ================= GALLERY ================= */}
       <section className="pb-24 px-6 max-w-7xl mx-auto">
-        <motion.div
-          key={activeFilter}
-          variants={sectionContainer}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10"
-        >
-          {filteredNFTs.map((item) => (
-            <motion.div
-              key={item.id}
-              variants={fadeUp}
-              onClick={() => setSelectedItem(item)}
-              className="cursor-pointer"
-            >
-              <LuxuryCard className="h-full text-center hover:border-yellow-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)] transition-all duration-300">
-                <div className="h-32 bg-white/5 mb-5 rounded-md" />
+        {groupedNFTs.map((group) => (
+          <div key={group.value} id={group.value} className="mb-20">
+            {/* CATEGORY TITLE */}
+            <h2 className="text-xl md:text-2xl mb-8 text-center uppercase tracking-[0.2em] text-yellow-500">
+              {group.label}
+            </h2>
 
-                <h3 className="uppercase tracking-wide text-sm mb-2">
-                  {item.name}
-                </h3>
-                <p className="text-white/50 text-xs">{item.scarcity}</p>
-              </LuxuryCard>
-            </motion.div>
-          ))}
-        </motion.div>
+            {/* GRID */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+              {group.items.map((item) => (
+                <motion.div
+                  key={item.id}
+                  variants={fadeUp}
+                  onClick={() => setSelectedItem(item)}
+                  className="cursor-pointer"
+                >
+                  <LuxuryCard className="h-full text-center hover:border-yellow-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)] transition-all duration-300">
+                    <div className="h-32 bg-white/5 mb-5 rounded-md" />
+
+                    <h3 className="uppercase tracking-wide text-sm mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-white/50 text-xs">{item.scarcity}</p>
+                  </LuxuryCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* ================= MODAL ================= */}

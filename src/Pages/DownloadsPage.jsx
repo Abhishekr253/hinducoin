@@ -44,40 +44,6 @@ export default function DownloadsPage() {
         </motion.div>
       </section>
 
-      {/* ================= LATEST RELEASE ================= */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-        <motion.div
-          variants={sectionContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ amount: 0.3 }}
-          className="text-center"
-        >
-          <motion.h2
-            variants={fadeUp}
-            className="mb-12 uppercase tracking-widest font-['Cormorant_Garamond']"
-          >
-            Latest Release
-          </motion.h2>
-
-          <motion.div variants={fadeUp}>
-            <LuxuryCard className="text-center">
-              <h3 className="mb-4 text-lg uppercase tracking-wide">
-                Dharmaverse — Phase I Build
-              </h3>
-
-              <p className="text-white/60 mb-2">
-                Status: <span className="text-yellow-500">In Development</span>
-              </p>
-
-              <p className="text-white/50 text-sm">
-                Estimated Development Timeline: 12 Months
-              </p>
-            </LuxuryCard>
-          </motion.div>
-        </motion.div>
-      </section>
-
       {/* ================= MAHABHARATA SLAB ================= */}
       <section className="relative py-32 px-6 bg-gradient-to-b from-[#05070C] to-[#070B12] overflow-hidden">
         <motion.div
@@ -106,8 +72,19 @@ export default function DownloadsPage() {
           {/* Divider */}
           <motion.div
             variants={fadeUp}
-            className="mt-10 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent"
-          />
+            className="mt-10 flex items-center justify-center gap-4"
+          >
+            {/* Left Line */}
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent to-yellow-500" />
+
+            {/* Text */}
+            <span className="text-xs sm:text-sm tracking-[0.3em] text-yellow-500 uppercase font-['Cormorant_Garamond']">
+              Chapter I
+            </span>
+
+            {/* Right Line */}
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-l from-transparent to-yellow-500" />
+          </motion.div>
 
           {/* Age Title */}
           <motion.h4

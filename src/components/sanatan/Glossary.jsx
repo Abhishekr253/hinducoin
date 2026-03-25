@@ -718,7 +718,7 @@ export default function Glossary() {
       <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-10%,#1A1F30_0%,transparent_70%)]" />
 
       {/* ================= HERO ================= */}
-      <div className="relative min-h-[60vh] w-full flex items-center justify-center text-center overflow-hidden">
+      <div className="relative min-h-[80vh] w-full flex items-center justify-center text-center overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"

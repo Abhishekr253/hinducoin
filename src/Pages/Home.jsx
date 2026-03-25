@@ -261,7 +261,7 @@ function Home() {
             {[
               {
                 title: "A Capped Digital Asset",
-                desc: "A finite-supply token designed to preserve long-term value and digital sovereignty within the Hindu ecosystem.",
+                desc: "A finite-supply token designed to preserve long-term value and digital sovereignty within the Dharmaverse ecosystem.",
               },
               {
                 title: "A Utility Currency for Offerings",
@@ -377,15 +377,13 @@ function Home() {
       </section> */}
 
       {/* ================= SECTION 4 — SANATAN DHARMA KNOWLEDGE HUB ================= */}
-      <section
+      {/* <section
         className="relative w-full bg-[#05070C]
  text-white py-24 md:py-32 overflow-hidden"
       >
-        {/* Subtle sacred grid texture */}
         <div className="absolute inset-0 opacity-[0.04] " />
 
         <div className="relative max-w-7xl mx-auto px-6">
-          {/* Section Header */}
           <motion.div
             className="mb-20 text-center"
             initial={{ opacity: 0, y: 30 }}
@@ -407,7 +405,6 @@ function Home() {
             </p>
           </motion.div>
 
-          {/* Knowledge Tiles */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               "Foundations",
@@ -442,7 +439,6 @@ function Home() {
             group
           "
               >
-                {/* Gold Accent */}
                 <div className="mb-6 h-1 w-10 rounded-full bg-[#D4AF37]/70 group-hover:w-16 transition-all duration-500" />
 
                 <h3 className="text-lg uppercase tracking-wide font-['Cormorant_Garamond'] text-white mb-3">
@@ -457,7 +453,6 @@ function Home() {
             ))}
           </div>
 
-          {/* CTA */}
           <motion.div
             className="mt-20 text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -470,7 +465,7 @@ function Home() {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= SECTION 5 — CITIZENSHIP ================= */}
       {/* <section
@@ -831,255 +826,6 @@ function Home() {
         </motion.div>
       </section> */}
 
-      {/* ================= SECTION 8 — BUY HINDU COIN ================= */}
-      <section
-        className="relative w-full bg-[#05070C]
- text-white py-20 md:py-24 overflow-hidden"
-      >
-        {/* Soft divider */}
-        <div className="absolute top-0 left-0 w-full h-px " />
-
-        <div className="relative max-w-7xl mx-auto px-6">
-          <LuxuryCard className="px-8 md:px-12 py-12 md:py-14">
-            {/* Header */}
-            <motion.div
-              className="mb-12 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.9, ease: luxuryEase }}
-            >
-              <p className="mb-3 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
-                Buy Hindu Coin
-              </p>
-
-              <h2 className="text-2xl md:text-3xl font-light uppercase tracking-[0.25em] font-['Cormorant_Garamond']">
-                Enter the Dharmaverse
-              </h2>
-            </motion.div>
-
-            {/* Conversion Strip */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-              {/* WALLET LOGOS */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.3 }}
-                transition={{ duration: 0.8 }}
-                className="text-center"
-              >
-                <p className="mb-4 text-sm uppercase tracking-wide text-white/60 font-['Cormorant_Garamond']">
-                  Supported Wallets
-                </p>
-
-                <div className="flex justify-center gap-4 flex-wrap">
-                  {["Phantom", "Solflare", "Backpack"].map((wallet) => (
-                    <div
-                      key={wallet}
-                      className="
-                  px-4 py-2
-                  rounded-full
-                  border border-white/15
-                  bg-white/5
-                  text-xs
-                  tracking-wide
-                  backdrop-blur-md
-                "
-                    >
-                      {wallet}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* CONTRACT COPY */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.3 }}
-                transition={{ delay: 0.1, duration: 0.8 }}
-                className="text-center"
-              >
-                <p className="mb-4 text-sm uppercase tracking-wide text-white/60 font-['Cormorant_Garamond']">
-                  Contract Address
-                </p>
-
-                <button
-                  className="
-              inline-flex items-center justify-center
-              rounded-full
-              border border-[#D4AF37]/40
-              px-6 py-2
-              text-sm
-              hover:bg-[#D4AF37]/10
-              hover:border-[#D4AF37]/70
-              transition-all
-            "
-                >
-                  Copy Contract
-                </button>
-              </motion.div>
-
-              {/* WHERE TO BUY */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.3 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-center"
-              >
-                <p className="mb-4 text-sm uppercase tracking-wide text-white/60 font-['Cormorant_Garamond']">
-                  Where to Buy
-                </p>
-
-                <div className="flex justify-center gap-4 flex-wrap">
-                  {["DEX", "Aggregator", "Launchpad"].map((place) => (
-                    <span
-                      key={place}
-                      className="
-                  px-4 py-1
-                  rounded-full
-                  border border-white/15
-                  text-xs
-                  tracking-wide
-                "
-                    >
-                      {place}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-
-            {/* CTA Row */}
-            <motion.div
-              className="mt-14 flex flex-col sm:flex-row justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.9 }}
-            >
-              <CTAButton variant="gold">Buy Now</CTAButton>
-              <CTAButton variant="blueGlass">How to Buy</CTAButton>
-              <CTAButton variant="blueGlass">Make a Wallet</CTAButton>
-            </motion.div>
-          </LuxuryCard>
-        </div>
-      </section>
-
-      {/* ================= SECTION 9 — TRANSPARENCY PANEL ================= */}
-      <section
-        className="relative w-full bg-[#05070C]
- text-white py-24 md:py-28 overflow-hidden"
-      >
-        {/* Soft top divider */}
-        <div className="absolute top-0 left-0 w-full h-px" />
-
-        <div className="relative max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <motion.div
-            className="mb-16 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ amount: 0.3 }}
-            transition={{ duration: 1 }}
-          >
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/60 font-['Cormorant_Garamond']">
-              Transparency
-            </p>
-
-            <h2 className="text-3xl md:text-4xl font-light uppercase tracking-[0.25em] font-['Cormorant_Garamond']">
-              Built on Trust
-            </h2>
-
-            <p className="mt-6 max-w-2xl mx-auto text-sm md:text-base text-white/70 font-['Cormorant_Garamond']">
-              Every aspect of Hindu Coin is verifiable, capped, and publicly
-              auditable. No hidden mechanics. No silent minting.
-            </p>
-          </motion.div>
-
-          {/* TRUST PANEL */}
-          <LuxuryCard className="px-8 md:px-12 py-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* LEFT — DATA */}
-              <div className="space-y-8">
-                {/* Contract */}
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-white/60 font-['Cormorant_Garamond'] mb-2">
-                    Contract Address
-                  </p>
-
-                  <div className="flex items-center gap-4 flex-wrap">
-                    <span className="text-sm tracking-wide text-white/80 break-all">
-                      0x••••••••••••••••••••••••••••••••
-                    </span>
-
-                    <button className="text-xs border border-[#D4AF37]/40 px-3 py-1 rounded-full hover:bg-[#D4AF37]/10 transition">
-                      Copy
-                    </button>
-                  </div>
-                </div>
-
-                {/* Explorer */}
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-white/60 font-['Cormorant_Garamond'] mb-2">
-                    Explorer
-                  </p>
-
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-2 text-sm text-[#D4AF37] hover:underline"
-                  >
-                    View on Solana Explorer
-                  </a>
-                </div>
-
-                {/* Supply */}
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-white/60 font-['Cormorant_Garamond'] mb-2">
-                    Supply Cap
-                  </p>
-
-                  <p className="text-sm text-white/80">
-                    Fixed & capped. No inflation. No future minting.
-                  </p>
-                </div>
-
-                {/* Mint Closed */}
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-white/60 font-['Cormorant_Garamond'] mb-2">
-                    Mint Status
-                  </p>
-
-                  <p className="text-sm text-white/80">
-                    Mint permanently closed.
-                  </p>
-                </div>
-              </div>
-
-              {/* RIGHT — WARNING */}
-              <div className="relative">
-                <div className="h-full rounded-xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md">
-                  <p className="mb-4 text-sm uppercase tracking-wide text-[#D4AF37] font-['Cormorant_Garamond']">
-                    Anti-Scam Notice
-                  </p>
-
-                  <p className="text-sm leading-relaxed text-white/75 font-['Cormorant_Garamond']">
-                    Hindu Coin will never ask for your private keys, seed
-                    phrases, or direct wallet access. Beware of impersonators,
-                    unofficial links, and unsolicited messages.
-                  </p>
-
-                  <p className="mt-4 text-sm text-white/60 font-['Cormorant_Garamond']">
-                    Always verify the contract address from this page or the
-                    official explorer link.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </LuxuryCard>
-        </div>
-      </section>
     </main>
   );
 }

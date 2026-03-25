@@ -62,7 +62,10 @@ export default function OfferingsPavilion() {
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            <div ref={(el) => (sectionRefs.current[collection.title] = el)} className="mb-10 text-center scroll-mt-28">
+            <div
+              ref={(el) => (sectionRefs.current[collection.title] = el)}
+              className="mb-10 text-center scroll-mt-28"
+            >
               <h3 className="text-xl md:text-2xl uppercase tracking-wider font-['Cormorant_Garamond'] text-[#D4AF37]">
                 {collection.title}
               </h3>
@@ -72,9 +75,11 @@ export default function OfferingsPavilion() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {collection.items.map((item) => (
-                <ProductCard key={item.name} item={item} />
+                <div className="w-full sm:w-[48%] lg:w-[30%]">
+                  <ProductCard key={item.name} item={item} showNotAvailable={collection.title === "Citizen-Exclusive Relics"}/>
+                </div>
               ))}
             </div>
 
@@ -88,9 +93,7 @@ export default function OfferingsPavilion() {
                   });
                 }}
                 className="text-white/50 hover:text-[#D4AF37] text-xl transition"
-              >
-                
-              </button>
+              ></button>
             </div>
           </motion.div>
         ))}

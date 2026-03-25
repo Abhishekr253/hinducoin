@@ -2,15 +2,17 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+import hinduCoinImg from "../assets/hinducoin.jpeg";
+import dharmaverseImg from "../assets/dharmaverse.jpg";
+
 export default function Gateway() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#050816] to-[#0B1F3A] text-white flex flex-col px-6 py-10">
-
       {/* LOGO */}
       <div className="w-full flex justify-center">
-        <h1 className="text-xl tracking-widest text-[#D4AF37]">LOGO</h1>
+        <h1 className="text-xl tracking-widest text-[#D4AF37]"></h1>
       </div>
 
       {/* CENTER CONTENT */}
@@ -32,37 +34,64 @@ export default function Gateway() {
         </p>
 
         {/* BUTTONS */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center mb-6">
-          
+        <div className="grid md:grid-cols-2 gap-10 mb-12">
           {/* HINDU COIN */}
-          <motion.button
-            whileHover={{ scale: 1.03 }}
+          <motion.div
+            whileHover={{ y: -6 }}
             onClick={() =>
               navigate("/hindu-coin", {
                 state: { loadingText: "Loading Hindu Coin..." },
               })
             }
-            className="w-full md:w-auto px-8 py-4 border border-[#D4AF37] text-[#D4AF37] rounded-lg transition duration-200 hover:bg-[#D4AF37] hover:text-[#050816]"
+            className="cursor-pointer group"
           >
-            <div className="font-semibold">HINDU COIN</div>
-            <div className="text-xs opacity-80">Digital Utility Token</div>
-          </motion.button>
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/30">
+              <img
+                src={hinduCoinImg}
+                alt="Hindu Coin"
+                className="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
+              />
+            </div>
+
+            {/* TEXT (SEPARATE) */}
+            <div className="mt-4 text-left px-1 ">
+              <h3 className="text-[#D4AF37] text-xl font-semibold mb-1">
+                Hindu Coin
+              </h3>
+              <p className="text-sm text-gray-400">Digital Utility Token</p>
+            </div>
+          </motion.div>
 
           {/* DHARMAVERSE */}
-          <motion.button
-            whileHover={{ scale: 1.03 }}
+          <motion.div
+            whileHover={{ y: -6 }}
             onClick={() =>
               navigate("/home", {
                 state: { loadingText: "Entering Dharmaverse..." },
               })
             }
-            className="w-full md:w-auto px-8 py-4 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition duration-200"
+            className="cursor-pointer group"
           >
-            <div className="font-thin">DHARMAVERSE</div>
-            <div className="text-xs opacity-80 font-light">
-              Digital World & Experiences
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              <img
+                src={dharmaverseImg}
+                alt="Dharmaverse"
+                className="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
+              />
             </div>
-          </motion.button>
+
+            {/* TEXT (SEPARATE) */}
+            <div className="mt-4 text-left px-1">
+              <h3 className="text-white text-xl font-light mb-1">
+                Dharmaverse
+              </h3>
+              <p className="text-sm text-gray-400">
+                Digital World & Experiences
+              </p>
+            </div>
+          </motion.div>
         </div>
 
         {/* LEGAL LINE */}
@@ -92,7 +121,6 @@ export default function Gateway() {
         This gateway provides access to different components of a broader
         digital ecosystem. Please proceed to your intended section.
       </p>
-
     </div>
   );
 }

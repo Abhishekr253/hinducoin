@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function ProductCard({ item }) {
+export default function ProductCard({ item, showNotAvailable }) {
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -13,6 +13,12 @@ export default function ProductCard({ item }) {
       <h4 className="font-['Cormorant_Garamond'] uppercase tracking-wide text-sm md:text-base">
         {item.name}
       </h4>
+
+      {showNotAvailable && (
+        <div className="mt-2 text-[11px] tracking-[0.3em] text-white/40 uppercase">
+          Not Available
+        </div>
+      )}
 
       {/* Premium Tag */}
       {item.premium && (
