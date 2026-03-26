@@ -64,7 +64,7 @@ export default function OfferingsPavilion() {
           >
             <div
               ref={(el) => (sectionRefs.current[collection.title] = el)}
-              className="mb-10 text-center scroll-mt-28"
+              className="mb-10 text-center scroll-mt-34"
             >
               <h3 className="text-xl md:text-2xl uppercase tracking-wider font-['Cormorant_Garamond'] text-[#D4AF37]">
                 {collection.title}
@@ -78,7 +78,14 @@ export default function OfferingsPavilion() {
             <div className="flex flex-wrap justify-center gap-6">
               {collection.items.map((item) => (
                 <div className="w-full sm:w-[48%] lg:w-[30%]">
-                  <ProductCard key={item.name} item={item} showNotAvailable={collection.title === "Citizen-Exclusive Relics"}/>
+                  <ProductCard
+                    key={item.name}
+                    item={item}
+                    showNotAvailable={
+                      collection.title === "Citizen-Exclusive Relics" &&
+                      item.name !== "Nagarik Eco Bracelet"
+                    }
+                  />
                 </div>
               ))}
             </div>

@@ -812,7 +812,6 @@ function Home() {
           </motion.div>
         </motion.div>
       </section> */}
-
     </main>
   );
 }

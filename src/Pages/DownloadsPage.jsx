@@ -45,7 +45,7 @@ export default function DownloadsPage() {
       </section>
 
       {/* ================= MAHABHARATA SLAB ================= */}
-      <section className="relative py-32 px-6 bg-gradient-to-b from-[#05070C] to-[#070B12] overflow-hidden">
+      <section className="relative  px-6 bg-gradient-to-b from-[#05070C] to-[#070B12] overflow-hidden">
         <motion.div
           variants={sectionContainer}
           initial="hidden"

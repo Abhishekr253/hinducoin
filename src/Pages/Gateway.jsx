@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import hinduCoinImg from "../assets/hinducoin.jpeg";
 import dharmaverseImg from "../assets/dharmaverse.jpg";
+import logo from "../assets/logo1.png";
 
 export default function Gateway() {
   const navigate = useNavigate();
@@ -11,8 +12,16 @@ export default function Gateway() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#050816] to-[#0B1F3A] text-white flex flex-col px-6 py-10">
       {/* LOGO */}
-      <div className="w-full flex justify-center">
-        <h1 className="text-xl tracking-widest text-[#D4AF37]"></h1>
+      <div className="w-full flex justify-center ">
+        <div className="relative flex items-center justify-center">
+          {/* Soft Glow (smaller & tighter) */}
+          <div className="absolute mb-8 w-26 h-26 bg-[#D4AF37]/25 blur-xl rounded-full" />
+
+          {/* Logo Container */}
+          <div className="relative p-2 rounded-full ">
+            <img src={logo} alt="Logo" className="h-35 w-35 object-contain" />
+          </div>
+        </div>
       </div>
 
       {/* CENTER CONTENT */}

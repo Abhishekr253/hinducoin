@@ -6,6 +6,7 @@ import AppRouter from "./router";
 import ScrollToTop from "./ScrollToTop";
 import Loader from "./components/common/Loader";
 import { useLocation } from "react-router-dom";
+import ScrollButtons from "./components/ScrollButtons";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -36,6 +37,8 @@ function App() {
           {!isSuccessPage && !isGatewayPage && !isHinduCoinPage && <Header />}
           <AppRouter />
           {!isSuccessPage && !isGatewayPage && !isHinduCoinPage && <Footer />}
+
+          <ScrollButtons />
         </>
       )}
     </>

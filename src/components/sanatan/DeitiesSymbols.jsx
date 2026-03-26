@@ -89,7 +89,7 @@ export default function DeitiesSymbols() {
             <span className="text-[#D4AF37]">Personified</span>
           </h1>
 
-          <p className="text-sm md:text-base text-white/75 leading-relaxed font-['Cormorant_Garamond']">
+          <p className="text-sm md:text-base mt-[-1.5rem] text-white/75 leading-relaxed font-['Cormorant_Garamond']">
             Deities are not mythology — they are symbolic interfaces through
             which consciousness reveals itself.
           </p>

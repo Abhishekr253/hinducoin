@@ -26,6 +26,7 @@ import Glossary from "./components/sanatan/Glossary";
 import Gateway from "./Pages/Gateway";
 import HinduCoinHero from "./Pages/HinduCoinHero";
 import MediaHub from "./Pages/MediaHub ";
+import AboutDharmaverse from "./Pages/AboutDharmaverse";
 
 // future pages
 // import Tokenomics from "./Pages/Tokenomics";
@@ -39,7 +40,8 @@ export default function AppRouter() {
       <Route path = "/hindu-coin" element={<HinduCoinHero />} />
       <Route path="/home" element={<Home />} />
       <Route path="/explore" element={<Explore />} />
-      <Route path="/about" element={<AboutHinduCoin />} />
+      <Route path="/hindu-coin/about" element={<AboutHinduCoin />} />
+      <Route path="/dharmaverse/about" element={<AboutDharmaverse />} />
 
       {/* sanatan hub */}
       <Route path="/sanatan-hub" element={<SanatanHero />} />

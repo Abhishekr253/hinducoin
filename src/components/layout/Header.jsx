@@ -10,9 +10,9 @@ const navItems = [
   { label: "NFTs & Offerings", path: "/nfts" },
   { label: "Products", path: "/products" },
   { label: "Games & Downloads ", path: "/downloads" },
-  { label: "Explore", path: "/explore" },
+  { label: "Enter Dharmaverse", path: "/explore" },
   { label: "Media Hub", path: "/media-hub" },
-  { label: "About", path: "/about" },
+  { label: "About", path: "/dharmaverse/about" },
   { label: "Legal", path: "/legal" },
 ];
 
@@ -53,7 +53,7 @@ function Header() {
           </NavLink>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm">
+          <nav className="hidden xl:flex items-center gap-6 text-sm flex-nowrap">
 
             {/* DHARMAVERSE DROPDOWN */}
             <div className="relative group">
@@ -168,7 +168,7 @@ function Header() {
           </nav>
 
           {/* DESKTOP ACTIONS */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             {/* <button
               onClick={() =>
                 navigator.clipboard.writeText("0xYOUR_CONTRACT_ADDRESS")
@@ -187,7 +187,7 @@ function Header() {
 
             <NavLink
               to="/citizenship"
-              className="px-4 py-1.5 rounded-full bg-[#D4AF37] border border-blue-400/30"
+              className="px-4 py-1.5 rounded-full bg-[#D4AF37] border border-blue-400/30 flex-shrink-0"
             >
               Become a Citizen
             </NavLink>
@@ -195,7 +195,7 @@ function Header() {
 
           {/* MOBILE TOGGLE */}
           <button
-            className="lg:hidden p-2 text-white"
+            className="xl:hidden p-2 text-white"
             onClick={() => setOpen(true)}
           >
             <Menu size={26} />

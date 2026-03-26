@@ -3,8 +3,12 @@ import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import { Link } from "react-router-dom";
 import heroImage from "../assets/hinducoin.jpeg";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 export default function AboutHinduCoin() {
+  const navigate = useNavigate();
+
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -15,6 +19,25 @@ export default function AboutHinduCoin() {
   };
   return (
     <div className="min-h-screen bg-[#050b17] text-white">
+      <header className="fixed top-0 left-0 w-full z-50 bg-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center">
+          <button
+            onClick={() => navigate("/hindu-coin")}
+            className="inline-flex items-center gap-2 
+                 px-3 py-1.5 sm:px-4 sm:py-2
+                 text-[11px] sm:text-xs md:text-sm 
+                 text-[#D4AF37]
+                 border border-[#D4AF37]/40 
+                 rounded-md
+                 bg-black/20 backdrop-blur-md
+                 hover:bg-[#D4AF37]/10 
+                 transition-all duration-300"
+          >
+            <ArrowLeft size={14} className="sm:size-4" />
+            <span className="whitespace-nowrap">Back to Hindu Coin</span>
+          </button>
+        </div>
+      </header>
       {/* ================= HERO ================= */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -129,140 +152,8 @@ export default function AboutHinduCoin() {
             </div>
           </LuxuryCard>
         </motion.div>
+
         {/* ================= SECTION 3 ================= */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <LuxuryCard className="mb-12 md:mb-16 border-[#D4AF37]/30">
-            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-5 md:mb-6">
-              About Dharmaverse
-            </h2>
-
-            <div className="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed">
-              <p>
-                Dharmaverse is a digital spiritual civilization inspired by
-                Sanatan Dharma.
-              </p>
-
-              <p>
-                Phase{" "}
-                <span
-                  className="inline-block font-medium tracking-normal normal-case font-sans"
-                  style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
-                >
-                  1
-                </span>{" "}
-                is currently under development and is expected to take
-                approximately 12 months to complete.
-              </p>
-            </div>
-
-            {/* Phase Box */}
-            <div className="mt-8 bg-[#0f1b2e]/70 backdrop-blur-sm p-5 sm:p-6 rounded-xl border border-[#D4AF37]/30">
-              <p className="font-light text-[#D4AF37] mb-4 tracking-wide">
-                Phase{" "}
-                <span
-                  className="inline-block font-medium tracking-normal normal-case font-sans"
-                  style={{ fontFeatureSettings: "'lnum' 1, 'tnum' 1" }}
-                >
-                  1
-                </span>{" "}
-                Includes
-              </p>
-
-              <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                <li>• A central temple complex</li>
-                <li>• Citizenship systems</li>
-                <li>• Ritual and prayer environments</li>
-                <li>• NFT-based sacred collectibles</li>
-                <li>• Early interactive experiences</li>
-              </ul>
-            </div>
-
-            <p className="mt-8 text-sm sm:text-base text-gray-300 leading-relaxed">
-              Dharmaverse does not “finish.” It expands through festivals,
-              sacred cycles, new facilities, and evolving realms. It is designed
-              as a living world.
-            </p>
-          </LuxuryCard>
-        </motion.div>
-        {/* ================= SECTION 4 ================= */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <LuxuryCard className="mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-5 md:mb-6">
-              Sanatan Dharma Inspiration
-            </h2>
-
-            <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-8">
-              Sanatan Dharma is one of the world’s oldest living philosophical
-              traditions.
-            </p>
-
-            {/* Pillars */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
-              {["Dharma", "Karma", "Bhakti", "Moksha"].map((item, i) => (
-                <div
-                  key={i}
-                  className="
-          py-4 px-3
-          rounded-xl
-          bg-[#0f1b2e]/70 backdrop-blur-sm
-          border border-[#D4AF37]/20
-          text-sm sm:text-base font-medium
-          text-gray-200
-          shadow-[0_0_20px_rgba(212,175,55,0.12)]
-          hover:shadow-[0_0_30px_rgba(212,175,55,0.25)]
-          transition-all duration-300
-        "
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-
-            <p className="text-sm sm:text-base text-gray-300 leading-relaxed mt-8">
-              Dharmaverse draws inspiration from this timeless heritage —
-              presenting it in a respectful, educational, and experiential
-              format for a global audience.
-            </p>
-          </LuxuryCard>
-        </motion.div>
-        {/* ================= SECTION 5 ================= */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <LuxuryCard className="mb-12 md:mb-16 border-[#D4AF37]/30">
-            <h2 className="text-xl sm:text-2xl font-light text-[#D4AF37] mb-6">
-              Citizenship Model
-            </h2>
-
-            <ul className="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed">
-              {[
-                "Identity within Dharmaverse",
-                "Access to sacred zones and facilities",
-                "Participation in festival evolutions",
-                "Unlock offerings and ceremonial experiences",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-[#D4AF37] mt-1">✓</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </LuxuryCard>
-        </motion.div>
-        {/* ================= SECTION 6 ================= */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -368,21 +259,6 @@ export default function AboutHinduCoin() {
             </div>
           </LuxuryCard>
         </motion.div>
-
-        {/* ================= CTA ================= */}
-        <div className="text-center mt-12">
-          <Link to="/citizenship">
-            <CTAButton
-              variant="gold"
-              className="text-lg px-8 py-4 shadow-[0_0_24px_rgba(212,175,55,0.5)] hover:shadow-[0_0_36px_rgba(212,175,55,0.7)] transition-all duration-300"
-            >
-              Explore Citizenship
-            </CTAButton>
-          </Link>
-          <p className="mt-3 text-gray-400 text-sm">
-            Join the Dharmaverse and unlock sacred experiences.
-          </p>
-        </div>
       </div>
     </div>
   );

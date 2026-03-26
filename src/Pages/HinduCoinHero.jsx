@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CopyButton from "../components/CopyButton";
 import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
+import logo from "../assets/logo1.png";
 
 const HinduCoinHero = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -56,31 +57,32 @@ const HinduCoinHero = () => {
     { name: "How to Acquire", id: "how-to-acquire" },
     { name: "Transparency", id: "transparency" },
     { name: "Docs", id: "docs" },
+    { name: "About", path: "/hindu-coin/about" },
   ];
 
   const luxuryEase = [0.22, 1, 0.36, 1];
 
-const sectionContainer = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.18,
-      delayChildren: 0.2,
+  const sectionContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.2,
+      },
     },
-  },
-};
+  };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1.1,
-      ease: luxuryEase,
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.1,
+        ease: luxuryEase,
+      },
     },
-  },
-};
+  };
 
   return (
     <div className="bg-[#050b17] text-white min-h-screen overflow-x-hidden">
@@ -106,11 +108,15 @@ const fadeUp = {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() =>
-                  item.name === "Home"
-                    ? window.scrollTo({ top: 0, behavior: "smooth" })
-                    : scrollToSection(item.id)
-                }
+                onClick={() => {
+                  if (item.path) {
+                    navigate(item.path);
+                  } else if (item.name === "Home") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    scrollToSection(item.id);
+                  }
+                }}
                 className="hover:text-[#D4AF37] transition whitespace-nowrap"
               >
                 {item.name}
@@ -154,11 +160,16 @@ const fadeUp = {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() =>
-                  item.name === "Home"
-                    ? window.scrollTo({ top: 0, behavior: "smooth" })
-                    : scrollToSection(item.id)
-                }
+                onClick={() => {
+                  if (item.path) {
+                    navigate(item.path);
+                  } else if (item.id === "home") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    scrollToSection(item.id);
+                  }
+                  setMobileMenuOpen(false);
+                }}
                 className="text-gray-300 hover:text-[#D4AF37] transition py-2 text-left"
               >
                 {item.name}
@@ -190,23 +201,49 @@ const fadeUp = {
 
         {/* Content */}
         <motion.div
-  variants={sectionContainer}
-  initial="hidden"
-  animate="show"
-  className="relative z-10 max-w-3xl w-full"
->
-          {/* HEADLINE */}
-          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#D4AF37] mb-4 sm:mb-6 tracking-wide">
-  HINDU COIN
-</motion.h1>
+          variants={sectionContainer}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 max-w-3xl w-full"
+        >
+          {/* TOKEN SYMBOL */}
+          <motion.p
+            variants={fadeUp}
+            className="
+    text-xs sm:text-sm md:text-base
+    tracking-[0.5em] uppercase
+    text-[#D4AF37]/100
+    mb-3
+    relative inline-block
+  "
+          >
+            $HINDU
+            {/* Elegant underline glow */}
+            <span className="absolute left-1/2 -bottom-1 w-12 h-px -translate-x-1/2 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-70" />
+          </motion.p>
 
-<motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-3 sm:mb-4 px-2">
-  The digital currency powering the Dharmaverse
-</motion.p>
+          {/* MAIN HEADLINE */}
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#D4AF37] mb-4 sm:mb-6 tracking-wide"
+          >
+            HINDU COIN
+          </motion.h1>
 
-<motion.p variants={fadeUp} className="text-gray-350 text-xs sm:text-sm md:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-  A utility token designed for use within a global digital ecosystem of culture, experiences, and digital assets.
-</motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-3 sm:mb-4 px-2"
+          >
+            The digital currency powering the Dharmaverse
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-350 text-xs sm:text-sm md:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
+          >
+            A utility token designed for use within a global digital ecosystem
+            of culture, experiences, and digital assets.
+          </motion.p>
 
           {/* BUTTONS */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 px-2">
@@ -245,55 +282,56 @@ const fadeUp = {
 
       {/* ================= WHAT IS HINDU COIN ================= */}
       <motion.section
-  id="what-is"
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  variants={sectionContainer}
-  className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#050b17] text-white overflow-hidden"
->
-  <div className="max-w-4xl mx-auto text-center">
+        id="what-is"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionContainer}
+        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#050b17] text-white overflow-hidden"
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Heading */}
+          <motion.h2
+            variants={fadeUp}
+            className="text-2xl sm:text-3xl md:text-4xl font-light text-[#D4AF37] mb-4 sm:mb-6 tracking-wide"
+          >
+            What is Hindu Coin
+          </motion.h2>
 
-    {/* Heading */}
-    <motion.h2
-      variants={fadeUp}
-      className="text-2xl sm:text-3xl md:text-4xl font-light text-[#D4AF37] mb-4 sm:mb-6 tracking-wide"
-    >
-      What is Hindu Coin
-    </motion.h2>
+          {/* Content */}
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-300 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 leading-relaxed px-2"
+          >
+            Hindu Coin is a digital utility token used within the Dharmaverse
+            ecosystem.
+          </motion.p>
 
-    {/* Content */}
-    <motion.p
-      variants={fadeUp}
-      className="text-gray-300 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 leading-relaxed px-2"
-    >
-      Hindu Coin is a digital utility token used within the Dharmaverse ecosystem.
-    </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4 leading-relaxed px-2"
+          >
+            It enables participation in a new digital environment of
+            experiences, assets, and interaction.
+          </motion.p>
 
-    <motion.p
-      variants={fadeUp}
-      className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4 leading-relaxed px-2"
-    >
-      It enables participation in a new digital environment of experiences, assets, and interaction.
-    </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-300 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed px-2"
+          >
+            It is not an investment product and does not grant ownership or
+            rights in any entity.
+          </motion.p>
 
-    <motion.p
-      variants={fadeUp}
-      className="text-gray-300 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed px-2"
-    >
-      It is not an investment product and does not grant ownership or rights in any entity.
-    </motion.p>
-
-    {/* CTA */}
-    <motion.button
-      variants={fadeUp}
-      className="px-6 sm:px-8 py-2.5 sm:py-3 border border-[#D4AF37]/60 text-[#D4AF37] rounded-lg hover:bg-[#D4AF37]/10 transition text-sm sm:text-base"
-    >
-      Learn More
-    </motion.button>
-
-  </div>
-</motion.section>
+          {/* CTA */}
+          <motion.button
+            variants={fadeUp}
+            className="px-6 sm:px-8 py-2.5 sm:py-3 border border-[#D4AF37]/60 text-[#D4AF37] rounded-lg hover:bg-[#D4AF37]/10 transition text-sm sm:text-base"
+          >
+            Learn More
+          </motion.button>
+        </div>
+      </motion.section>
 
       {/* TOKENOMICS */}
       <motion.section
@@ -342,50 +380,49 @@ const fadeUp = {
       </motion.section>
 
       {/* POWERED BY DHARMAVERSE */}
-     <motion.section
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  variants={sectionContainer}
-  className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#050b17] text-white"
->
-  <div className="max-w-5xl mx-auto text-center">
-    
-    {/* HEADING */}
-    <motion.h2
-      variants={fadeUp}
-      className="text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-6 tracking-wide px-2"
-    >
-      Powered by the <span className="text-[#D4AF37]">Dharmaverse</span>
-    </motion.h2>
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionContainer}
+        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#050b17] text-white"
+      >
+        <div className="max-w-5xl mx-auto text-center">
+          {/* HEADING */}
+          <motion.h2
+            variants={fadeUp}
+            className="text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-6 tracking-wide px-2"
+          >
+            <span className="text-[#D4AF37]">DHARMAVERSE</span> - POWERED BY THE
+            HINDU COIN
+          </motion.h2>
 
-    {/* CONTENT */}
-    <motion.p
-      variants={fadeUp}
-      className="text-gray-300 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 max-w-2xl mx-auto leading-relaxed px-4"
-    >
-      Hindu Coin is used as the primary medium of exchange within the
-      Dharmaverse.
-    </motion.p>
+          {/* CONTENT */}
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-300 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 max-w-2xl mx-auto leading-relaxed px-4"
+          >
+            Hindu Coin is used as the primary medium of exchange within the
+            Dharmaverse.
+          </motion.p>
 
-    <motion.p
-      variants={fadeUp}
-      className="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
-    >
-      Users acquire Hindu Coin externally and use it across the ecosystem.
-    </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
+          >
+            Users acquire Hindu Coin externally and use it across the ecosystem.
+          </motion.p>
 
-    {/* CTA BUTTON */}
-    <motion.button
-      variants={fadeUp}
-      onClick={() => navigate("/home")}
-      className="px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-[#D4AF37] text-black font-semibold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg text-sm sm:text-base"
-    >
-      Enter Dharmaverse →
-    </motion.button>
-
-  </div>
-</motion.section>
+          {/* CTA BUTTON */}
+          <motion.button
+            variants={fadeUp}
+            onClick={() => navigate("/home")}
+            className="px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-[#D4AF37] text-black font-semibold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg text-sm sm:text-base"
+          >
+            Enter Dharmaverse →
+          </motion.button>
+        </div>
+      </motion.section>
 
       {/* HOW TO ACQUIRE */}
       <motion.section
@@ -536,82 +573,97 @@ const fadeUp = {
         </div>
       </motion.section>
 
-{/* =================BUY HINDU COIN ================= */}
-<motion.section
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  variants={sectionContainer}
-  className="relative w-full bg-[#05070C] text-white py-20 md:py-24 overflow-hidden"
->
-  <div className="relative max-w-7xl mx-auto px-6">
-    <LuxuryCard className="px-8 md:px-12 py-12 md:py-14">
-
-      {/* GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-
-        {/* WALLET */}
-        <motion.div variants={fadeUp} className="text-center">
-          <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
-            Supported Wallets
-          </p>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            {["Phantom", "Solflare", "Backpack"].map((wallet) => (
-              <div
-                key={wallet}
-                className="px-4 py-2 rounded-full border border-white/15 bg-white/5 text-xs backdrop-blur-md"
-              >
-                {wallet}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* CONTRACT */}
-        <motion.div variants={fadeUp} className="text-center">
-          <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
-            Contract Address
-          </p>
-
-          <button
-            onClick={handleCopy}
-            className="inline-flex items-center justify-center rounded-full border border-[#D4AF37]/40 px-6 py-2 text-sm hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/70 transition-all"
-          >
-            {copied ? "Copied ✓" : "Copy Contract"}
-          </button>
-        </motion.div>
-
-        {/* WHERE TO BUY */}
-        <motion.div variants={fadeUp} className="text-center">
-          <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
-            How to Aquire
-          </p>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            {["DEX", "Aggregator", "Launchpad"].map((place) => (
-              <span
-                key={place}
-                className="px-4 py-1 rounded-full border border-white/15 text-xs"
-              >
-                {place}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-      </div>
-
-      {/* CTA */}
-      <motion.div
-        variants={fadeUp}
-        className="mt-14 flex flex-col sm:flex-row justify-center gap-4"
+      {/* =================BUY HINDU COIN ================= */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionContainer}
+        className="relative w-full bg-[#05070C] text-white py-20 md:py-24 overflow-hidden"
       >
-      </motion.div>
+        <div className="relative max-w-7xl mx-auto px-6">
+          <LuxuryCard className="px-8 md:px-12 py-12 md:py-14">
+            {/* GRID */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+              {/* WALLET */}
+              <motion.div variants={fadeUp} className="text-center">
+                <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
+                  Supported Wallets
+                </p>
 
-    </LuxuryCard>
-  </div>
-</motion.section>
+                <div className="flex justify-center gap-4 flex-wrap">
+                  {["Phantom", "Solflare", "Backpack"].map((wallet) => (
+                    <div
+                      key={wallet}
+                      className="px-4 py-2 rounded-full border border-white/15 bg-white/5 text-xs backdrop-blur-md"
+                    >
+                      {wallet}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* CONTRACT */}
+              <motion.div variants={fadeUp} className="text-center">
+                <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
+                  Contract Address
+                </p>
+
+                <button
+                  onClick={handleCopy}
+                  className="inline-flex items-center justify-center rounded-full border border-[#D4AF37]/40 px-6 py-2 text-sm hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/70 transition-all"
+                >
+                  {copied ? "Copied ✓" : "Copy Contract"}
+                </button>
+              </motion.div>
+
+              {/* WHERE TO BUY */}
+              <motion.div variants={fadeUp} className="text-center">
+                <p className="mb-4 text-sm uppercase tracking-wide text-white/60">
+                  How to Aquire
+                </p>
+
+                <div className="flex justify-center gap-4 flex-wrap">
+                  {["DEX", "Aggregator", "Launchpad"].map((place) => (
+                    <span
+                      key={place}
+                      className="px-4 py-1 rounded-full border border-white/15 text-xs"
+                    >
+                      {place}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* CTA */}
+            <motion.div
+              variants={fadeUp}
+              className="mt-14 flex items-center justify-center gap-6"
+            >
+              {/* LOGO */}
+              <div className="relative flex items-center justify-center">
+                {/* Soft Glow */}
+                <div className="absolute w-16 h-16 bg-[#D4AF37]/20 blur-xl rounded-full ms-7" />
+
+                {/* Logo Circle */}
+                <div className="relative flex items-center justify-center w-20 h-20  ps-8">
+                  <img
+                    src={logo}
+                    alt="Logo"
+                    className="h-14 w-14 object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* TEXT */}
+              <h2 className="leading-none text-lg sm:text-xl md:text-xl font-light tracking-[0.35em] text-[#D4AF37] font-['Cormorant_Garamond']">
+                $HINDUCOIN
+              </h2>
+            </motion.div>
+          </LuxuryCard>
+        </div>
+      </motion.section>
 
       {/* LEGAL POSITIONING */}
       <motion.section
