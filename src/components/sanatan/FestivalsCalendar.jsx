@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import festival from "../../assets/festival.png";
 import { Link } from "react-router-dom";
-import sankranti from "../../assets/sankaranthi.jpeg";
+import sankranti from "../../assets/sankaranthri.jpeg";
 import shivratri from "../../assets/shivarathri.jpeg";
 import holi from "../../assets/holi.jpeg";
 import janmashtami from "../../assets/janmashtami.jpeg";
@@ -16,7 +16,7 @@ import { image } from "framer-motion/client";
 const festivals = [
   {
     name: "Makar Sankranti",
-    image: navratri,
+    image: sankranti,
     month: "January",
     meaning: "Transition of cosmic energies toward growth and clarity.",
     symbolism: "Sun, harvest, flight.",
