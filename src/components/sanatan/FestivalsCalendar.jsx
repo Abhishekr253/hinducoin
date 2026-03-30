@@ -3,12 +3,20 @@ import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import festival from "../../assets/festival.png";
 import { Link } from "react-router-dom";
+import sankranti from "../../assets/sankaranthi.jpeg";
+import shivratri from "../../assets/shivarathri.jpeg";
+import holi from "../../assets/holi.jpeg";
+import janmashtami from "../../assets/janmashtami.jpeg";
+import navratri from "../../assets/navarathri.jpeg";
+import diwali from "../../assets/diwali.jpeg";
+import { image } from "framer-motion/client";
 
 /* ------------------ DATA ------------------ */
 
 const festivals = [
   {
     name: "Makar Sankranti",
+    image: navratri,
     month: "January",
     meaning: "Transition of cosmic energies toward growth and clarity.",
     symbolism: "Sun, harvest, flight.",
@@ -16,6 +24,7 @@ const festivals = [
   },
   {
     name: "Maha Shivratri",
+    image: shivratri,
     month: "February / March",
     meaning: "Night of transcendence and union with Shiva consciousness.",
     symbolism: "Darkness, stillness, ascetic fire, cosmic balance.",
@@ -24,6 +33,7 @@ const festivals = [
   },
   {
     name: "Holi",
+    image: holi,
     month: "March",
     meaning: "Celebration of renewal, joy, and the burning of ego.",
     symbolism: "Colors, fire, collective joy.",
@@ -31,6 +41,7 @@ const festivals = [
   },
   {
     name: "Janmashtami",
+    image: janmashtami,
     month: "August",
     meaning: "Manifestation of divine play and conscious action.",
     symbolism: "Midnight birth, flute, devotion.",
@@ -39,6 +50,7 @@ const festivals = [
   },
   {
     name: "Navratri",
+    image: navratri,
     month: "September / October",
     meaning: "Nine nights of divine feminine power and transformation.",
     symbolism: "Goddess forms, colors, rhythm, sacred dance.",
@@ -47,6 +59,7 @@ const festivals = [
   },
   {
     name: "Diwali",
+    image: diwali,
     month: "October / November",
     meaning: "Victory of light over darkness and wisdom over ignorance.",
     symbolism: "Lamps, fire, prosperity rituals, inner illumination.",
@@ -154,37 +167,50 @@ export default function FestivalsCalendar() {
           >
             {festivals.map((f) => (
               <motion.div
-                key={f.name}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                className="relative rounded-2xl bg-white/[0.03] p-8 backdrop-blur border border-white/10"
-              >
-                <div className="mb-5 h-1 w-12 rounded-full bg-[#D4AF37]/80" />
+  key={f.name}
+  variants={fadeUp}
+  whileHover={{ y: -8 }}
+  className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur"
+>
+  {/* Image */}
+  <div className="relative h-48 w-full overflow-hidden">
+    <img
+      src={f.image}
+      alt={f.name}
+      className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+    />
 
-                <h3 className="text-lg uppercase tracking-wide font-['Cormorant_Garamond'] mb-1">
-                  {f.name}
-                </h3>
+    {/* Image Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+  </div>
 
-                <p className="text-xs text-white/50 mb-4 font-['Cormorant_Garamond']">
-                  {f.month}
-                </p>
+  {/* Content */}
+  <div className="p-6">
+    <div className="mb-4 h-1 w-10 bg-[#D4AF37]" />
 
-                <div className="space-y-3">
-                  <p className="text-sm text-white/70 font-['Cormorant_Garamond']">
-                    <span className="text-[#D4AF37]">Meaning:</span> {f.meaning}
-                  </p>
+    <h3 className="text-lg uppercase tracking-wide font-['Cormorant_Garamond'] mb-1">
+      {f.name}
+    </h3>
 
-                  <p className="text-sm text-white/70 font-['Cormorant_Garamond']">
-                    <span className="text-[#D4AF37]">Symbolism:</span>{" "}
-                    {f.symbolism}
-                  </p>
+    <p className="text-xs text-white/50 mb-4 font-['Cormorant_Garamond']">
+      {f.month}
+    </p>
 
-                  <p className="text-sm text-white/70 font-['Cormorant_Garamond']">
-                    <span className="text-[#D4AF37]">Dharmaverse Impact:</span>{" "}
-                    {f.impact}
-                  </p>
-                </div>
-              </motion.div>
+    <div className="space-y-3">
+      <p className="text-sm text-white/70">
+        <span className="text-[#D4AF37]">Meaning:</span> {f.meaning}
+      </p>
+
+      <p className="text-sm text-white/70">
+        <span className="text-[#D4AF37]">Symbolism:</span> {f.symbolism}
+      </p>
+
+      <p className="text-sm text-white/70">
+        <span className="text-[#D4AF37]">Impact:</span> {f.impact}
+      </p>
+    </div>
+  </div>
+</motion.div>
             ))}
           </motion.div>
         </section>

@@ -63,13 +63,19 @@ export default function Footer() {
             </div>
 
             <nav className="flex gap-6 text-sm">
-              {[ "FAQs", "LEGAL" ].map((link) => (
+              {[
+                { label: "FAQs", path: "/faqs" },
+                { label: "LEGAL", path: "/legal" },
+                { label: "CONTACT US", path: "/contact" },
+              ].map((link) => (
                 <a
-                  key={link}
-                  href="#"
-                  className="relative text-white/70 hover:text-[#D4AF37] transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#D4AF37] hover:after:w-full after:transition-all"
+                  key={link.label}
+                  href={link.path}
+                  className="relative text-white/70 hover:text-[#D4AF37] transition 
+      after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 
+      after:bg-[#D4AF37] hover:after:w-full after:transition-all"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </nav>

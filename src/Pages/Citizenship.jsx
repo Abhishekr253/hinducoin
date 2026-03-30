@@ -4,6 +4,7 @@ import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import medallion from "../assets/medallion.jpeg";
 
 export default function Citizenship() {
   const fadeUp = {
@@ -96,7 +97,7 @@ export default function Citizenship() {
     <section className="bg-[#050b17] text-white">
       {/* ================= SECTION 1 — HERO ================= */}
       <div
-        className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center text-center bg-cover bg-center px-4"
+        className="relative min-h-[60vh] md:min-h-[90vh] flex items-center justify-center text-center bg-cover bg-center px-4"
         style={{
           backgroundImage: `url(${hero})`,
         }}
@@ -106,7 +107,8 @@ export default function Citizenship() {
 
         {/* Content */}
         <motion.div
-          className="relative z-10 max-w-3xl mx-auto"
+          className="relative z-10 max-w-3xl mx-auto flex flex-col items-center 
+             pt-24 md:pt-32 lg:pt-20"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -114,6 +116,22 @@ export default function Citizenship() {
           <h1 className="text-2xl sm:text-3xl md:text-6xl font-light tracking-wide md:tracking-wider text-white leading-tight">
             Become a Citizen of Dharmaverse.
           </h1>
+
+          {/* ✨ Premium Medallion */}
+          <div className="relative flex justify-center items-center mt-12">
+            {/* Glow */}
+            <div className="absolute w-80 h-80 md:w-[450px] md:h-[450px] bg-yellow-100/20 blur-3xl rounded-full"></div>
+
+            {/* Image */}
+            <motion.img
+              src={medallion}
+              alt="Citizenship Medallion"
+              className="relative z-10 
+               w-52 h-52 md:w-72 md:h-72 lg:w-80 lg:h-80 
+               object-cover rounded-full
+               drop-shadow-[0_0_30px_rgba(255,205,0,0.4)]"
+            />
+          </div>
         </motion.div>
       </div>
 

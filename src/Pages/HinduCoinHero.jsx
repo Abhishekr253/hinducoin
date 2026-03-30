@@ -5,6 +5,7 @@ import CopyButton from "../components/CopyButton";
 import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import logo from "../assets/logo1.png";
+import { ArrowRight } from "lucide-react";
 
 const HinduCoinHero = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -210,14 +211,14 @@ const HinduCoinHero = () => {
           <motion.p
             variants={fadeUp}
             className="
-    text-xs sm:text-sm md:text-base
+    text-lg sm:text-sm md:text-lg
     tracking-[0.5em] uppercase
     text-[#D4AF37]/100
     mb-3
     relative inline-block
   "
           >
-            $HINDU
+            <span className="text-2xl me-[-16px]">$</span> HINDU
             {/* Elegant underline glow */}
             <span className="absolute left-1/2 -bottom-1 w-12 h-px -translate-x-1/2 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-70" />
           </motion.p>
@@ -276,6 +277,18 @@ const HinduCoinHero = () => {
           <p className="text-xs font-bold text-gray-400 max-w-md mx-auto px-4">
             Hindu Coin is a digital utility token and does not represent
             ownership, equity, or rights in any entity.
+          </p>
+
+          <button className="text-xs sm:text-sm mb-6 sm:mb-8 mx-auto leading-relaxed px-4 border border-gray-700 rounded-xl hover:bg-yellow-400 p-2 mt-4 flex items-center gap-1 group transition-all duration-300">
+            FAQs
+            <ArrowRight className="w-4 h-4 mt-[2px] transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+
+          <p className="text-xs font-bold text-gray-400 max-w-lg mx-auto px-4">
+            This website is under ongoing development and content may be updated
+            or modified without notice. While we strive for accuracy, we do not
+            guarantee completeness at all times. For any clarifications, please
+            contact us.
           </p>
         </motion.div>
       </section>
@@ -647,19 +660,25 @@ const HinduCoinHero = () => {
                 <div className="absolute w-16 h-16 bg-[#D4AF37]/20 blur-xl rounded-full ms-7" />
 
                 {/* Logo Circle */}
-                <div className="relative flex items-center justify-center w-20 h-20  ps-8">
+                <div className="relative flex items-center justify-center w-20 h-20  ps-8 ">
                   <img
                     src={logo}
                     alt="Logo"
-                    className="h-14 w-14 object-contain"
+                    className="h-12 w-12 object-contain"
                   />
                 </div>
               </div>
 
               {/* TEXT */}
-              <h2 className="leading-none text-lg sm:text-xl md:text-xl font-light tracking-[0.35em] text-[#D4AF37] font-['Cormorant_Garamond']">
-                $HINDUCOIN
+              <h2 className="mt-[-6px] ms-[-12px] leading-none text-lg sm:text-xl md:text-xl font-light tracking-[0.35em] text-[#D4AF37] font-['Cormorant_Garamond']">
+                <span className="text-3xl me-[-12px]">$</span> HINDUCOIN
               </h2>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="mt-6 flex justify-center">
+              <button className="text-xs tracking-[0.25em] uppercase text-white/80 hover:text-[#D4AF37] transition-all duration-300 border-b border-transparent hover:border-[#D4AF37]/40 pb-1">
+                Contact Us
+              </button>
             </motion.div>
           </LuxuryCard>
         </div>

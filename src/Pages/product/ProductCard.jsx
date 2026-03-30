@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function ProductCard({ item, showNotAvailable }) {
+export default function ProductCard({ item, showNotAvailable, showAvailable }) {
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -17,6 +17,12 @@ export default function ProductCard({ item, showNotAvailable }) {
       {showNotAvailable && (
         <div className="mt-2 text-[11px] tracking-[0.3em] text-white/40 uppercase">
           Not Available
+        </div>
+      )}
+
+      {showAvailable && (
+        <div className="mt-2 text-[11px] tracking-[0.3em] text-green-400 uppercase">
+          Available
         </div>
       )}
 

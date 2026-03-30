@@ -85,6 +85,10 @@ export default function OfferingsPavilion() {
                       collection.title === "Citizen-Exclusive Relics" &&
                       item.name !== "Nagarik Eco Bracelet"
                     }
+                    showAvailable={
+                      collection.title === "Citizen-Exclusive Relics" &&
+                      item.name === "Nagarik Eco Bracelet"
+                    }
                   />
                 </div>
               ))}

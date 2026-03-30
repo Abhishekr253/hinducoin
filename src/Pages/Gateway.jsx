@@ -1,11 +1,9 @@
-// src/pages/Gateway.jsx
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 import hinduCoinImg from "../assets/hinducoin.jpeg";
-import dharmaverseImg from "../assets/dharmaverse.jpg";
+import dharmaverseImg from "../assets/dharmaverse_og.jpg.jpeg";
 import logo from "../assets/logo1.png";
-
 export default function Gateway() {
   const navigate = useNavigate();
 

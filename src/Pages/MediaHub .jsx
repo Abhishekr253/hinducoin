@@ -3,6 +3,11 @@ import img1 from "../assets/dharmaverse1.jpeg";
 import img2 from "../assets/dharmaverse2.jpeg";
 import img3 from "../assets/dharmaverse3.jpeg";
 import img4 from "../assets/dharmaverse4.jpeg";
+import media from "../assets/mediahub.jpeg";
+import clip1 from "../assets/clip1.jpeg";
+import clip2 from "../assets/clip2.jpeg";
+import clip3 from "../assets/clip3.jpeg";
+import clip4 from "../assets/clip4.jpeg";
 
 const MediaHub = () => {
   const fadeUp = {
@@ -22,14 +27,15 @@ const MediaHub = () => {
   };
 
   const staticImages = [img1, img2, img3, img4];
+  const clips = [clip1, clip2, clip3, clip4];
 
   return (
     <section className="w-full bg-[#05070C] text-white overflow-hidden">
       {/* ================= HERO TITLE WITH BG IMAGE ================= */}
-      <div className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center">
+      <div className="relative h-[60vh] md:h-[95vh] flex items-center justify-center text-center">
         {/* Background Image */}
         <img
-          src="https://img.freepik.com/premium-photo/lord-vishnu-preserver-universe-protector-dharma_1319351-32644.jpg"
+          src={media}
           alt="Media Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -75,16 +81,16 @@ const MediaHub = () => {
             </h3>
 
             <div className="grid grid-cols-2 gap-5">
-              {[1, 2, 3, 4].map((i) => (
+              {clips.map((clip, i) => (
                 <div
                   key={i}
                   className="group relative aspect-video rounded-2xl overflow-hidden border border-white/10 hover:border-[#D4AF37]/40 transition-all duration-700"
                 >
                   <img
-                    src="https://img.freepik.com/premium-photo/lord-vishnu-preserver-universe-protector-dharma_1319351-32644.jpg"
-                    alt="Clip"
-                    className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
-                  />
+  src={clip}
+  alt={`Clip ${i}`}
+  className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+/>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 

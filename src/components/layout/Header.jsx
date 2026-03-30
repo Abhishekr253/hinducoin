@@ -13,7 +13,6 @@ const navItems = [
   { label: "Enter Dharmaverse", path: "/explore" },
   { label: "Media Hub", path: "/media-hub" },
   { label: "About", path: "/dharmaverse/about" },
-  { label: "Legal", path: "/legal" },
 ];
 
 const sanatanItems = [
@@ -160,7 +159,7 @@ function Header() {
               <NavLink
                 key={item.label}
                 to={item.path}
-                className="text-white hover:underline underline-offset-8 transition"
+                className="text-white hover:underline underline-offset-8 transition text-center"
               >
                 {item.label}
               </NavLink>

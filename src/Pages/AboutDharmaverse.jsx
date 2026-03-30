@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/hinducoin.jpeg";
+import heroImage from "../assets/dharmaverse_about.jpeg";
 
 export default function AboutDharmaverse() {
   const fadeUp = {

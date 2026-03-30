@@ -2,6 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../components/common/CTAButton";
 import LuxuryCard from "../components/common/LuxuryCard";
+import templeBrick from "../assets/temple_brick.jpeg";
+import glassPanel from "../assets/nftglass.jpeg";
+import relicToken from "../assets/token.jpeg";
+import diwaliOffering from "../assets/nftdiawali.jpeg";
+import citizenBadge from "../assets/nftcitizen.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -21,6 +26,7 @@ const nftData = [
   {
     id: 1,
     name: "Temple Foundation Brick",
+    image: templeBrick,
     category: "bricks",
     story:
       "A sacred digital brick representing foundational support for Dharmaverse’s central temple complex.",
@@ -31,6 +37,7 @@ const nftData = [
   {
     id: 2,
     name: "Sacred Glass Panel",
+    image: glassPanel,
     category: "glass-panels",
     story:
       "A luminous panel symbolizing divine light within the temple structure.",
@@ -40,6 +47,7 @@ const nftData = [
   {
     id: 3,
     name: "Ancient Relic Token",
+    image: relicToken,
     category: "relics",
     story:
       "A collectible relic inspired by sacred heritage and philosophical depth.",
@@ -49,6 +57,7 @@ const nftData = [
   {
     id: 4,
     name: "Festival Offering – Diwali",
+    image: diwaliOffering,
     category: "festival-offerings",
     story:
       "A ceremonial digital offering released during sacred festival cycles.",
@@ -58,6 +67,7 @@ const nftData = [
   {
     id: 5,
     name: "Citizen Badge",
+    image: citizenBadge,
     category: "citizenship-badges",
     story: "Identity badge for early citizens of Dharmaverse.",
     scarcity: "Less than 1% of worldwide Hindu population",
@@ -175,10 +185,19 @@ ${
                   key={item.id}
                   variants={fadeUp}
                   onClick={() => setSelectedItem(item)}
-                  className="cursor-pointer"
+                  className="cursor-pointer group"
                 >
                   <LuxuryCard className="h-full text-center hover:border-yellow-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)] transition-all duration-300">
-                    <div className="h-32 bg-white/5 mb-5 rounded-md" />
+                    <div className="relative h-44 w-full mb-5 overflow-hidden rounded-lg">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                      />
+
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    </div>
 
                     <h3 className="uppercase tracking-wide text-sm mb-2">
                       {item.name}
@@ -207,10 +226,24 @@ ${
               ✕
             </button>
 
-            <h2 className="uppercase tracking-widest text-yellow-500 mb-8">
+            {/* 🔥 NFT IMAGE */}
+            <div className="relative w-full h-56 sm:h-64 mb-6 overflow-hidden rounded-lg">
+              <img
+                src={selectedItem.image}
+                alt={selectedItem.name}
+                className="w-full h-full object-cover"
+              />
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            </div>
+
+            {/* TITLE */}
+            <h2 className="uppercase tracking-widest text-yellow-500 mb-6">
               {selectedItem.name}
             </h2>
 
+            {/* DETAILS */}
             <div className="space-y-6 text-sm text-white/70">
               <div>
                 <h4 className="text-white mb-2 uppercase tracking-wide text-xs">
