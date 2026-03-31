@@ -6,7 +6,7 @@ import templeBrick from "../assets/temple_brick.jpeg";
 import glassPanel from "../assets/nftglass.jpeg";
 import relicToken from "../assets/token.jpeg";
 import diwaliOffering from "../assets/nftdiawali.jpeg";
-import citizenBadge from "../assets/nftcitizen.jpeg";
+import citizenBadge from "../assets/nftcitizen.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -187,12 +187,29 @@ ${
                   onClick={() => setSelectedItem(item)}
                   className="cursor-pointer group"
                 >
-                  <LuxuryCard className="h-full text-center hover:border-yellow-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)] transition-all duration-300">
-                    <div className="relative h-44 w-full mb-5 overflow-hidden rounded-lg">
+                  <LuxuryCard
+                    className={`text-center transition-all duration-300
+    ${
+      item.category === "citizenship-badges"
+        ? "p-6 md:p-8 scale-105 md:scale-110 border-yellow-500/40 shadow-[0_0_40px_rgba(212,175,55,0.2)]"
+        : "h-full hover:border-yellow-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)]"
+    }
+  `}
+                  >
+                    <div
+                      className={`relative w-full mb-5 flex items-center justify-center overflow-hidden rounded-xl bg-[#0B0F1A]
+  ${item.category === "citizenship-badges" ? "h-auto p-6" : "h-44"}`}
+                    >
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                        className={`relative z-10 transition duration-700 group-hover:scale-105
+    ${
+      item.category === "citizenship-badges"
+        ? "object-contain w-full max-h-[300px]"
+        : "w-full h-full object-cover"
+    }
+  `}
                       />
 
                       {/* Overlay */}
@@ -213,11 +230,11 @@ ${
 
       {/* ================= MODAL ================= */}
       {selectedItem && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center px-4 overflow-y-auto py-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative bg-[#0E111A] max-w-xl w-full p-6 sm:p-10 border border-white/10 rounded-xl"
+            className="relative bg-[#0E111A] max-w-2xl w-full p-6 sm:p-10 border border-white/10 rounded-xl"
           >
             <button
               onClick={() => setSelectedItem(null)}
@@ -227,15 +244,36 @@ ${
             </button>
 
             {/* 🔥 NFT IMAGE */}
-            <div className="relative w-full h-56 sm:h-64 mb-6 overflow-hidden rounded-lg">
+            <div
+              className={`relative z-10
+  ${
+    selectedItem.category === "citizenship-badges"
+      ? "object-contain w-full max-h-[350px]"
+      : "w-full h-full object-cover"
+  }
+`}
+            >
+              {/* Glow for badge */}
+              {selectedItem.category === "citizenship-badges" && (
+                <div className="absolute w-64 h-64 bg-yellow-400/20 blur-3xl rounded-full"></div>
+              )}
+
               <img
                 src={selectedItem.image}
                 alt={selectedItem.name}
-                className="w-full h-full object-cover"
+                className={`relative z-10
+      ${
+        selectedItem.category === "citizenship-badges"
+          ? "object-contain w-full max-h-[420px]"
+          : "w-full h-full object-cover"
+      }
+    `}
               />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              {/* Overlay only for normal NFTs */}
+              {selectedItem.category !== "citizenship-badges" && (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              )}
             </div>
 
             {/* TITLE */}

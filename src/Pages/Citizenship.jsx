@@ -4,7 +4,7 @@ import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import medallion from "../assets/medallion.jpeg";
+import medallion from "../assets/medallion.png";
 
 export default function Citizenship() {
   const fadeUp = {

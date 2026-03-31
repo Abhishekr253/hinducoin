@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import CTAButton from "../components/common/CTAButton";
 import LuxuryCard from "../components/common/LuxuryCard";
+import mahabharath from "../assets/mahabartha.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -93,6 +94,8 @@ export default function DownloadsPage() {
           >
             The Age of Oaths
           </motion.h4>
+
+          <img src={mahabharath} alt="Mahabharata" className="mt-6 w-full max-w-md mx-auto " />
 
           {/* Tagline */}
           <motion.p
