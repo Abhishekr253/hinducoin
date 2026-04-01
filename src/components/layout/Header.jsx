@@ -52,8 +52,7 @@ function Header() {
           </NavLink>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden xl:flex items-center gap-6 text-sm flex-nowrap">
-
+          <nav className="hidden xl:flex items-center gap-5 text-xs flex-nowrap">
             {/* DHARMAVERSE DROPDOWN */}
             <div className="relative group">
               <NavLink
@@ -104,7 +103,7 @@ function Header() {
               </div>
             </div>
 
-             {/* SANATAN DROPDOWN */}
+            {/* SANATAN DROPDOWN */}
             <div className="relative group">
               <NavLink
                 to="/sanatan-hub"
@@ -159,7 +158,7 @@ function Header() {
               <NavLink
                 key={item.label}
                 to={item.path}
-                className="text-white hover:underline underline-offset-8 transition text-center"
+                className="text-white hover:underline underline-offset-8 transition text-center me-4"
               >
                 {item.label}
               </NavLink>
@@ -186,7 +185,7 @@ function Header() {
 
             <NavLink
               to="/citizenship"
-              className="px-4 py-1.5 rounded-full bg-[#D4AF37] border border-blue-400/30 flex-shrink-0"
+              className="px-4 py-1.5  rounded-full bg-[#D4AF37] border border-blue-400/30 flex-shrink-0"
             >
               Become a Citizen
             </NavLink>

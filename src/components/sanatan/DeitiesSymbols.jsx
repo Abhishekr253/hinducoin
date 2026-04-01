@@ -2,11 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import LuxuryCard from "../common/LuxuryCard";
-import symbol from "../../assets/symbols.jpeg"
-import shiva from "../../assets/shiva.jpeg"
-import vishnu from "../../assets/vishnu.jpeg"
-import lakshmi from "../../assets/lakshmi.jpeg"
-import ganesha from "../../assets/ganesh.jpeg"
+import symbol from "../../assets/symbols.jpeg";
+import shiva from "../../assets/shiva.jpeg";
+import vishnu from "../../assets/vishnu.jpeg";
+import lakshmi from "../../assets/lakshmi.jpeg";
+import ganesha from "../../assets/ganesh.jpeg";
 import { image } from "framer-motion/client";
 
 /* ------------------ DATA ------------------ */
@@ -15,6 +15,8 @@ const deities = [
   {
     name: "Shiva",
     image: shiva,
+    height: "h-[280px]",
+    object: "object-top",
     title: "The Transformer",
     description:
       "Embodiment of stillness, dissolution of illusion, and cosmic rhythm.",
@@ -22,6 +24,8 @@ const deities = [
   {
     name: "Vishnu",
     image: vishnu,
+    height: "h-[280px]",
+    object: "object-top",
     title: "The Preserver",
     description:
       "Sustainer of cosmic order through balance, avatars, and compassion.",
@@ -29,6 +33,8 @@ const deities = [
   {
     name: "Lakshmi",
     image: lakshmi,
+    height: "h-[280px]",
+    object: "object-top",
     title: "The Supreme Energy",
     description:
       "The primordial force manifesting as wisdom, power, and protection.",
@@ -36,15 +42,20 @@ const deities = [
   {
     name: "Ganesha",
     image: ganesha,
+    height: "h-[280px]",
+    object: "object-top",
     title: "Remover of Obstacles",
-    description:
-      "Guardian of beginnings, thresholds, and sacred intelligence.",
+    description: "Guardian of beginnings, thresholds, and sacred intelligence.",
   },
 ];
 
 const symbols = [
   { symbol: "ॐ", name: "Om", meaning: "Primordial vibration of existence" },
-  { symbol: "🔱", name: "Trishul", meaning: "Creation, preservation, and dissolution in balance" },
+  {
+    symbol: "🔱",
+    name: "Trishul",
+    meaning: "Creation, preservation, and dissolution in balance",
+  },
   { symbol: "🪷", name: "Lotus", meaning: "Purity rising above chaos" },
   { symbol: "🔥", name: "Agni", meaning: "Sacred fire and transformation" },
 ];
@@ -94,8 +105,7 @@ export default function DeitiesSymbols() {
           </p>
 
           <h1 className="mb-6 text-3xl md:text-5xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
-            Consciousness{" "}
-            <span className="text-[#D4AF37]">Personified</span>
+            Consciousness <span className="text-[#D4AF37]">Personified</span>
           </h1>
 
           <p className="text-sm md:text-base mt-[-1.5rem] text-white/75 leading-relaxed font-['Cormorant_Garamond']">
@@ -107,7 +117,6 @@ export default function DeitiesSymbols() {
 
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-
         {/* DEITY GALLERY */}
         <section className="py-32">
           <h2 className="text-center mb-20 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
@@ -124,11 +133,15 @@ export default function DeitiesSymbols() {
                 viewport={{ amount: 0.3 }}
               >
                 <LuxuryCard>
-                  <img
-                    src={d.image}
-                    alt={d.name}
-                    className="w-full h-auto object-cover object-top rounded-xl mb-5"
-                  />
+                  <div
+                    className={`w-full ${d.height} flex justify-center items-center overflow-hidden rounded-xl mb-5`}
+                  >
+                    <img
+                      src={d.image}
+                      alt={d.name}
+                      className={`h-full ${d.width} object-contain rounded-xl ${d.object}`}
+                    />
+                  </div>
 
                   <h3 className="mb-2 text-lg uppercase tracking-wide text-[#F6E27A] font-['Cormorant_Garamond']">
                     {d.name}

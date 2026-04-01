@@ -86,8 +86,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1],
+      duration: 0.5,
+      ease: [0.24, 1, 0.36, 1],
     },
   },
 };
@@ -152,7 +152,7 @@ export default function FestivalsCalendar() {
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ amount: 0.3 }}
+            viewport={{ amount: 0.1 }}
             className="text-center mb-20 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']"
           >
             The Sacred <span className="text-[#D4AF37]">Calendar</span>
@@ -167,50 +167,55 @@ export default function FestivalsCalendar() {
           >
             {festivals.map((f) => (
               <motion.div
-  key={f.name}
-  variants={fadeUp}
-  whileHover={{ y: -8 }}
-  className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur"
->
-  {/* Image */}
-  <div className="relative h-48 w-full overflow-hidden">
-    <img
-      src={f.image}
-      alt={f.name}
-      className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-    />
+                key={f.name}
+                variants={fadeUp}
+                initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: -8 }}
+                className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur"
+              >
+                {/* Image */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <img
+                    src={f.image}
+                    alt={f.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                  />
 
-    {/* Image Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-  </div>
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                </div>
 
-  {/* Content */}
-  <div className="p-6">
-    <div className="mb-4 h-1 w-10 bg-[#D4AF37]" />
+                {/* Content */}
+                <div className="p-6">
+                  <div className="mb-4 h-1 w-10 bg-[#D4AF37]" />
 
-    <h3 className="text-lg uppercase tracking-wide font-['Cormorant_Garamond'] mb-1">
-      {f.name}
-    </h3>
+                  <h3 className="text-lg uppercase tracking-wide font-['Cormorant_Garamond'] mb-1">
+                    {f.name}
+                  </h3>
 
-    <p className="text-xs text-white/50 mb-4 font-['Cormorant_Garamond']">
-      {f.month}
-    </p>
+                  <p className="text-xs text-white/50 mb-4 font-['Cormorant_Garamond']">
+                    {f.month}
+                  </p>
 
-    <div className="space-y-3">
-      <p className="text-sm text-white/70">
-        <span className="text-[#D4AF37]">Meaning:</span> {f.meaning}
-      </p>
+                  <div className="space-y-3">
+                    <p className="text-sm text-white/70">
+                      <span className="text-[#D4AF37]">Meaning:</span>{" "}
+                      {f.meaning}
+                    </p>
 
-      <p className="text-sm text-white/70">
-        <span className="text-[#D4AF37]">Symbolism:</span> {f.symbolism}
-      </p>
+                    <p className="text-sm text-white/70">
+                      <span className="text-[#D4AF37]">Symbolism:</span>{" "}
+                      {f.symbolism}
+                    </p>
 
-      <p className="text-sm text-white/70">
-        <span className="text-[#D4AF37]">Impact:</span> {f.impact}
-      </p>
-    </div>
-  </div>
-</motion.div>
+                    <p className="text-sm text-white/70">
+                      <span className="text-[#D4AF37]">Impact:</span> {f.impact}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
         </section>

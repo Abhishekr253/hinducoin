@@ -29,7 +29,7 @@ const fadeUp = {
 
 export default function TempleComplex() {
   return (
-    <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
+    <section className="relative w-full pt-16 sm:pt-1 bg-[#05070C] text-white overflow-hidden">
       {/* ================= HERO ================= */}
       <div className="relative py-16 md:py-44 text-center">
         <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />

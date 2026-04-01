@@ -130,11 +130,11 @@ const MediaHub = () => {
         </div>
 
         {/* CTA */}
-        <motion.div className="mt-20 text-center" variants={fadeUp}>
+        {/* <motion.div className="mt-20 text-center" variants={fadeUp}>
           <button className="px-10 py-3 bg-[#D4AF37] text-black rounded-lg hover:scale-105 transition">
             Open Media Hub
           </button>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </section>
   );

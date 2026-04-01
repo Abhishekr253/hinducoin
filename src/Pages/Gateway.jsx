@@ -121,6 +121,11 @@ export default function Gateway() {
             </p>
           </div>
         </div>
+
+        <p className="text-[12px] pt-7">
+          The Dharmaverse is a living, evolving creation. Certain elements may
+          still be in development or unfolding over time
+        </p>
       </motion.div>
 
       {/* FOOTER */}

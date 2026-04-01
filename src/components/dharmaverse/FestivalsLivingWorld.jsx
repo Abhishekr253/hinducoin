@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import LuxuryCard from "../common/LuxuryCard";
 import CTAButton from "../common/CTAButton";
@@ -20,7 +20,7 @@ export default function FestivalsLivingWorld() {
   const [showCalendar, setShowCalendar] = useState(false);
 
   return (
-    <section className="relative w-full bg-[#05070C] text-white overflow-hidden">
+    <section className="relative  w-full bg-[#05070C] pt-16 sm:pt-1 text-white overflow-hidden">
       {/* ================= HERO ================= */}
       <div className="relative py-16 md:py-44 text-center">
         <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-10%,rgba(212,175,55,0.18),transparent_70%)]" />
@@ -98,40 +98,39 @@ export default function FestivalsLivingWorld() {
         transition={{ duration: 0.8 }}
       >
         <div className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center max-w-md sm:max-w-none mx-auto">
-            <CTAButton
-        className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3"
-        variant="gold"
-        onClick={() => setIsCalendarOpen(true)}
-      >
-        See Festival Calendar
-      </CTAButton>
+          <CTAButton
+            className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3"
+            variant="gold"
+            onClick={() => setIsCalendarOpen(true)}
+          >
+            See Festival Calendar
+          </CTAButton>
 
-      <FestivalCalendar
-        isOpen={isCalendarOpen}
-        onClose={() => setIsCalendarOpen(false)}
-      />
+          <FestivalCalendar
+            isOpen={isCalendarOpen}
+            onClose={() => setIsCalendarOpen(false)}
+          />
 
           <CTAButton
-        className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3"
-        variant="outline"
-        onClick={() => setShowCalendar(true)}
-      >
-        See Annual Calendar
-      </CTAButton>
+            className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3"
+            variant="outline"
+            onClick={() => setShowCalendar(true)}
+          >
+            See Annual Calendar
+          </CTAButton>
 
-      <AnnualFestivalCalendarModal
-        isOpen={showCalendar}
-        onClose={() => setShowCalendar(false)}
-      />
-
+          <AnnualFestivalCalendarModal
+            isOpen={showCalendar}
+            onClose={() => setShowCalendar(false)}
+          />
 
           <Link to="/citizenship">
-          <CTAButton
-            className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3 hover:cursor-pointer"
-            variant="dark"
-          >
-            Join Citizenship
-          </CTAButton>
+            <CTAButton
+              className="w-full sm:w-auto text-sm md:text-base py-2 md:py-3 hover:cursor-pointer"
+              variant="dark"
+            >
+              Join Citizenship
+            </CTAButton>
           </Link>
         </div>
       </motion.div>

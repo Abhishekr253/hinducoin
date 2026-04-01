@@ -34,8 +34,8 @@ export default function OfferingsPavilion() {
       </div>
 
       {/* TABS */}
-      <div className="sticky top-0 z-40 bg-[#05070C]/80 backdrop-blur-md border-b border-white/5 mb-16">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex gap-4 overflow-x-auto">
+      <div className="md:sticky md:top-0 md:z-40 bg-[#05070C]/80 backdrop-blur-md border-b border-white/5 mb-16">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-3">
           {collections.map((col) => (
             <button
               key={col.title}
@@ -64,7 +64,7 @@ export default function OfferingsPavilion() {
           >
             <div
               ref={(el) => (sectionRefs.current[collection.title] = el)}
-              className="mb-10 text-center scroll-mt-34"
+              className="mb-10 text-center scroll-mt-54"
             >
               <h3 className="text-xl md:text-2xl uppercase tracking-wider font-['Cormorant_Garamond'] text-[#D4AF37]">
                 {collection.title}
