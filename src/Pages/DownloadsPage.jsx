@@ -104,14 +104,6 @@ export default function DownloadsPage() {
           >
             Where Dharma Shapes Destiny
           </motion.p>
-
-          {/* Development Badge */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-12 inline-block border border-yellow-500/40 px-6 py-2 text-yellow-500 text-xs tracking-widest uppercase"
-          >
-            Phase I — Narrative Foundation
-          </motion.div>
         </motion.div>
       </section>
 

@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import history from "../../assets/history.jpeg";
 import { NavLink } from "react-router-dom";
+import nagara from "../../assets/nagarastyle.png";
+import dravidian from "../../assets/dravidianstyle.png";
+import vesara from "../../assets/vesarastyle.png";
 
 /* ------------------ DATA ------------------ */
 
@@ -23,9 +26,9 @@ const contributions = [
 ];
 
 const temples = [
-  { title: "Nagara Style", image: "/temples/nagara.jpg" },
-  { title: "Dravidian Style", image: "/temples/dravidian.jpg" },
-  { title: "Vesara Style", image: "/temples/vesara.jpg" },
+  { title: "Nagara Style", image: nagara },
+  { title: "Dravidian Style", image: dravidian },
+  { title: "Vesara Style", image: vesara },
 ];
 
 /* ------------------ ANIMATION VARIANTS ------------------ */

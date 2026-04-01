@@ -3,30 +3,39 @@ import { motion } from "framer-motion";
 import CTAButton from "../common/CTAButton";
 import LuxuryCard from "../common/LuxuryCard";
 import symbol from "../../assets/symbols.jpeg"
+import shiva from "../../assets/shiva.jpeg"
+import vishnu from "../../assets/vishnu.jpeg"
+import lakshmi from "../../assets/lakshmi.jpeg"
+import ganesha from "../../assets/ganesh.jpeg"
+import { image } from "framer-motion/client";
 
 /* ------------------ DATA ------------------ */
 
 const deities = [
   {
     name: "Shiva",
+    image: shiva,
     title: "The Transformer",
     description:
       "Embodiment of stillness, dissolution of illusion, and cosmic rhythm.",
   },
   {
     name: "Vishnu",
+    image: vishnu,
     title: "The Preserver",
     description:
       "Sustainer of cosmic order through balance, avatars, and compassion.",
   },
   {
-    name: "Devi",
+    name: "Lakshmi",
+    image: lakshmi,
     title: "The Supreme Energy",
     description:
       "The primordial force manifesting as wisdom, power, and protection.",
   },
   {
     name: "Ganesha",
+    image: ganesha,
     title: "Remover of Obstacles",
     description:
       "Guardian of beginnings, thresholds, and sacred intelligence.",
@@ -115,6 +124,12 @@ export default function DeitiesSymbols() {
                 viewport={{ amount: 0.3 }}
               >
                 <LuxuryCard>
+                  <img
+                    src={d.image}
+                    alt={d.name}
+                    className="w-full h-auto object-cover object-top rounded-xl mb-5"
+                  />
+
                   <h3 className="mb-2 text-lg uppercase tracking-wide text-[#F6E27A] font-['Cormorant_Garamond']">
                     {d.name}
                   </h3>

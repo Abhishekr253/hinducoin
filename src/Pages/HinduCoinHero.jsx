@@ -6,6 +6,7 @@ import LuxuryCard from "../components/common/LuxuryCard";
 import CTAButton from "../components/common/CTAButton";
 import logo from "../assets/logo1.png";
 import { ArrowRight } from "lucide-react";
+import tokenomics from "../assets/tokenomics.jpeg"
 
 const HinduCoinHero = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -347,50 +348,7 @@ const HinduCoinHero = () => {
       </motion.section>
 
       {/* TOKENOMICS */}
-      <motion.section
-        id="tokenomics"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={sectionContainer}
-        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-[#050b17] text-white"
-      >
-        <div className="max-w-6xl mx-auto text-center">
-          {/* HEADING */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#D4AF37] font-light mb-4 sm:mb-6">
-            Tokenomics
-          </h2>
-
-          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-8 sm:mb-12 px-4">
-            Structured distribution designed to support ecosystem growth,
-            sustainability, and community participation.
-          </p>
-
-          {/* GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { label: "Total Supply", value: "1,000,000,000" },
-              { label: "Ecosystem Fund", value: "40%" },
-              { label: "Community Rewards", value: "25%" },
-              { label: "Development", value: "20%" },
-              { label: "Marketing", value: "10%" },
-              { label: "Liquidity", value: "5%" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#0f1b2e]/50 border border-[#D4AF37]/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#D4AF37]/50 transition-all"
-              >
-                <p className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">
-                  {item.label}
-                </p>
-                <p className="text-xl sm:text-2xl text-[#D4AF37] font-light">
-                  {item.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      <img id="tokenomics" src={tokenomics} alt="Tokenomics" className="mx-auto w-[900px] h-auto" />
 
       {/* POWERED BY DHARMAVERSE */}
       <motion.section
