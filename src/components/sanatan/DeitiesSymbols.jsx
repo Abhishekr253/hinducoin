@@ -10,10 +10,10 @@ import ganesha from "../../assets/ganesh.jpeg";
 /* ------------------ THEME ------------------ */
 /* Washed palette taken from reference image:
    sky mist  #EAF1F6 | ivory #FBF8F2 | temple blue #7FB3CF
-   gold #C9A24D | deep gold #A67C2E | slate text #3A4A5C */
+   gold #C9A24D | deep gold #A67C2E | slate text #0F1823 */
 
 const goldText =
-  "bg-gradient-to-b from-[#E6CC8F] via-[#C9A24D] to-[#A67C2E] bg-clip-text text-transparent";
+  "bg-gradient-to-b from-[#B08A35] via-[#7A5818] to-[#6B4A12] bg-clip-text text-transparent";
 
 /* ------------------ DATA ------------------ */
 
@@ -88,13 +88,13 @@ function WashCard({ children, className = "" }) {
 
 export default function DeitiesSymbols() {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#EAF1F6] via-[#F4F7F9] to-[#FBF8F2] text-[#3A4A5C] overflow-hidden">
+    <section className="relative w-full bg-gradient-to-b from-[#EAF1F6] via-[#F4F7F9] to-[#FBF8F2] text-[#0F1823] overflow-hidden">
       {/* Ambient light glow */}
       <div className="absolute inset-0 bg-[radial-gradient(900px_450px_at_50%_-10%,rgba(255,255,255,0.9)_0%,transparent_70%)] pointer-events-none" />
 
       {/* ================= HERO ================= */}
       <motion.div
-        className="relative min-h-screen w-full flex items-start justify-center text-center overflow-hidden pt-28 md:pt-66"
+        className="relative min-h-screen w-full flex items-start justify-center text-center overflow-hidden pt-58 md:pt-66"
         initial="hidden"
         whileInView="show"
         viewport={{ amount: 0.3 }}
@@ -113,17 +113,17 @@ export default function DeitiesSymbols() {
           className="relative z-10 px-6 max-w-3xl mx-auto"
           variants={fadeUp}
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#3A4A5C]/70 font-['Cormorant_Garamond']">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#0F1823]/70 font-['Cormorant_Garamond']">
             Deities & Symbols
           </p>
 
-          <h1 className="mb-6 text-3xl md:text-5xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond'] drop-shadow-[0_2px_6px_rgba(255,255,255,0.8)]">
+          <h1 className="mb-6 text-3xl md:text-5xl uppercase tracking-[0.25em] font-medium font-['Cormorant_Garamond'] drop-shadow-[0_2px_6px_rgba(255,255,255,0.8)]">
             Consciousness <span className={goldText}>Personified</span>
           </h1>
 
           <div className="mx-auto mb-6 h-px w-32 bg-gradient-to-r from-transparent via-[#C9A24D] to-transparent" />
 
-          <p className="text-sm md:text-lg text-[#3A4A5C]/85 leading-relaxed font-['Cormorant_Garamond']">
+          <p className="text-sm md:text-base text-[#0F1823]/85 leading-relaxed font-medium font-['Cormorant_Garamond']">
             Deities are not mythology — they are symbolic interfaces through
             which consciousness reveals itself.
           </p>
@@ -134,7 +134,7 @@ export default function DeitiesSymbols() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* DEITY GALLERY */}
         <section className="py-32">
-          <h2 className="text-center mb-20 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
+          <h2 className="text-center mb-20 text-xl md:text-3xl uppercase tracking-[0.25em] font-medium font-['Cormorant_Garamond']">
             Deity <span className={goldText}>Forms</span>
           </h2>
 
@@ -156,13 +156,13 @@ export default function DeitiesSymbols() {
                     />
                   </div>
 
-                  <h3 className="mb-2 text-lg uppercase tracking-wide text-[#A67C2E] font-['Cormorant_Garamond']">
+                  <h3 className="mb-2 text-lg font-semibold uppercase tracking-wide text-[#7A5818] font-['Cormorant_Garamond']">
                     {d.name}
                   </h3>
-                  <p className="text-xs uppercase tracking-[0.3em] text-[#5E8FAE] mb-4 font-['Cormorant_Garamond']">
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#2F5A78] mb-4 font-['Cormorant_Garamond']">
                     {d.title}
                   </p>
-                  <p className="text-sm text-[#3A4A5C]/80 leading-relaxed font-['Cormorant_Garamond']">
+                  <p className="text-medium text-[#0F1823]/80 leading-relaxed font-medium font-['Cormorant_Garamond']">
                     {d.description}
                   </p>
                 </WashCard>
@@ -173,7 +173,7 @@ export default function DeitiesSymbols() {
 
         {/* SYMBOL GLOSSARY */}
         <section className="py-32">
-          <h2 className="text-center mb-20 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
+          <h2 className="text-center mb-20 text-xl md:text-3xl uppercase tracking-[0.25em] font-medium font-['Cormorant_Garamond']">
             Sacred <span className={goldText}>Symbols</span>
           </h2>
 
@@ -188,10 +188,10 @@ export default function DeitiesSymbols() {
               >
                 <WashCard className="text-center">
                   <div className="text-4xl mb-4 text-[#C9A24D]">{s.symbol}</div>
-                  <h4 className="text-sm uppercase tracking-wide text-[#A67C2E] font-['Cormorant_Garamond']">
+                  <h4 className="text-medium font-semibold uppercase tracking-wide text-[#7A5818] font-['Cormorant_Garamond']">
                     {s.name}
                   </h4>
-                  <p className="mt-2 text-xs text-[#3A4A5C]/75 leading-relaxed font-['Cormorant_Garamond']">
+                  <p className="mt-2 text-sm text-[#0F1823]/75 leading-relaxed font-medium font-['Cormorant_Garamond']">
                     {s.meaning}
                   </p>
                 </WashCard>
@@ -209,11 +209,11 @@ export default function DeitiesSymbols() {
             whileInView="show"
             viewport={{ amount: 0.3 }}
           >
-            <h2 className="mb-6 text-xl md:text-3xl uppercase tracking-[0.25em] font-light font-['Cormorant_Garamond']">
+            <h2 className="mb-6 text-xl md:text-3xl uppercase tracking-[0.25em] font-medium font-['Cormorant_Garamond']">
               Symbolism in <span className={goldText}>Dharmaverse</span>
             </h2>
 
-            <p className="text-sm md:text-base text-[#3A4A5C]/85 leading-relaxed font-['Cormorant_Garamond']">
+            <p className="text-sm md:text-base text-[#0F1823]/85 leading-relaxed font-medium font-['Cormorant_Garamond']">
               Symbols are functional interfaces —
               <br />
               activating realms, guiding rituals, and shaping journeys.
@@ -226,5 +226,5 @@ export default function DeitiesSymbols() {
         </section>
       </div>
     </section>
-  );x
+  );
 }

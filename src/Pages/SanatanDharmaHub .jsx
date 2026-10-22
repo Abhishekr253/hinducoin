@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 /* Washed palette (same as DeitiesSymbols):
    sky mist #EAF1F6 | ivory #FBF8F2 | temple blue #5E8FAE
-   gold #C9A24D | deep gold #A67C2E | slate text #1F2D3D */
+   gold #C9A24D | deep gold #A67C2E | slate text #0F1823 */
 
 const goldText =
-  "bg-gradient-to-b from-[#C9A24D] via-[#A67C2E] to-[#7A5818] bg-clip-text text-transparent";
+  "bg-gradient-to-b from-[#B08A35] via-[#7A5818] to-[#6B4A12] bg-clip-text text-transparent";
 
 const tiles = [
   {
@@ -45,7 +45,7 @@ const fadeUp = {
 
 export default function SanatanHero() {
   return (
-    <section className="relative w-full text-[#1F2D3D] bg-gradient-to-b from-[#EAF1F6] via-[#F4F7F9] to-[#FBF8F2]">
+    <section className="relative w-full text-[#0F1823] bg-gradient-to-b from-[#EAF1F6] via-[#F4F7F9] to-[#FBF8F2]">
       {/* ================= HEADING SECTION ================= */}
       <div className="relative min-h-[100vh] overflow-hidden">
         {/* Background Image */}
@@ -72,11 +72,11 @@ export default function SanatanHero() {
               viewport={{ amount: 0.3 }}
               variants={fadeUp}
             >
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#1F2D3D]/70 font-['Cormorant_Garamond']">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#0F1823]/70 font-['Cormorant_Garamond']">
                 Sanatan Dharma
               </p>
 
-              <h1 className="mb-6 text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond'] drop-shadow-[0_2px_6px_rgba(255,255,255,0.8)]">
+              <h1 className="mb-6 text-3xl md:text-5xl font-medium tracking-[0.25em] uppercase font-['Cormorant_Garamond'] drop-shadow-[0_2px_6px_rgba(255,255,255,0.8)]">
                 IT IS NOT A RELIGION.
                 <br />
                 <span className={goldText}>IT IS A WAY OF LIFE.</span>
@@ -84,7 +84,7 @@ export default function SanatanHero() {
 
               <div className="mx-auto mb-6 h-px w-32 bg-gradient-to-r from-transparent via-[#C9A24D] to-transparent" />
 
-              <p className="max-w-xl mx-auto text-sm md:text-base text-[#1F2D3D]/85 leading-relaxed font-['Cormorant_Garamond']">
+              <p className="max-w-xl mx-auto text-sm md:text-base text-[#0F1823]/85 leading-relaxed font-medium font-['Cormorant_Garamond']">
                 Timeless knowledge. Living heritage.
               </p>
             </motion.div>
@@ -118,17 +118,17 @@ export default function SanatanHero() {
                   {/* Gold top accent */}
                   <div className="mx-auto mb-8 h-[2px] w-14 bg-gradient-to-r from-[#E6CC8F] to-[#A67C2E] transition-all duration-500 group-hover:w-24" />
 
-                  <h3 className="mb-4 text-lg uppercase tracking-[0.2em] font-['Cormorant_Garamond'] text-[#1F2D3D]">
+                  <h3 className="mb-4 text-lg font-semibold uppercase tracking-[0.2em] font-['Cormorant_Garamond'] text-[#0F1823]">
                     {item.title}
                   </h3>
 
-                  <p className="mb-10 text-sm text-[#1F2D3D]/70 font-['Cormorant_Garamond'] leading-relaxed">
+                  <p className="mb-10 text-medium text-[#0F1823]/70 font-['Cormorant_Garamond'] leading-relaxed">
                     Explore curated knowledge preserved with accuracy,
                     reverence, and timeless depth.
                   </p>
 
                   {/* Explore CTA */}
-                  <span className="inline-block text-xs uppercase tracking-[0.25em] text-[#8A6420] opacity-100 transition-opacity group-hover:opacity-100">
+                  <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-[#7A5818] opacity-100 transition-opacity group-hover:opacity-100">
                     Explore →
                   </span>
 
