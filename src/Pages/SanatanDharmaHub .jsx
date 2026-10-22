@@ -1,9 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CTAButton from "../components/common/CTAButton";
-import LuxuryCard from "../components/common/LuxuryCard";
 import sanatan from "../assets/sanatan.jpeg";
 import { Link } from "react-router-dom";
+
+/* Washed palette (same as DeitiesSymbols):
+   sky mist #EAF1F6 | ivory #FBF8F2 | temple blue #5E8FAE
+   gold #C9A24D | deep gold #A67C2E | slate text #1F2D3D */
+
+const goldText =
+  "bg-gradient-to-b from-[#C9A24D] via-[#A67C2E] to-[#7A5818] bg-clip-text text-transparent";
 
 const tiles = [
   {
@@ -39,7 +45,7 @@ const fadeUp = {
 
 export default function SanatanHero() {
   return (
-    <section className="relative w-full text-white bg-[#05070C]">
+    <section className="relative w-full text-[#1F2D3D] bg-gradient-to-b from-[#EAF1F6] via-[#F4F7F9] to-[#FBF8F2]">
       {/* ================= HEADING SECTION ================= */}
       <div className="relative min-h-[100vh] overflow-hidden">
         {/* Background Image */}
@@ -51,11 +57,11 @@ export default function SanatanHero() {
           decoding="async"
         />
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-[#05070C]" />
+        {/* White wash overlay: mist on top, fades into page bg */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#EAF1F6]/90 via-white/55 to-[#F4F7F9]" />
 
-        {/* Golden glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(900px_450px_at_50%_-10%,rgba(212,175,55,0.25),transparent_70%)]" />
+        {/* Soft light glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(900px_450px_at_50%_-10%,rgba(255,255,255,0.9),transparent_70%)]" />
 
         {/* Heading Content */}
         <div className="relative z-10 flex min-h-[100vh] items-center justify-center">
@@ -66,17 +72,19 @@ export default function SanatanHero() {
               viewport={{ amount: 0.3 }}
               variants={fadeUp}
             >
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-white/70 font-['Cormorant_Garamond']">
+              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#1F2D3D]/70 font-['Cormorant_Garamond']">
                 Sanatan Dharma
               </p>
 
-              <h1 className="mb-6 text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond']">
+              <h1 className="mb-6 text-3xl md:text-5xl font-light tracking-[0.25em] uppercase font-['Cormorant_Garamond'] drop-shadow-[0_2px_6px_rgba(255,255,255,0.8)]">
                 IT IS NOT A RELIGION.
                 <br />
-                <span className="text-[#D4AF37]">IT IS A WAY OF LIFE.</span>
+                <span className={goldText}>IT IS A WAY OF LIFE.</span>
               </h1>
 
-              <p className="max-w-xl mx-auto text-sm md:text-base text-white/80 leading-relaxed font-['Cormorant_Garamond']">
+              <div className="mx-auto mb-6 h-px w-32 bg-gradient-to-r from-transparent via-[#C9A24D] to-transparent" />
+
+              <p className="max-w-xl mx-auto text-sm md:text-base text-[#1F2D3D]/85 leading-relaxed font-['Cormorant_Garamond']">
                 Timeless knowledge. Living heritage.
               </p>
             </motion.div>
@@ -84,7 +92,6 @@ export default function SanatanHero() {
         </div>
       </div>
 
-      {/* ================= TILES SECTION ================= */}
       {/* ================= TILES SECTION ================= */}
       <div className="relative max-w-7xl mx-auto px-6 py-32">
         <motion.div
@@ -98,34 +105,35 @@ export default function SanatanHero() {
               <Link to={item.path} className="group block h-full">
                 <div
                   className="
-              relative h-full rounded-2xl border border-white/10
-              bg-white/[0.03] backdrop-blur-md
+              relative h-full rounded-2xl border border-[#C9A24D]/25
+              bg-white/70 backdrop-blur-md
               px-8 py-10 text-center
+              shadow-[0_10px_40px_-15px_rgba(127,179,207,0.45)]
               transition-all duration-500
               hover:-translate-y-2
-              hover:border-[#D4AF37]/40
-              hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.25)]
+              hover:border-[#C9A24D]/60
+              hover:shadow-[0_20px_60px_-15px_rgba(201,162,77,0.45)]
             "
                 >
                   {/* Gold top accent */}
-                  <div className="mx-auto mb-8 h-[2px] w-14 bg-[#D4AF37]/80 transition-all duration-500 group-hover:w-24" />
+                  <div className="mx-auto mb-8 h-[2px] w-14 bg-gradient-to-r from-[#E6CC8F] to-[#A67C2E] transition-all duration-500 group-hover:w-24" />
 
-                  <h3 className="mb-4 text-lg uppercase tracking-[0.2em] font-['Cormorant_Garamond'] text-white">
+                  <h3 className="mb-4 text-lg uppercase tracking-[0.2em] font-['Cormorant_Garamond'] text-[#1F2D3D]">
                     {item.title}
                   </h3>
 
-                  <p className="mb-10 text-sm text-white/60 font-['Cormorant_Garamond'] leading-relaxed">
+                  <p className="mb-10 text-sm text-[#1F2D3D]/70 font-['Cormorant_Garamond'] leading-relaxed">
                     Explore curated knowledge preserved with accuracy,
                     reverence, and timeless depth.
                   </p>
 
                   {/* Explore CTA */}
-                  <span className="inline-block text-xs uppercase tracking-[0.25em] text-[#D4AF37] opacity-70 transition-opacity group-hover:opacity-100">
+                  <span className="inline-block text-xs uppercase tracking-[0.25em] text-[#8A6420] opacity-100 transition-opacity group-hover:opacity-100">
                     Explore →
                   </span>
 
                   {/* Subtle glow */}
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(400px_200px_at_50%_0%,rgba(212,175,55,0.12),transparent_70%)]" />
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(400px_200px_at_50%_0%,rgba(201,162,77,0.15),transparent_70%)]" />
                 </div>
               </Link>
             </motion.div>
